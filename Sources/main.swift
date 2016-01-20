@@ -1,10 +1,4 @@
-# JSON.swift
-Another JSON package linux compatible for swift
 
-
-## Literal Convertible
-
-```swift
 let jsonFalse : JSON = false
 let jsonTrue : JSON = true
 let jsonNull : JSON = nil
@@ -12,10 +6,15 @@ let jsonNumber : JSON = 1.2e-2
 let jsonString : JSON = "hello swift"
 let jsonArray : JSON = [12, "string", false, nil, true, ["nested array", 12, 1.2], ["nested dict": nil]]
 let json : JSON = ["key":false, "key2":true, "key3":[1, "hello", 3, "world", ["key4":nil, "key5":12.03, "key6":12E-2, "key7": -12e-2]]]
-```
 
-## Parse from String
-```swift
+print(jsonFalse.dump())
+print(jsonTrue.dump())
+print(jsonNull.dump())
+print(jsonNumber.dump())
+print(jsonString.dump())
+print(jsonArray.dump())
+print(json.dump())
+
 let json1 = JSON.parse("{\"key\" : false }")
 if let b = json1["key"].bool {
     print(b)
@@ -34,11 +33,4 @@ if let x = json2["key"][0].string {
          " 
 */
 
-```
-
-## Dump to String 
-```swift
-let json2 = JSON.parse("{\"key\" : \" \\u0041334 \\n \\t \\\" \"}")
 print(json2.dump())
-// {"key":" A334 \n \t \" "}
-```
