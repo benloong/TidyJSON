@@ -11,6 +11,7 @@ PS. Currently, JSON Array and Object is immutable
 - [ ] boxing dict and array type for mutating data
 - [ ] modify json via subscript operator
 - [ ] fully tested
+- [ ] better parse error report
 
 ## Usage 
 
