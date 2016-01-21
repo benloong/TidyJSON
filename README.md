@@ -6,7 +6,7 @@ A neat and tidy JSON package compatible for any swift platform (Linux, iOS, OS X
 - [x] only dependent to builtin types
 - [x] compatible with any swift2.0+ platform (Linux, iOS, OS X)
 - [x] concise usage
-- [] fully tested
+- [ ] fully tested
 
 ## Usage 
 
