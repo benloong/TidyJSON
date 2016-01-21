@@ -1,10 +1,10 @@
 # TidyJSON
-A neat and tidy JSON package compatible for any swift platform (Linux, iOS, OS X)
+A neat and tidy JSON package run on all Swift platforms (Linux, iOS, OS X)
 
 ## Goals 
 - [x] simple, neat and tidy json lib
 - [x] only dependent to builtin types
-- [x] compatible with any swift2.0+ platform (Linux, iOS, OS X)
+- [x] compatible with all Swift platforms (Linux, iOS, OS X)
 - [x] concise usage
 - [ ] fully tested
 
