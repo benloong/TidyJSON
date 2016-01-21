@@ -184,14 +184,14 @@ extension JSON : SequenceType {
 
 //MARK: - subscript
 extension JSON {
-    subscript(i : Int) -> JSON {
+    public subscript(i : Int) -> JSON {
         switch self {
             case .Array(let a): return a[i]
             default: return JSON()
         }
     }
     
-    subscript(key : Swift.String) -> JSON {
+    public subscript(key : Swift.String) -> JSON {
         switch self {
             case .Object(let o): return o[key] ?? JSON()
             default: return JSON()
