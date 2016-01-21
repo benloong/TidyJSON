@@ -1,11 +1,15 @@
 # TidyJSON
 A neat and tidy JSON package run on all Swift platforms (Linux, iOS, OS X)
 
+PS. Currently, JSON Array and Object is immutable
+
 ## Goals 
 - [x] simple, neat and tidy json lib
 - [x] only dependent to builtin types
 - [x] compatible with all Swift platforms (Linux, iOS, OS X)
 - [x] concise usage
+- [ ] boxing dict and array type for mutating data
+- [ ] modify json via subscript operator
 - [ ] fully tested
 
 ## Usage 
