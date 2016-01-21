@@ -142,6 +142,46 @@ extension JSON : DictionaryLiteralConvertible {
     }
 }
 
+//MARK: - sequenceType
+
+/**
+* for-in Loop support
+*/
+extension JSON : SequenceType {
+    public func generate() -> JSON.Generator {
+        return JSON.Generator(json: self)
+    }
+    
+//MARK: - generator
+    public struct Generator : GeneratorType {
+    
+        public typealias Element = (Swift.String, JSON)
+        
+        var arrayGenerator: IndexingGenerator<[JSON]>?
+        var objectGenerator: DictionaryGenerator<Swift.String, JSON>?
+        var index : Int = 0
+        init(json: JSON) {
+            switch json {
+                case .Object(let obj): objectGenerator = obj.generate()
+                case .Array(let arr): arrayGenerator = arr.generate()
+                default: break
+            }
+        }
+        
+        public mutating func next() -> Generator.Element? {
+            if let arrayElement =  arrayGenerator?.next() {
+                let _index = index
+                index += 1
+                return (Swift.String(_index), arrayElement)
+            }
+            if let objectElement = objectGenerator?.next() {
+                return objectElement
+            }
+            return nil
+        }
+    }
+}
+
 //MARK: - subscript
 extension JSON {
     subscript(i : Int) -> JSON {

@@ -43,6 +43,36 @@ if let x = json2["key"][0].string {
 
 ```
 
+### Loop
+
+```swift
+let jsonArray : JSON = [12, "string", false, nil, true]
+// for Array, key is string of current index
+for (k, v) in jsonArray {
+    print("key: \(k), value: \(v)")
+}
+/* 
+key: 0, value: Number(12.0)
+key: 1, value: String("string")
+key: 2, value: Boolean(false)
+key: 3, value: Null
+key: 4, value: Boolean(true)
+*/
+
+let json : JSON = ["key1":false, "key2":true, "key3": 123, "key4": "hello"]
+
+for (k, v) in json {
+    print("key: \(k), value: \(v)")
+}
+/*
+key: key, value: Boolean(false)
+key: key2, value: Boolean(true)
+key: key4, value: String("hello")
+key: key1, value: Boolean(false)
+key: key3, value: Number(123.0)
+*/
+```
+
 ### Dump to String 
 ```swift
 let json2 = JSON.parse("{\"key\" : \" \\u0041334 \\n \\t \\\" \"}")
