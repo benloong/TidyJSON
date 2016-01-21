@@ -12,6 +12,7 @@ PS. Currently, JSON Array and Object is immutable
 - [ ] modify json via subscript operator
 - [ ] fully tested
 - [ ] better parse error report
+- [ ] Swift Package Manager, CocoaPods, Carthage support
 
 ## Usage 
 
