@@ -1,5 +1,6 @@
 public enum JSON {
-    case None
+    // empty json or invalid json with parse error message
+    case None(_: Swift.String?)
     case Null
     case Boolean(_: Bool)
     case Number(_: Double)
@@ -8,17 +9,7 @@ public enum JSON {
     case Object(_: [Swift.String : JSON])
     
     init() {
-        self = .None
-    }
-    
-    /**
-    * is this JSON valid or not ?
-    */
-    public var valid : Bool {
-        switch self {
-            case .None: return false
-            default: return true
-        }
+        self = .None(nil)
     }
 }
 
@@ -202,11 +193,14 @@ extension JSON {
 //MARK: - Parser
 extension JSON {
     /**
-    * parse json from string, return JSON.None if parse error occurred
+    * parse json from string, return nil and error message if parse error occurred 
     */
-    public static func parse(string: Swift.String) -> JSON {
+    public static func parse(string: Swift.String) -> (JSON?, Swift.String?) {
         let (json, _) = parseValue(string, index: string.startIndex)
-        return json
+        switch json {
+            case .None(let error): return (nil, error)
+            default: return (json, nil)
+        }
     }
 }
 
