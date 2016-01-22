@@ -18,6 +18,16 @@ extension JSON : NilLiteralConvertible {
     public init(nilLiteral: ()) {
       self = .Null
     }
+    
+    /**
+    * Check if this JSON is Null value
+    */
+    public var isNull : Bool {
+        switch self {
+            case .Null: return true
+            default: return false
+        }
+    }
 }
 
 extension JSON : BooleanLiteralConvertible {
@@ -25,6 +35,9 @@ extension JSON : BooleanLiteralConvertible {
         self = .Boolean(value)
     }
     
+    /** 
+    * Boolean value of this JSON, only for bool value
+    */
     public var bool : Bool? {
         switch self {
             case .Boolean(let x): return x
@@ -38,6 +51,9 @@ extension JSON : FloatLiteralConvertible {
         self = .Number(Double(value))
     }
     
+    /** 
+    * Double floating value of this JSON, only for number value
+    */
     public var double : Double? {
         switch self {
             case .Number(let x): return x
@@ -45,6 +61,9 @@ extension JSON : FloatLiteralConvertible {
         }
     }
     
+    /** 
+    * Single floating value of this JSON, only for number value
+    */
     public var float : Float? {
         switch self {
             case .Number(let x): return Float(x)
@@ -58,6 +77,9 @@ extension JSON : IntegerLiteralConvertible {
         self = .Number(Double(value))
     }
     
+    /** 
+    * Integer value of this JSON, only for number value
+    */
     public var int : Int? {
         switch self {
             case .Number(let x): return Int(x)
@@ -82,9 +104,16 @@ extension JSON : StringLiteralConvertible {
     public init(_ string: Swift.String) {
         self = .String(string)
     }
+    
+    /** 
+    * string value of this JSON, only null, string, true, false, number values has value
+    */
     public var string : Swift.String? {
         switch self {
             case .String(let x): return x
+            case .Null: return "null"
+            case .Boolean(let b): return b.description
+            case .Number(let n): return n.description
             default: return nil
         }
     }
@@ -103,6 +132,9 @@ extension JSON : ArrayLiteralConvertible {
         self = .Array(array)
     }
     
+    /** 
+    * Internal Array container of this JSON
+    */
     public var array : [JSON]? {
         switch self {
             case .Array(let x): return x
@@ -125,6 +157,9 @@ extension JSON : DictionaryLiteralConvertible {
         self = .Object(dict)
     }
     
+    /** 
+    * Internal Dictionary container of this JSON
+    */
     public var object : [Swift.String : JSON]? {
         switch self {
             case .Object(let x): return x
@@ -139,6 +174,17 @@ extension JSON : DictionaryLiteralConvertible {
 * for-in Loop support
 */
 extension JSON : SequenceType {
+    /** 
+    * The number of children in this JSON 
+    */
+    public var count : Int {
+        switch self {
+            case .Object(let obj): return obj.count
+            case .Array(let arr): return arr.count
+            default: return 0
+        }
+    }
+    
     public func generate() -> JSON.Generator {
         return JSON.Generator(json: self)
     }
