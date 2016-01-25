@@ -1,12 +1,60 @@
+
+
 public enum JSON {
-    // empty json or invalid json with parse error message
+    /**
+    * Box wrapper for array value
+    */
+    public class _ArrayBox {
+        var array : [JSON]
+        init(_ a: [JSON]) {
+            array = a
+        }
+    }
+    
+    /**
+    * Box wrapper for object value
+    */
+    public class _DictBox {
+        var dict: [Swift.String : JSON]
+        init(_ d: [Swift.String : JSON]) {
+            dict = d
+        }
+    }
+    
+    /**
+    * Empty json or invalid json with parse error message
+    */
     case None(_: Swift.String?)
+    
+    /**
+    * JSON null value
+    */
     case Null
+    
+    /**
+    * JSON bool value(true, false)
+    */
     case Boolean(_: Bool)
+    
+    /**
+    * JSON number value
+    */
     case Number(_: Double)
+    
+    /**
+    * JSON string value
+    */
     case String(_: Swift.String)
-    case Array(_: [JSON])
-    case Object(_: [Swift.String : JSON])
+    
+    /**
+    * JSON array value
+    */
+    case Array(_: _ArrayBox)
+    
+    /**
+    * JSON object value 
+    */
+    case Object(_: _DictBox)
     
     init() {
         self = .None(nil)
@@ -35,6 +83,10 @@ extension JSON : BooleanLiteralConvertible {
         self = .Boolean(value)
     }
     
+    public init(_ b: Bool) {
+        self = .Boolean(b)
+    }
+    
     /** 
     * Boolean value of this JSON, only for bool value
     */
@@ -51,6 +103,14 @@ extension JSON : FloatLiteralConvertible {
         self = .Number(Double(value))
     }
     
+    public init(_ value: Double) {
+        self = .Number(value)
+    }
+    
+    public init(_ value: Float) {
+        self = .Number(Double(value))
+    }
+   
     /** 
     * Double floating value of this JSON, only for number value
     */
@@ -74,6 +134,10 @@ extension JSON : FloatLiteralConvertible {
 
 extension JSON : IntegerLiteralConvertible {
     public init(integerLiteral value: IntegerLiteralType) {
+        self = .Number(Double(value))
+    }
+     
+    public init(_ value: Int) {
         self = .Number(Double(value))
     }
     
@@ -106,7 +170,7 @@ extension JSON : StringLiteralConvertible {
     }
     
     /** 
-    * string value of this JSON, only null, string, true, false, number values has value
+    * string value of this JSON, only null, string, true, false, number values not nil
     */
     public var string : Swift.String? {
         switch self {
@@ -125,11 +189,11 @@ extension JSON : ArrayLiteralConvertible {
         for e in elements {
             array.append(e)
         }
-        self = .Array(array)
+        self = .Array(_ArrayBox(array))
     }
     
     public init(_ array: [JSON]) {
-        self = .Array(array)
+        self = .Array(_ArrayBox(array))
     }
     
     /** 
@@ -137,8 +201,28 @@ extension JSON : ArrayLiteralConvertible {
     */
     public var array : [JSON]? {
         switch self {
-            case .Array(let x): return x
+            case .Array(let x): return x.array
             default: return nil
+        }
+    }
+    
+    /**
+    * Append newElement to the Array JSON.
+    */
+    public func append(newElement: JSON) {
+        switch self {
+            case .Array(let x): x.array.append(newElement)
+            default: break
+        }
+    }
+    
+    /**
+    * Remove and return the child json at index i.
+    */
+    public func removeAtIndex(index: Int) -> JSON {
+        switch self {
+            case .Array(let x): return x.array.removeAtIndex(index)
+            default: return JSON()
         }
     }
 }
@@ -150,11 +234,11 @@ extension JSON : DictionaryLiteralConvertible {
             dict[k] = v
         }
         
-        self = .Object(dict)
+        self = .Object(_DictBox(dict))
     }
     
     public init(_ dict: [Swift.String : JSON]) {
-        self = .Object(dict)
+        self = .Object(_DictBox(dict))
     }
     
     /** 
@@ -162,7 +246,7 @@ extension JSON : DictionaryLiteralConvertible {
     */
     public var object : [Swift.String : JSON]? {
         switch self {
-            case .Object(let x): return x
+            case .Object(let x): return x.dict
             default: return nil
         }
     }
@@ -179,8 +263,8 @@ extension JSON : SequenceType {
     */
     public var count : Int {
         switch self {
-            case .Object(let obj): return obj.count
-            case .Array(let arr): return arr.count
+            case .Object(let obj): return obj.dict.count
+            case .Array(let arr): return arr.array.count
             default: return 0
         }
     }
@@ -199,8 +283,8 @@ extension JSON : SequenceType {
         var index : Int = 0
         init(json: JSON) {
             switch json {
-                case .Object(let obj): objectGenerator = obj.generate()
-                case .Array(let arr): arrayGenerator = arr.generate()
+                case .Object(let obj): objectGenerator = obj.dict.generate()
+                case .Array(let arr): arrayGenerator = arr.array.generate()
                 default: break
             }
         }
@@ -222,16 +306,39 @@ extension JSON : SequenceType {
 //MARK: - subscript
 extension JSON {
     public subscript(i : Int) -> JSON {
-        switch self {
-            case .Array(let a): return a[i]
-            default: return JSON()
+        get {
+            switch self {
+                case .Array(let a): return a.array[i]
+                default: return JSON()
+            }
+        }
+        
+        set {
+            switch self {
+                case .Array(let a): a.array[i] = newValue
+                default: break
+            }
         }
     }
     
     public subscript(key : Swift.String) -> JSON {
-        switch self {
-            case .Object(let o): return o[key] ?? JSON()
-            default: return JSON()
+        get {
+            switch self {
+                case .Object(let o): return o.dict[key] ?? nil
+                default: return JSON()
+            }
+        }
+        set {
+            switch self {
+                case .Object(let o): 
+                    if newValue.isNull {
+                        o.dict[key] = nil
+                    }
+                    else {
+                        o.dict[key] = newValue
+                    }
+                default: break
+            }
         }
     }
 }
@@ -266,8 +373,8 @@ extension JSON {
             case .Boolean(let b) : string.appendContentsOf(b.description)
             case .Number(let n) : string.appendContentsOf(n.description)
             case .String(let s) : dumpString(&string, jsonString: s)
-            case .Array(let a) : dumpArray(&string, array: a)
-            case .Object(let o) : dumpObject(&string, object: o)
+            case .Array(let a) : dumpArray(&string, array: a.array)
+            case .Object(let o) : dumpObject(&string, object: o.dict)
         }
     }
     

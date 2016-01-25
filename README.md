@@ -1,15 +1,14 @@
 # TidyJSON
 A neat and tidy JSON package run on all Swift platforms (Linux, iOS, OS X)
 
-Currently, JSON Array and Object are immutable
-
 ## Goals 
 - [x] simple, neat and tidy json lib
-- [x] only dependent to builtin types
+- [x] safe static typed without `AnyObject`
+- [x] pure Swift, only dependent to builtin types
 - [x] compatible with all Swift platforms (Linux, iOS, OS X)
 - [x] concise usage
-- [ ] boxing dict and array type for mutating data
-- [ ] modify json via subscript operator
+- [x] boxing dict and array type for mutating data
+- [x] modify json via subscript operator
 - [x] fully tested
 - [x] better parse error report
 - [ ] Swift Package Manager, CocoaPods, Carthage support
@@ -26,6 +25,49 @@ let jsonString : JSON = "hello swift"
 let jsonArray : JSON = [12, "string", false, nil, true, ["nested array", 12, 1.2], ["nested dict": nil]]
 let json : JSON = ["key":false, "key2":true, "key3":[1, "hello", 3, "world", ["key4":nil, "key5":12.03, "key6":12E-2, "key7": -12e-2]]]
 ```
+
+### Update value
+```swift 
+var json : JSON = []
+// []
+
+let child :JSON = "string"
+json.append(child)
+// ["string"]
+
+json[0] = "STRING"
+// ["STRING"]
+
+json.append(JSON([]))
+// ["STRING", []]
+
+json[1].append(JSON("hello"))
+// ["STRING", ["hello"]]
+
+json[1][0] = "world" 
+// ["STRING", ["world"]]
+
+json[1].removeAtIndex(0)  
+// ["STRING", []]
+
+json.removeAtIndex(1)
+// ["STRING"]
+
+var json1 : JSON = [:]
+// {}
+json1["hello"] = false 
+// {"hello":false}
+
+json1["world"] = true
+// {"hello":false, "world":true}
+
+json1["hello"] = nil
+// {"world":true}
+
+json1["world"] = [1,2,3]
+// {"world":[1,2,3]}
+```
+
 
 ### Parse from String
 ```swift
@@ -91,6 +133,24 @@ print(json2.dump())
 On Linux platform you need install [`XCTest`](https://github.com/apple/swift-corelibs-xctest)
 
 After install `XCTest`, run `sh run_test.sh`
+
+## Integration
+
+#### Swift Package Manager
+
+Currently support Swift Package Manager to install TidyJSON by adding the proper description to your Package.swift file:
+
+```swift 
+import PackageDescription
+
+let package = Package(
+    name: "YOUR_PROJECT_NAME",
+    targets: [],
+    dependencies: [
+        .Package(url: "https://github.com/benloong/TidyJSON.git", majorVersion: 1)
+    ]
+)
+```
 
 ## License
 MIT license
