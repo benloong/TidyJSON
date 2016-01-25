@@ -1,7 +1,7 @@
 # TidyJSON
 A neat and tidy JSON package run on all Swift platforms (Linux, iOS, OS X)
 
-PS. Currently, JSON Array and Object is immutable
+Currently, JSON Array and Object are immutable
 
 ## Goals 
 - [x] simple, neat and tidy json lib
@@ -10,8 +10,8 @@ PS. Currently, JSON Array and Object is immutable
 - [x] concise usage
 - [ ] boxing dict and array type for mutating data
 - [ ] modify json via subscript operator
-- [ ] fully tested
-- [ ] better parse error report
+- [x] fully tested
+- [x] better parse error report
 - [ ] Swift Package Manager, CocoaPods, Carthage support
 
 ## Usage 
@@ -85,6 +85,12 @@ let json2 = JSON.parse("{\"key\" : \" \\u0041334 \\n \\t \\\" \"}")
 print(json2.dump())
 // {"key":" A334 \n \t \" "}
 ```
+
+## Test
+
+On Linux platform you need install [`XCTest`](https://github.com/apple/swift-corelibs-xctest)
+
+After install `XCTest`, run `sh run_test.sh`
 
 ## License
 MIT license
