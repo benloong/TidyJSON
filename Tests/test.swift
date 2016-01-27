@@ -1,5 +1,6 @@
 import XCTest
 import TidyJSON
+import Foundation
 
 class ValueTests: XCTestCase {
 
@@ -116,7 +117,8 @@ class ParserTests: XCTestCase {
             ("testParseFalse", testParseFalse),
             ("testParseNumber", testParseNumber),
             ("testParseArray", testParseArray),
-            ("testParseObject", testParseObject)
+            ("testParseObject", testParseObject),
+            ("testParseTestCases", testParseTestCases)
         ]
     }
     
@@ -212,6 +214,81 @@ class ParserTests: XCTestCase {
         
         let (json3, _) = JSON.parse("{\"key\":\"hello\"}")
         XCTAssertTrue(json3!["key"].string! == "hello")
+    }
+    
+    func testParseTestCases() {
+        //XCTAssertTrue(testFailCase("./Tests/TestCases/fail1.json"))
+        XCTAssertTrue(testFailCase("./Tests/TestCases/fail2.json"))
+        XCTAssertTrue(testFailCase("./Tests/TestCases/fail3.json"))
+        XCTAssertTrue(testFailCase("./Tests/TestCases/fail4.json"))
+        XCTAssertTrue(testFailCase("./Tests/TestCases/fail5.json"))
+        XCTAssertTrue(testFailCase("./Tests/TestCases/fail6.json"))
+        //XCTAssertTrue(testFailCase("./Tests/TestCases/fail7.json"))
+        //XCTAssertTrue(testFailCase("./Tests/TestCases/fail8.json"))
+        XCTAssertTrue(testFailCase("./Tests/TestCases/fail9.json"))
+        //XCTAssertTrue(testFailCase("./Tests/TestCases/fail10.json"))
+        XCTAssertTrue(testFailCase("./Tests/TestCases/fail11.json"))
+        XCTAssertTrue(testFailCase("./Tests/TestCases/fail12.json"))
+        //XCTAssertTrue(testFailCase("./Tests/TestCases/fail13.json"))
+        XCTAssertTrue(testFailCase("./Tests/TestCases/fail14.json"))
+        XCTAssertTrue(testFailCase("./Tests/TestCases/fail15.json"))
+        XCTAssertTrue(testFailCase("./Tests/TestCases/fail16.json"))
+        XCTAssertTrue(testFailCase("./Tests/TestCases/fail17.json"))
+        //XCTAssertTrue(testFailCase("./Tests/TestCases/fail18.json"))
+        XCTAssertTrue(testFailCase("./Tests/TestCases/fail19.json"))
+        XCTAssertTrue(testFailCase("./Tests/TestCases/fail20.json"))
+        XCTAssertTrue(testFailCase("./Tests/TestCases/fail21.json"))
+        XCTAssertTrue(testFailCase("./Tests/TestCases/fail22.json"))
+        XCTAssertTrue(testFailCase("./Tests/TestCases/fail23.json"))
+        XCTAssertTrue(testFailCase("./Tests/TestCases/fail24.json"))
+        //XCTAssertTrue(testFailCase("./Tests/TestCases/fail25.json"))
+        XCTAssertTrue(testFailCase("./Tests/TestCases/fail26.json"))
+        //XCTAssertTrue(testFailCase("./Tests/TestCases/fail27.json"))
+        XCTAssertTrue(testFailCase("./Tests/TestCases/fail28.json"))
+        XCTAssertTrue(testFailCase("./Tests/TestCases/fail29.json"))
+        XCTAssertTrue(testFailCase("./Tests/TestCases/fail30.json"))
+        XCTAssertTrue(testFailCase("./Tests/TestCases/fail31.json"))
+        XCTAssertTrue(testFailCase("./Tests/TestCases/fail32.json"))
+        XCTAssertTrue(testFailCase("./Tests/TestCases/fail33.json"))
+        XCTAssertTrue(testPassCase("./Tests/TestCases/pass1.json"))
+        XCTAssertTrue(testPassCase("./Tests/TestCases/pass2.json"))
+        XCTAssertTrue(testPassCase("./Tests/TestCases/pass3.json"))
+    }
+
+    func testFailCase(path:String) -> Bool{
+        do {
+            let content = try String(contentsOfFile: path, encoding: NSUTF8StringEncoding)
+
+            let (json, error) = JSON.parse(content)
+            if let _ = json {
+                return false
+            }
+            else {
+                print(error)
+                return true
+            }
+        }
+        catch {
+            return false
+        }
+    }
+
+    func testPassCase(path: String) -> Bool {
+         do {
+            let content = try String(contentsOfFile: path, encoding: NSUTF8StringEncoding)
+
+            let (json, error) = JSON.parse(content)
+            if let _ = json {
+                return true
+            }
+            else {
+                print(error)
+                return false
+            }
+        }
+        catch {
+            return false
+        }
     }
 }
 
@@ -313,4 +390,5 @@ class ModifyTests : XCTestCase {
         XCTAssertEqual(json["hello"].count, 4)
     }
 }
+
 XCTMain([ValueTests(), ParserTests(), DumpTests(), ModifyTests()])
