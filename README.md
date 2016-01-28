@@ -1,5 +1,8 @@
 # TidyJSON
-A neat and tidy JSON package run on all Swift platforms (Linux, iOS, OS X)
+
+TidyJSON is a neat and tidy JSON package run on all Swift platforms (Linux, iOS, OS X)
+
+[![Build Status](https://travis-ci.org/benloong/TidyJSON.svg?branch=master)](https://travis-ci.org/benloong/TidyJSON)
 
 ## Goals 
 - [x] simple, neat and tidy json lib
