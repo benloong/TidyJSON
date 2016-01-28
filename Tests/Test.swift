@@ -337,14 +337,15 @@ class ParserTests: XCTestCase {
         do {
             if let file = NSBundle(forClass:ParserTests.self).pathForResource("citm_catalog", ofType: "json") {
                 let content = try String(contentsOfFile: file, encoding: NSUTF8StringEncoding)
-                
-                let (json, error) = JSON.parse(content)
-                if let _ = json {
-                    return
-                }
-                else {
-                    print(error!)
-                    return
+                measureBlock() {
+                    let (json, error) = JSON.parse(content)
+                    if let _ = json {
+                        return
+                    }
+                    else {
+                        print(error!)
+                        return
+                    }
                 }
             }
         }

@@ -349,7 +349,7 @@ extension JSON {
     * parse json from string, return nil and error message if parse error occurred 
     */
     public static func parse(string: Swift.String) -> (JSON?, Swift.String?) {
-        let (json, _) = Parser(string).parseValue(string.startIndex)
+        let (json, _) = Parser(string).parse()
         switch json {
             case .None(let error): return (nil, error)
             default: return (json, nil)
@@ -444,7 +444,7 @@ extension JSON {
 
 //MARK: - Parser internal
 struct Parser {
-    let string: String
+    let string: [Character]
     private enum Token {
         case None
         case CurlyOpen
@@ -506,11 +506,15 @@ struct Parser {
     
     let dot : Character = "."
     
-    init(_ s: String) {
-        string = s
+    init(_ str: String) {
+        string = str.characters.flatMap(){ $0 }
     }
     
-    private func _parseString(index: String.Index) -> (String?, String.Index, String?) {
+    func parse() -> (JSON, Int) {
+        return self.parseValue(0)
+    }
+    
+    private func _parseString(index: Int) -> (String?, Int, String?) {
          // skip first '\"' character
         var cursor = eatWhiteSpace(index).successor()
         
@@ -581,7 +585,7 @@ struct Parser {
     /**
     * skip all whitespace 
     */
-    private func eatWhiteSpace(index: String.Index) -> String.Index {
+    private func eatWhiteSpace(index: Int) -> Int {
         var cursor = index
         while (cursor != string.endIndex) {
             switch string[cursor] {
@@ -595,7 +599,7 @@ struct Parser {
     /**
     * get next token and index of this token
     */
-    private func nextToken(index: String.Index) -> (Token, String.Index) {
+    private func nextToken(index: Int) -> (Token, Int) {
         var cursor = eatWhiteSpace(index)
         var token : Token = .None
         
@@ -621,7 +625,7 @@ struct Parser {
         return (token, cursor)
     }
 
-    private func getLastIndexOfNumber(index: String.Index) -> String.Index {
+    private func getLastIndexOfNumber(index: Int) -> Int {
         for lastIndex in Range(start: index, end: string.endIndex) {
             switch (string[lastIndex]) {
                 // -4.2e3  +12E4
@@ -632,7 +636,7 @@ struct Parser {
         return string.endIndex 
     }
 
-    private func parseValue(index: String.Index) -> (JSON, String.Index) {
+    private func parseValue(index: Int) -> (JSON, Int) {
         let (token, cursor) = nextToken(index)
 
         switch token {
@@ -648,7 +652,7 @@ struct Parser {
         return (.None("invalid json: character invalid at \(cursor)"), cursor)
     }
 
-    private func parseString(index: String.Index) -> (JSON, String.Index) {
+    private func parseString(index: Int) -> (JSON, Int) {
         let (s, cursor, err) = _parseString(index)
         if  let json = s {
             return (JSON(json), cursor)
@@ -656,17 +660,17 @@ struct Parser {
         return (.None(err), cursor)
     }
 
-    private func parseNumber(index: String.Index) -> (JSON, String.Index) {
+    private func parseNumber(index: Int) -> (JSON, Int) {
         let cursor = eatWhiteSpace(index)
         let lastIndex = getLastIndexOfNumber(cursor)
         let substr = string[Range(start: cursor, end: lastIndex)]
-        if  let number = Double(substr) {
+        if  let number = Double(String(substr)) {
             return (JSON(floatLiteral: number), lastIndex)
         }
         return (.None("invalid json: \(substr) is not a valid number."), lastIndex)
     }
 
-    private func parseNull(index: String.Index) -> (JSON, String.Index) {
+    private func parseNull(index: Int) -> (JSON, Int) {
         var cursor = eatWhiteSpace(index)
         
         guard cursor != string.endIndex && string[cursor] == _n else {
@@ -688,7 +692,7 @@ struct Parser {
         return (nil, cursor.successor())
     }
 
-    private func parseTrue(index: String.Index) -> (JSON, String.Index) {
+    private func parseTrue(index: Int) -> (JSON, Int) {
         var cursor = eatWhiteSpace(index)
         
         guard cursor != string.endIndex && string[cursor] == _t else {
@@ -710,7 +714,7 @@ struct Parser {
         return (true, cursor.successor())
     }
 
-    private func parseFalse(index: String.Index) -> (JSON, String.Index) {
+    private func parseFalse(index: Int) -> (JSON, Int) {
         var cursor = eatWhiteSpace(index)
         
         guard cursor != string.endIndex && string[cursor] == _f else {
@@ -735,7 +739,7 @@ struct Parser {
         return (false, cursor.successor())
     }
 
-    private func parseArray(index: String.Index) -> (JSON, String.Index) {
+    private func parseArray(index: Int) -> (JSON, Int) {
         var cursor = eatWhiteSpace(index)
         
         guard string[cursor] == so else {
@@ -782,7 +786,7 @@ struct Parser {
         return (.None("invalid json: expect ']' or ',' at \(cursor)"), cursor)
     }
 
-    private func parseObject(index: String.Index) -> (JSON, String.Index) {
+    private func parseObject(index: Int) -> (JSON, Int) {
         var cursor = eatWhiteSpace(index)
         
         guard string[cursor] == co else {
