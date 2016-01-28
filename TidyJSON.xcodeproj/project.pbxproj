@@ -1,0 +1,1616 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		ED8C11641C58B6BB009BB05F /* TidyJSON.h in Headers */ = {isa = PBXBuildFile; fileRef = ED8C11631C58B6BB009BB05F /* TidyJSON.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		ED8C116B1C58B6BB009BB05F /* TidyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED8C11601C58B6BB009BB05F /* TidyJSON.framework */; };
+		ED8C11941C58DFBD009BB05F /* TidyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED8C118A1C58DFBC009BB05F /* TidyJSON.framework */; };
+		ED8C11B01C58E00D009BB05F /* TidyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED8C11A61C58E00C009BB05F /* TidyJSON.framework */; };
+		ED8C11C01C58EAFE009BB05F /* TidyJSON.h in Headers */ = {isa = PBXBuildFile; fileRef = ED8C11631C58B6BB009BB05F /* TidyJSON.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		ED8C11C11C58EB4A009BB05F /* TidyJSON.h in Headers */ = {isa = PBXBuildFile; fileRef = ED8C11631C58B6BB009BB05F /* TidyJSON.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		ED8C11C51C58F76A009BB05F /* TidyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED8C11C41C58F76A009BB05F /* TidyJSON.swift */; };
+		ED8C11C61C58F76A009BB05F /* TidyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED8C11C41C58F76A009BB05F /* TidyJSON.swift */; };
+		ED8C11C71C58F76A009BB05F /* TidyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED8C11C41C58F76A009BB05F /* TidyJSON.swift */; };
+		ED8C11C81C58F76A009BB05F /* TidyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED8C11C41C58F76A009BB05F /* TidyJSON.swift */; };
+		ED8C11CA1C59A43B009BB05F /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED8C11C91C59A43B009BB05F /* Test.swift */; };
+		ED8C11CB1C59A43B009BB05F /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED8C11C91C59A43B009BB05F /* Test.swift */; };
+		ED8C11CC1C59A43B009BB05F /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED8C11C91C59A43B009BB05F /* Test.swift */; };
+		ED8C11D91C59A4CF009BB05F /* TidyJSON.h in Sources */ = {isa = PBXBuildFile; fileRef = ED8C11631C58B6BB009BB05F /* TidyJSON.h */; };
+		ED8C11DA1C59A4D4009BB05F /* TidyJSON.h in Sources */ = {isa = PBXBuildFile; fileRef = ED8C11631C58B6BB009BB05F /* TidyJSON.h */; };
+		ED8C12241C59A8D7009BB05F /* fail1.json in Resources */ = {isa = PBXBuildFile; fileRef = ED8C12001C59A8D7009BB05F /* fail1.json */; };
+		ED8C12251C59A8D7009BB05F /* fail1.json in Resources */ = {isa = PBXBuildFile; fileRef = ED8C12001C59A8D7009BB05F /* fail1.json */; };
+		ED8C12261C59A8D7009BB05F /* fail1.json in Resources */ = {isa = PBXBuildFile; fileRef = ED8C12001C59A8D7009BB05F /* fail1.json */; };
+		ED8C12271C59A8D7009BB05F /* fail10.json in Resources */ = {isa = PBXBuildFile; fileRef = ED8C12011C59A8D7009BB05F /* fail10.json */; };
+		ED8C12281C59A8D7009BB05F /* fail10.json in Resources */ = {isa = PBXBuildFile; fileRef = ED8C12011C59A8D7009BB05F /* fail10.json */; };
+		ED8C12291C59A8D7009BB05F /* fail10.json in Resources */ = {isa = PBXBuildFile; fileRef = ED8C12011C59A8D7009BB05F /* fail10.json */; };
+		ED8C122A1C59A8D7009BB05F /* fail11.json in Resources */ = {isa = PBXBuildFile; fileRef = ED8C12021C59A8D7009BB05F /* fail11.json */; };
+		ED8C122B1C59A8D7009BB05F /* fail11.json in Resources */ = {isa = PBXBuildFile; fileRef = ED8C12021C59A8D7009BB05F /* fail11.json */; };
+		ED8C122C1C59A8D7009BB05F /* fail11.json in Resources */ = {isa = PBXBuildFile; fileRef = ED8C12021C59A8D7009BB05F /* fail11.json */; };
+		ED8C122D1C59A8D7009BB05F /* fail12.json in Resources */ = {isa = PBXBuildFile; fileRef = ED8C12031C59A8D7009BB05F /* fail12.json */; };
+		ED8C122E1C59A8D7009BB05F /* fail12.json in Resources */ = {isa = PBXBuildFile; fileRef = ED8C12031C59A8D7009BB05F /* fail12.json */; };
+		ED8C122F1C59A8D7009BB05F /* fail12.json in Resources */ = {isa = PBXBuildFile; fileRef = ED8C12031C59A8D7009BB05F /* fail12.json */; };
+		ED8C12301C59A8D7009BB05F /* fail13.json in Resources */ = {isa = PBXBuildFile; fileRef = ED8C12041C59A8D7009BB05F /* fail13.json */; };
+		ED8C12311C59A8D7009BB05F /* fail13.json in Resources */ = {isa = PBXBuildFile; fileRef = ED8C12041C59A8D7009BB05F /* fail13.json */; };
+		ED8C12321C59A8D7009BB05F /* fail13.json in Resources */ = {isa = PBXBuildFile; fileRef = ED8C12041C59A8D7009BB05F /* fail13.json */; };
+		ED8C12331C59A8D7009BB05F /* fail14.json in Resources */ = {isa = PBXBuildFile; fileRef = ED8C12051C59A8D7009BB05F /* fail14.json */; };
+		ED8C12341C59A8D7009BB05F /* fail14.json in Resources */ = {isa = PBXBuildFile; fileRef = ED8C12051C59A8D7009BB05F /* fail14.json */; };
+		ED8C12351C59A8D7009BB05F /* fail14.json in Resources */ = {isa = PBXBuildFile; fileRef = ED8C12051C59A8D7009BB05F /* fail14.json */; };
+		ED8C12361C59A8D7009BB05F /* fail15.json in Resources */ = {isa = PBXBuildFile; fileRef = ED8C12061C59A8D7009BB05F /* fail15.json */; };
+		ED8C12371C59A8D7009BB05F /* fail15.json in Resources */ = {isa = PBXBuildFile; fileRef = ED8C12061C59A8D7009BB05F /* fail15.json */; };
+		ED8C12381C59A8D7009BB05F /* fail15.json in Resources */ = {isa = PBXBuildFile; fileRef = ED8C12061C59A8D7009BB05F /* fail15.json */; };
+		ED8C12391C59A8D7009BB05F /* fail16.json in Resources */ = {isa = PBXBuildFile; fileRef = ED8C12071C59A8D7009BB05F /* fail16.json */; };
+		ED8C123A1C59A8D7009BB05F /* fail16.json in Resources */ = {isa = PBXBuildFile; fileRef = ED8C12071C59A8D7009BB05F /* fail16.json */; };
+		ED8C123B1C59A8D7009BB05F /* fail16.json in Resources */ = {isa = PBXBuildFile; fileRef = ED8C12071C59A8D7009BB05F /* fail16.json */; };
+		ED8C123C1C59A8D7009BB05F /* fail17.json in Resources */ = {isa = PBXBuildFile; fileRef = ED8C12081C59A8D7009BB05F /* fail17.json */; };
+		ED8C123D1C59A8D7009BB05F /* fail17.json in Resources */ = {isa = PBXBuildFile; fileRef = ED8C12081C59A8D7009BB05F /* fail17.json */; };
+		ED8C123E1C59A8D7009BB05F /* fail17.json in Resources */ = {isa = PBXBuildFile; fileRef = ED8C12081C59A8D7009BB05F /* fail17.json */; };
+		ED8C123F1C59A8D7009BB05F /* fail18.json in Resources */ = {isa = PBXBuildFile; fileRef = ED8C12091C59A8D7009BB05F /* fail18.json */; };
+		ED8C12401C59A8D7009BB05F /* fail18.json in Resources */ = {isa = PBXBuildFile; fileRef = ED8C12091C59A8D7009BB05F /* fail18.json */; };
+		ED8C12411C59A8D7009BB05F /* fail18.json in Resources */ = {isa = PBXBuildFile; fileRef = ED8C12091C59A8D7009BB05F /* fail18.json */; };
+		ED8C12421C59A8D7009BB05F /* fail19.json in Resources */ = {isa = PBXBuildFile; fileRef = ED8C120A1C59A8D7009BB05F /* fail19.json */; };
+		ED8C12431C59A8D7009BB05F /* fail19.json in Resources */ = {isa = PBXBuildFile; fileRef = ED8C120A1C59A8D7009BB05F /* fail19.json */; };
+		ED8C12441C59A8D7009BB05F /* fail19.json in Resources */ = {isa = PBXBuildFile; fileRef = ED8C120A1C59A8D7009BB05F /* fail19.json */; };
+		ED8C12451C59A8D7009BB05F /* fail2.json in Resources */ = {isa = PBXBuildFile; fileRef = ED8C120B1C59A8D7009BB05F /* fail2.json */; };
+		ED8C12461C59A8D7009BB05F /* fail2.json in Resources */ = {isa = PBXBuildFile; fileRef = ED8C120B1C59A8D7009BB05F /* fail2.json */; };
+		ED8C12471C59A8D7009BB05F /* fail2.json in Resources */ = {isa = PBXBuildFile; fileRef = ED8C120B1C59A8D7009BB05F /* fail2.json */; };
+		ED8C12481C59A8D7009BB05F /* fail20.json in Resources */ = {isa = PBXBuildFile; fileRef = ED8C120C1C59A8D7009BB05F /* fail20.json */; };
+		ED8C12491C59A8D7009BB05F /* fail20.json in Resources */ = {isa = PBXBuildFile; fileRef = ED8C120C1C59A8D7009BB05F /* fail20.json */; };
+		ED8C124A1C59A8D7009BB05F /* fail20.json in Resources */ = {isa = PBXBuildFile; fileRef = ED8C120C1C59A8D7009BB05F /* fail20.json */; };
+		ED8C124B1C59A8D7009BB05F /* fail21.json in Resources */ = {isa = PBXBuildFile; fileRef = ED8C120D1C59A8D7009BB05F /* fail21.json */; };
+		ED8C124C1C59A8D7009BB05F /* fail21.json in Resources */ = {isa = PBXBuildFile; fileRef = ED8C120D1C59A8D7009BB05F /* fail21.json */; };
+		ED8C124D1C59A8D7009BB05F /* fail21.json in Resources */ = {isa = PBXBuildFile; fileRef = ED8C120D1C59A8D7009BB05F /* fail21.json */; };
+		ED8C124E1C59A8D7009BB05F /* fail22.json in Resources */ = {isa = PBXBuildFile; fileRef = ED8C120E1C59A8D7009BB05F /* fail22.json */; };
+		ED8C124F1C59A8D7009BB05F /* fail22.json in Resources */ = {isa = PBXBuildFile; fileRef = ED8C120E1C59A8D7009BB05F /* fail22.json */; };
+		ED8C12501C59A8D7009BB05F /* fail22.json in Resources */ = {isa = PBXBuildFile; fileRef = ED8C120E1C59A8D7009BB05F /* fail22.json */; };
+		ED8C12511C59A8D7009BB05F /* fail23.json in Resources */ = {isa = PBXBuildFile; fileRef = ED8C120F1C59A8D7009BB05F /* fail23.json */; };
+		ED8C12521C59A8D7009BB05F /* fail23.json in Resources */ = {isa = PBXBuildFile; fileRef = ED8C120F1C59A8D7009BB05F /* fail23.json */; };
+		ED8C12531C59A8D7009BB05F /* fail23.json in Resources */ = {isa = PBXBuildFile; fileRef = ED8C120F1C59A8D7009BB05F /* fail23.json */; };
+		ED8C12541C59A8D7009BB05F /* fail24.json in Resources */ = {isa = PBXBuildFile; fileRef = ED8C12101C59A8D7009BB05F /* fail24.json */; };
+		ED8C12551C59A8D7009BB05F /* fail24.json in Resources */ = {isa = PBXBuildFile; fileRef = ED8C12101C59A8D7009BB05F /* fail24.json */; };
+		ED8C12561C59A8D7009BB05F /* fail24.json in Resources */ = {isa = PBXBuildFile; fileRef = ED8C12101C59A8D7009BB05F /* fail24.json */; };
+		ED8C12571C59A8D7009BB05F /* fail25.json in Resources */ = {isa = PBXBuildFile; fileRef = ED8C12111C59A8D7009BB05F /* fail25.json */; };
+		ED8C12581C59A8D7009BB05F /* fail25.json in Resources */ = {isa = PBXBuildFile; fileRef = ED8C12111C59A8D7009BB05F /* fail25.json */; };
+		ED8C12591C59A8D7009BB05F /* fail25.json in Resources */ = {isa = PBXBuildFile; fileRef = ED8C12111C59A8D7009BB05F /* fail25.json */; };
+		ED8C125A1C59A8D7009BB05F /* fail26.json in Resources */ = {isa = PBXBuildFile; fileRef = ED8C12121C59A8D7009BB05F /* fail26.json */; };
+		ED8C125B1C59A8D7009BB05F /* fail26.json in Resources */ = {isa = PBXBuildFile; fileRef = ED8C12121C59A8D7009BB05F /* fail26.json */; };
+		ED8C125C1C59A8D7009BB05F /* fail26.json in Resources */ = {isa = PBXBuildFile; fileRef = ED8C12121C59A8D7009BB05F /* fail26.json */; };
+		ED8C125D1C59A8D7009BB05F /* fail27.json in Resources */ = {isa = PBXBuildFile; fileRef = ED8C12131C59A8D7009BB05F /* fail27.json */; };
+		ED8C125E1C59A8D7009BB05F /* fail27.json in Resources */ = {isa = PBXBuildFile; fileRef = ED8C12131C59A8D7009BB05F /* fail27.json */; };
+		ED8C125F1C59A8D7009BB05F /* fail27.json in Resources */ = {isa = PBXBuildFile; fileRef = ED8C12131C59A8D7009BB05F /* fail27.json */; };
+		ED8C12601C59A8D7009BB05F /* fail28.json in Resources */ = {isa = PBXBuildFile; fileRef = ED8C12141C59A8D7009BB05F /* fail28.json */; };
+		ED8C12611C59A8D7009BB05F /* fail28.json in Resources */ = {isa = PBXBuildFile; fileRef = ED8C12141C59A8D7009BB05F /* fail28.json */; };
+		ED8C12621C59A8D7009BB05F /* fail28.json in Resources */ = {isa = PBXBuildFile; fileRef = ED8C12141C59A8D7009BB05F /* fail28.json */; };
+		ED8C12631C59A8D7009BB05F /* fail29.json in Resources */ = {isa = PBXBuildFile; fileRef = ED8C12151C59A8D7009BB05F /* fail29.json */; };
+		ED8C12641C59A8D7009BB05F /* fail29.json in Resources */ = {isa = PBXBuildFile; fileRef = ED8C12151C59A8D7009BB05F /* fail29.json */; };
+		ED8C12651C59A8D7009BB05F /* fail29.json in Resources */ = {isa = PBXBuildFile; fileRef = ED8C12151C59A8D7009BB05F /* fail29.json */; };
+		ED8C12661C59A8D7009BB05F /* fail3.json in Resources */ = {isa = PBXBuildFile; fileRef = ED8C12161C59A8D7009BB05F /* fail3.json */; };
+		ED8C12671C59A8D7009BB05F /* fail3.json in Resources */ = {isa = PBXBuildFile; fileRef = ED8C12161C59A8D7009BB05F /* fail3.json */; };
+		ED8C12681C59A8D7009BB05F /* fail3.json in Resources */ = {isa = PBXBuildFile; fileRef = ED8C12161C59A8D7009BB05F /* fail3.json */; };
+		ED8C12691C59A8D7009BB05F /* fail30.json in Resources */ = {isa = PBXBuildFile; fileRef = ED8C12171C59A8D7009BB05F /* fail30.json */; };
+		ED8C126A1C59A8D7009BB05F /* fail30.json in Resources */ = {isa = PBXBuildFile; fileRef = ED8C12171C59A8D7009BB05F /* fail30.json */; };
+		ED8C126B1C59A8D7009BB05F /* fail30.json in Resources */ = {isa = PBXBuildFile; fileRef = ED8C12171C59A8D7009BB05F /* fail30.json */; };
+		ED8C126C1C59A8D7009BB05F /* fail31.json in Resources */ = {isa = PBXBuildFile; fileRef = ED8C12181C59A8D7009BB05F /* fail31.json */; };
+		ED8C126D1C59A8D7009BB05F /* fail31.json in Resources */ = {isa = PBXBuildFile; fileRef = ED8C12181C59A8D7009BB05F /* fail31.json */; };
+		ED8C126E1C59A8D7009BB05F /* fail31.json in Resources */ = {isa = PBXBuildFile; fileRef = ED8C12181C59A8D7009BB05F /* fail31.json */; };
+		ED8C126F1C59A8D7009BB05F /* fail32.json in Resources */ = {isa = PBXBuildFile; fileRef = ED8C12191C59A8D7009BB05F /* fail32.json */; };
+		ED8C12701C59A8D7009BB05F /* fail32.json in Resources */ = {isa = PBXBuildFile; fileRef = ED8C12191C59A8D7009BB05F /* fail32.json */; };
+		ED8C12711C59A8D7009BB05F /* fail32.json in Resources */ = {isa = PBXBuildFile; fileRef = ED8C12191C59A8D7009BB05F /* fail32.json */; };
+		ED8C12721C59A8D7009BB05F /* fail33.json in Resources */ = {isa = PBXBuildFile; fileRef = ED8C121A1C59A8D7009BB05F /* fail33.json */; };
+		ED8C12731C59A8D7009BB05F /* fail33.json in Resources */ = {isa = PBXBuildFile; fileRef = ED8C121A1C59A8D7009BB05F /* fail33.json */; };
+		ED8C12741C59A8D7009BB05F /* fail33.json in Resources */ = {isa = PBXBuildFile; fileRef = ED8C121A1C59A8D7009BB05F /* fail33.json */; };
+		ED8C12751C59A8D7009BB05F /* fail4.json in Resources */ = {isa = PBXBuildFile; fileRef = ED8C121B1C59A8D7009BB05F /* fail4.json */; };
+		ED8C12761C59A8D7009BB05F /* fail4.json in Resources */ = {isa = PBXBuildFile; fileRef = ED8C121B1C59A8D7009BB05F /* fail4.json */; };
+		ED8C12771C59A8D7009BB05F /* fail4.json in Resources */ = {isa = PBXBuildFile; fileRef = ED8C121B1C59A8D7009BB05F /* fail4.json */; };
+		ED8C12781C59A8D7009BB05F /* fail5.json in Resources */ = {isa = PBXBuildFile; fileRef = ED8C121C1C59A8D7009BB05F /* fail5.json */; };
+		ED8C12791C59A8D7009BB05F /* fail5.json in Resources */ = {isa = PBXBuildFile; fileRef = ED8C121C1C59A8D7009BB05F /* fail5.json */; };
+		ED8C127A1C59A8D7009BB05F /* fail5.json in Resources */ = {isa = PBXBuildFile; fileRef = ED8C121C1C59A8D7009BB05F /* fail5.json */; };
+		ED8C127B1C59A8D7009BB05F /* fail6.json in Resources */ = {isa = PBXBuildFile; fileRef = ED8C121D1C59A8D7009BB05F /* fail6.json */; };
+		ED8C127C1C59A8D7009BB05F /* fail6.json in Resources */ = {isa = PBXBuildFile; fileRef = ED8C121D1C59A8D7009BB05F /* fail6.json */; };
+		ED8C127D1C59A8D7009BB05F /* fail6.json in Resources */ = {isa = PBXBuildFile; fileRef = ED8C121D1C59A8D7009BB05F /* fail6.json */; };
+		ED8C127E1C59A8D7009BB05F /* fail7.json in Resources */ = {isa = PBXBuildFile; fileRef = ED8C121E1C59A8D7009BB05F /* fail7.json */; };
+		ED8C127F1C59A8D7009BB05F /* fail7.json in Resources */ = {isa = PBXBuildFile; fileRef = ED8C121E1C59A8D7009BB05F /* fail7.json */; };
+		ED8C12801C59A8D7009BB05F /* fail7.json in Resources */ = {isa = PBXBuildFile; fileRef = ED8C121E1C59A8D7009BB05F /* fail7.json */; };
+		ED8C12811C59A8D7009BB05F /* fail8.json in Resources */ = {isa = PBXBuildFile; fileRef = ED8C121F1C59A8D7009BB05F /* fail8.json */; };
+		ED8C12821C59A8D7009BB05F /* fail8.json in Resources */ = {isa = PBXBuildFile; fileRef = ED8C121F1C59A8D7009BB05F /* fail8.json */; };
+		ED8C12831C59A8D7009BB05F /* fail8.json in Resources */ = {isa = PBXBuildFile; fileRef = ED8C121F1C59A8D7009BB05F /* fail8.json */; };
+		ED8C12841C59A8D7009BB05F /* fail9.json in Resources */ = {isa = PBXBuildFile; fileRef = ED8C12201C59A8D7009BB05F /* fail9.json */; };
+		ED8C12851C59A8D7009BB05F /* fail9.json in Resources */ = {isa = PBXBuildFile; fileRef = ED8C12201C59A8D7009BB05F /* fail9.json */; };
+		ED8C12861C59A8D7009BB05F /* fail9.json in Resources */ = {isa = PBXBuildFile; fileRef = ED8C12201C59A8D7009BB05F /* fail9.json */; };
+		ED8C12871C59A8D7009BB05F /* pass1.json in Resources */ = {isa = PBXBuildFile; fileRef = ED8C12211C59A8D7009BB05F /* pass1.json */; };
+		ED8C12881C59A8D7009BB05F /* pass1.json in Resources */ = {isa = PBXBuildFile; fileRef = ED8C12211C59A8D7009BB05F /* pass1.json */; };
+		ED8C12891C59A8D7009BB05F /* pass1.json in Resources */ = {isa = PBXBuildFile; fileRef = ED8C12211C59A8D7009BB05F /* pass1.json */; };
+		ED8C128A1C59A8D7009BB05F /* pass2.json in Resources */ = {isa = PBXBuildFile; fileRef = ED8C12221C59A8D7009BB05F /* pass2.json */; };
+		ED8C128B1C59A8D7009BB05F /* pass2.json in Resources */ = {isa = PBXBuildFile; fileRef = ED8C12221C59A8D7009BB05F /* pass2.json */; };
+		ED8C128C1C59A8D7009BB05F /* pass2.json in Resources */ = {isa = PBXBuildFile; fileRef = ED8C12221C59A8D7009BB05F /* pass2.json */; };
+		ED8C128D1C59A8D7009BB05F /* pass3.json in Resources */ = {isa = PBXBuildFile; fileRef = ED8C12231C59A8D7009BB05F /* pass3.json */; };
+		ED8C128E1C59A8D7009BB05F /* pass3.json in Resources */ = {isa = PBXBuildFile; fileRef = ED8C12231C59A8D7009BB05F /* pass3.json */; };
+		ED8C128F1C59A8D7009BB05F /* pass3.json in Resources */ = {isa = PBXBuildFile; fileRef = ED8C12231C59A8D7009BB05F /* pass3.json */; };
+		ED8C12921C59ACCB009BB05F /* TidyJSON.h in Headers */ = {isa = PBXBuildFile; fileRef = ED8C11631C58B6BB009BB05F /* TidyJSON.h */; settings = {ATTRIBUTES = (Public, ); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		ED8C116C1C58B6BB009BB05F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = ED90CC651C58B10F000FCC4A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = ED8C115F1C58B6BB009BB05F;
+			remoteInfo = TidyJSON;
+		};
+		ED8C11951C58DFBD009BB05F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = ED90CC651C58B10F000FCC4A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = ED8C11891C58DFBC009BB05F;
+			remoteInfo = TidyJSON;
+		};
+		ED8C11B11C58E00D009BB05F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = ED90CC651C58B10F000FCC4A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = ED8C11A51C58E00C009BB05F;
+			remoteInfo = TidyJSON;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		ED8C11601C58B6BB009BB05F /* TidyJSON.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TidyJSON.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		ED8C11631C58B6BB009BB05F /* TidyJSON.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = TidyJSON.h; path = Sources/TidyJSON.h; sourceTree = SOURCE_ROOT; };
+		ED8C11651C58B6BB009BB05F /* Info-iOS.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Info-iOS.plist"; path = "Sources/Info-iOS.plist"; sourceTree = SOURCE_ROOT; };
+		ED8C116A1C58B6BB009BB05F /* TidyJSON-iOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "TidyJSON-iOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		ED8C117D1C58DF20009BB05F /* TidyJSON.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TidyJSON.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		ED8C11811C58DF20009BB05F /* Info-watchOS.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Info-watchOS.plist"; path = "Sources/Info-watchOS.plist"; sourceTree = SOURCE_ROOT; };
+		ED8C118A1C58DFBC009BB05F /* TidyJSON.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TidyJSON.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		ED8C118E1C58DFBC009BB05F /* Info-tvOS.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Info-tvOS.plist"; path = "Sources/Info-tvOS.plist"; sourceTree = SOURCE_ROOT; };
+		ED8C11931C58DFBD009BB05F /* TidyJSON-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "TidyJSON-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		ED8C11A61C58E00C009BB05F /* TidyJSON.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TidyJSON.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		ED8C11AA1C58E00C009BB05F /* Info-OSX.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Info-OSX.plist"; path = "Sources/Info-OSX.plist"; sourceTree = SOURCE_ROOT; };
+		ED8C11AF1C58E00C009BB05F /* TidyJSON-OSXTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "TidyJSON-OSXTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		ED8C11C41C58F76A009BB05F /* TidyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TidyJSON.swift; path = Sources/TidyJSON.swift; sourceTree = SOURCE_ROOT; };
+		ED8C11C91C59A43B009BB05F /* Test.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Test.swift; path = Tests/Test.swift; sourceTree = SOURCE_ROOT; };
+		ED8C11CD1C59A44F009BB05F /* Info-tvOS.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "Info-tvOS.plist"; path = "Tests/Info-tvOS.plist"; sourceTree = SOURCE_ROOT; };
+		ED8C11D11C59A456009BB05F /* Info-OSX.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "Info-OSX.plist"; path = "Tests/Info-OSX.plist"; sourceTree = SOURCE_ROOT; };
+		ED8C11D51C59A45D009BB05F /* Info-iOS.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "Info-iOS.plist"; path = "Tests/Info-iOS.plist"; sourceTree = SOURCE_ROOT; };
+		ED8C12001C59A8D7009BB05F /* fail1.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = fail1.json; sourceTree = "<group>"; };
+		ED8C12011C59A8D7009BB05F /* fail10.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = fail10.json; sourceTree = "<group>"; };
+		ED8C12021C59A8D7009BB05F /* fail11.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = fail11.json; sourceTree = "<group>"; };
+		ED8C12031C59A8D7009BB05F /* fail12.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = fail12.json; sourceTree = "<group>"; };
+		ED8C12041C59A8D7009BB05F /* fail13.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = fail13.json; sourceTree = "<group>"; };
+		ED8C12051C59A8D7009BB05F /* fail14.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = fail14.json; sourceTree = "<group>"; };
+		ED8C12061C59A8D7009BB05F /* fail15.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = fail15.json; sourceTree = "<group>"; };
+		ED8C12071C59A8D7009BB05F /* fail16.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = fail16.json; sourceTree = "<group>"; };
+		ED8C12081C59A8D7009BB05F /* fail17.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = fail17.json; sourceTree = "<group>"; };
+		ED8C12091C59A8D7009BB05F /* fail18.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = fail18.json; sourceTree = "<group>"; };
+		ED8C120A1C59A8D7009BB05F /* fail19.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = fail19.json; sourceTree = "<group>"; };
+		ED8C120B1C59A8D7009BB05F /* fail2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = fail2.json; sourceTree = "<group>"; };
+		ED8C120C1C59A8D7009BB05F /* fail20.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = fail20.json; sourceTree = "<group>"; };
+		ED8C120D1C59A8D7009BB05F /* fail21.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = fail21.json; sourceTree = "<group>"; };
+		ED8C120E1C59A8D7009BB05F /* fail22.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = fail22.json; sourceTree = "<group>"; };
+		ED8C120F1C59A8D7009BB05F /* fail23.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = fail23.json; sourceTree = "<group>"; };
+		ED8C12101C59A8D7009BB05F /* fail24.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = fail24.json; sourceTree = "<group>"; };
+		ED8C12111C59A8D7009BB05F /* fail25.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = fail25.json; sourceTree = "<group>"; };
+		ED8C12121C59A8D7009BB05F /* fail26.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = fail26.json; sourceTree = "<group>"; };
+		ED8C12131C59A8D7009BB05F /* fail27.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = fail27.json; sourceTree = "<group>"; };
+		ED8C12141C59A8D7009BB05F /* fail28.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = fail28.json; sourceTree = "<group>"; };
+		ED8C12151C59A8D7009BB05F /* fail29.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = fail29.json; sourceTree = "<group>"; };
+		ED8C12161C59A8D7009BB05F /* fail3.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = fail3.json; sourceTree = "<group>"; };
+		ED8C12171C59A8D7009BB05F /* fail30.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = fail30.json; sourceTree = "<group>"; };
+		ED8C12181C59A8D7009BB05F /* fail31.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = fail31.json; sourceTree = "<group>"; };
+		ED8C12191C59A8D7009BB05F /* fail32.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = fail32.json; sourceTree = "<group>"; };
+		ED8C121A1C59A8D7009BB05F /* fail33.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = fail33.json; sourceTree = "<group>"; };
+		ED8C121B1C59A8D7009BB05F /* fail4.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = fail4.json; sourceTree = "<group>"; };
+		ED8C121C1C59A8D7009BB05F /* fail5.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = fail5.json; sourceTree = "<group>"; };
+		ED8C121D1C59A8D7009BB05F /* fail6.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = fail6.json; sourceTree = "<group>"; };
+		ED8C121E1C59A8D7009BB05F /* fail7.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = fail7.json; sourceTree = "<group>"; };
+		ED8C121F1C59A8D7009BB05F /* fail8.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = fail8.json; sourceTree = "<group>"; };
+		ED8C12201C59A8D7009BB05F /* fail9.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = fail9.json; sourceTree = "<group>"; };
+		ED8C12211C59A8D7009BB05F /* pass1.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = pass1.json; sourceTree = "<group>"; };
+		ED8C12221C59A8D7009BB05F /* pass2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = pass2.json; sourceTree = "<group>"; };
+		ED8C12231C59A8D7009BB05F /* pass3.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = pass3.json; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		ED8C115C1C58B6BB009BB05F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ED8C11671C58B6BB009BB05F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ED8C116B1C58B6BB009BB05F /* TidyJSON.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ED8C11791C58DF20009BB05F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ED8C11861C58DFBC009BB05F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ED8C11901C58DFBD009BB05F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ED8C11941C58DFBD009BB05F /* TidyJSON.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ED8C11A21C58E00C009BB05F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ED8C11AC1C58E00C009BB05F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ED8C11B01C58E00D009BB05F /* TidyJSON.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		ED8C11611C58B6BB009BB05F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				ED8C11601C58B6BB009BB05F /* TidyJSON.framework */,
+				ED8C116A1C58B6BB009BB05F /* TidyJSON-iOSTests.xctest */,
+				ED8C117D1C58DF20009BB05F /* TidyJSON.framework */,
+				ED8C118A1C58DFBC009BB05F /* TidyJSON.framework */,
+				ED8C11931C58DFBD009BB05F /* TidyJSON-tvOSTests.xctest */,
+				ED8C11A61C58E00C009BB05F /* TidyJSON.framework */,
+				ED8C11AF1C58E00C009BB05F /* TidyJSON-OSXTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		ED8C11621C58B6BB009BB05F /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				ED8C11631C58B6BB009BB05F /* TidyJSON.h */,
+				ED8C11651C58B6BB009BB05F /* Info-iOS.plist */,
+				ED8C11AA1C58E00C009BB05F /* Info-OSX.plist */,
+				ED8C118E1C58DFBC009BB05F /* Info-tvOS.plist */,
+				ED8C11C41C58F76A009BB05F /* TidyJSON.swift */,
+				ED8C11811C58DF20009BB05F /* Info-watchOS.plist */,
+			);
+			name = Sources;
+			path = TidyJSON;
+			sourceTree = "<group>";
+		};
+		ED8C116E1C58B6BB009BB05F /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				ED8C11FF1C59A8D7009BB05F /* TestCases */,
+				ED8C11D11C59A456009BB05F /* Info-OSX.plist */,
+				ED8C11D51C59A45D009BB05F /* Info-iOS.plist */,
+				ED8C11CD1C59A44F009BB05F /* Info-tvOS.plist */,
+				ED8C11C91C59A43B009BB05F /* Test.swift */,
+			);
+			name = Tests;
+			path = TidyJSONTests;
+			sourceTree = "<group>";
+		};
+		ED8C11FF1C59A8D7009BB05F /* TestCases */ = {
+			isa = PBXGroup;
+			children = (
+				ED8C12001C59A8D7009BB05F /* fail1.json */,
+				ED8C12011C59A8D7009BB05F /* fail10.json */,
+				ED8C12021C59A8D7009BB05F /* fail11.json */,
+				ED8C12031C59A8D7009BB05F /* fail12.json */,
+				ED8C12041C59A8D7009BB05F /* fail13.json */,
+				ED8C12051C59A8D7009BB05F /* fail14.json */,
+				ED8C12061C59A8D7009BB05F /* fail15.json */,
+				ED8C12071C59A8D7009BB05F /* fail16.json */,
+				ED8C12081C59A8D7009BB05F /* fail17.json */,
+				ED8C12091C59A8D7009BB05F /* fail18.json */,
+				ED8C120A1C59A8D7009BB05F /* fail19.json */,
+				ED8C120B1C59A8D7009BB05F /* fail2.json */,
+				ED8C120C1C59A8D7009BB05F /* fail20.json */,
+				ED8C120D1C59A8D7009BB05F /* fail21.json */,
+				ED8C120E1C59A8D7009BB05F /* fail22.json */,
+				ED8C120F1C59A8D7009BB05F /* fail23.json */,
+				ED8C12101C59A8D7009BB05F /* fail24.json */,
+				ED8C12111C59A8D7009BB05F /* fail25.json */,
+				ED8C12121C59A8D7009BB05F /* fail26.json */,
+				ED8C12131C59A8D7009BB05F /* fail27.json */,
+				ED8C12141C59A8D7009BB05F /* fail28.json */,
+				ED8C12151C59A8D7009BB05F /* fail29.json */,
+				ED8C12161C59A8D7009BB05F /* fail3.json */,
+				ED8C12171C59A8D7009BB05F /* fail30.json */,
+				ED8C12181C59A8D7009BB05F /* fail31.json */,
+				ED8C12191C59A8D7009BB05F /* fail32.json */,
+				ED8C121A1C59A8D7009BB05F /* fail33.json */,
+				ED8C121B1C59A8D7009BB05F /* fail4.json */,
+				ED8C121C1C59A8D7009BB05F /* fail5.json */,
+				ED8C121D1C59A8D7009BB05F /* fail6.json */,
+				ED8C121E1C59A8D7009BB05F /* fail7.json */,
+				ED8C121F1C59A8D7009BB05F /* fail8.json */,
+				ED8C12201C59A8D7009BB05F /* fail9.json */,
+				ED8C12211C59A8D7009BB05F /* pass1.json */,
+				ED8C12221C59A8D7009BB05F /* pass2.json */,
+				ED8C12231C59A8D7009BB05F /* pass3.json */,
+			);
+			name = TestCases;
+			path = Tests/TestCases;
+			sourceTree = SOURCE_ROOT;
+		};
+		ED90CC641C58B10F000FCC4A = {
+			isa = PBXGroup;
+			children = (
+				ED8C11621C58B6BB009BB05F /* Sources */,
+				ED8C116E1C58B6BB009BB05F /* Tests */,
+				ED8C11611C58B6BB009BB05F /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		ED8C115D1C58B6BB009BB05F /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ED8C11641C58B6BB009BB05F /* TidyJSON.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ED8C117A1C58DF20009BB05F /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ED8C12921C59ACCB009BB05F /* TidyJSON.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ED8C11871C58DFBC009BB05F /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ED8C11C11C58EB4A009BB05F /* TidyJSON.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ED8C11A31C58E00C009BB05F /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ED8C11C01C58EAFE009BB05F /* TidyJSON.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		ED8C115F1C58B6BB009BB05F /* TidyJSON-iOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = ED8C11761C58B6BB009BB05F /* Build configuration list for PBXNativeTarget "TidyJSON-iOS" */;
+			buildPhases = (
+				ED8C115B1C58B6BB009BB05F /* Sources */,
+				ED8C115C1C58B6BB009BB05F /* Frameworks */,
+				ED8C115D1C58B6BB009BB05F /* Headers */,
+				ED8C115E1C58B6BB009BB05F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "TidyJSON-iOS";
+			productName = TidyJSON;
+			productReference = ED8C11601C58B6BB009BB05F /* TidyJSON.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		ED8C11691C58B6BB009BB05F /* TidyJSON-iOSTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = ED8C11771C58B6BB009BB05F /* Build configuration list for PBXNativeTarget "TidyJSON-iOSTests" */;
+			buildPhases = (
+				ED8C11661C58B6BB009BB05F /* Sources */,
+				ED8C11671C58B6BB009BB05F /* Frameworks */,
+				ED8C11681C58B6BB009BB05F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				ED8C116D1C58B6BB009BB05F /* PBXTargetDependency */,
+			);
+			name = "TidyJSON-iOSTests";
+			productName = TidyJSONTests;
+			productReference = ED8C116A1C58B6BB009BB05F /* TidyJSON-iOSTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		ED8C117C1C58DF20009BB05F /* TidyJSON-watchOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = ED8C11821C58DF20009BB05F /* Build configuration list for PBXNativeTarget "TidyJSON-watchOS" */;
+			buildPhases = (
+				ED8C11781C58DF20009BB05F /* Sources */,
+				ED8C11791C58DF20009BB05F /* Frameworks */,
+				ED8C117A1C58DF20009BB05F /* Headers */,
+				ED8C117B1C58DF20009BB05F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "TidyJSON-watchOS";
+			productName = TidyJSON;
+			productReference = ED8C117D1C58DF20009BB05F /* TidyJSON.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		ED8C11891C58DFBC009BB05F /* TidyJSON-tvOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = ED8C119B1C58DFBD009BB05F /* Build configuration list for PBXNativeTarget "TidyJSON-tvOS" */;
+			buildPhases = (
+				ED8C11851C58DFBC009BB05F /* Sources */,
+				ED8C11861C58DFBC009BB05F /* Frameworks */,
+				ED8C11871C58DFBC009BB05F /* Headers */,
+				ED8C11881C58DFBC009BB05F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "TidyJSON-tvOS";
+			productName = TidyJSON;
+			productReference = ED8C118A1C58DFBC009BB05F /* TidyJSON.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		ED8C11921C58DFBD009BB05F /* TidyJSON-tvOSTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = ED8C119E1C58DFBD009BB05F /* Build configuration list for PBXNativeTarget "TidyJSON-tvOSTests" */;
+			buildPhases = (
+				ED8C118F1C58DFBD009BB05F /* Sources */,
+				ED8C11901C58DFBD009BB05F /* Frameworks */,
+				ED8C11911C58DFBD009BB05F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				ED8C11961C58DFBD009BB05F /* PBXTargetDependency */,
+			);
+			name = "TidyJSON-tvOSTests";
+			productName = TidyJSONTests;
+			productReference = ED8C11931C58DFBD009BB05F /* TidyJSON-tvOSTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		ED8C11A51C58E00C009BB05F /* TidyJSON-OSX */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = ED8C11B71C58E00D009BB05F /* Build configuration list for PBXNativeTarget "TidyJSON-OSX" */;
+			buildPhases = (
+				ED8C11A11C58E00C009BB05F /* Sources */,
+				ED8C11A21C58E00C009BB05F /* Frameworks */,
+				ED8C11A31C58E00C009BB05F /* Headers */,
+				ED8C11A41C58E00C009BB05F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "TidyJSON-OSX";
+			productName = TidyJSON;
+			productReference = ED8C11A61C58E00C009BB05F /* TidyJSON.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		ED8C11AE1C58E00C009BB05F /* TidyJSON-OSXTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = ED8C11BA1C58E00D009BB05F /* Build configuration list for PBXNativeTarget "TidyJSON-OSXTests" */;
+			buildPhases = (
+				ED8C11AB1C58E00C009BB05F /* Sources */,
+				ED8C11AC1C58E00C009BB05F /* Frameworks */,
+				ED8C11AD1C58E00C009BB05F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				ED8C11B21C58E00D009BB05F /* PBXTargetDependency */,
+			);
+			name = "TidyJSON-OSXTests";
+			productName = TidyJSONTests;
+			productReference = ED8C11AF1C58E00C009BB05F /* TidyJSON-OSXTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		ED90CC651C58B10F000FCC4A /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0720;
+				LastUpgradeCheck = 0720;
+				TargetAttributes = {
+					ED8C115F1C58B6BB009BB05F = {
+						CreatedOnToolsVersion = 7.2;
+					};
+					ED8C11691C58B6BB009BB05F = {
+						CreatedOnToolsVersion = 7.2;
+					};
+					ED8C117C1C58DF20009BB05F = {
+						CreatedOnToolsVersion = 7.2;
+					};
+					ED8C11891C58DFBC009BB05F = {
+						CreatedOnToolsVersion = 7.2;
+					};
+					ED8C11921C58DFBD009BB05F = {
+						CreatedOnToolsVersion = 7.2;
+					};
+					ED8C11A51C58E00C009BB05F = {
+						CreatedOnToolsVersion = 7.2;
+					};
+					ED8C11AE1C58E00C009BB05F = {
+						CreatedOnToolsVersion = 7.2;
+					};
+				};
+			};
+			buildConfigurationList = ED90CC681C58B10F000FCC4A /* Build configuration list for PBXProject "TidyJSON" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = ED90CC641C58B10F000FCC4A;
+			productRefGroup = ED8C11611C58B6BB009BB05F /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				ED8C115F1C58B6BB009BB05F /* TidyJSON-iOS */,
+				ED8C11691C58B6BB009BB05F /* TidyJSON-iOSTests */,
+				ED8C117C1C58DF20009BB05F /* TidyJSON-watchOS */,
+				ED8C11891C58DFBC009BB05F /* TidyJSON-tvOS */,
+				ED8C11921C58DFBD009BB05F /* TidyJSON-tvOSTests */,
+				ED8C11A51C58E00C009BB05F /* TidyJSON-OSX */,
+				ED8C11AE1C58E00C009BB05F /* TidyJSON-OSXTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		ED8C115E1C58B6BB009BB05F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ED8C11681C58B6BB009BB05F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ED8C125D1C59A8D7009BB05F /* fail27.json in Resources */,
+				ED8C124E1C59A8D7009BB05F /* fail22.json in Resources */,
+				ED8C12631C59A8D7009BB05F /* fail29.json in Resources */,
+				ED8C12481C59A8D7009BB05F /* fail20.json in Resources */,
+				ED8C12331C59A8D7009BB05F /* fail14.json in Resources */,
+				ED8C128A1C59A8D7009BB05F /* pass2.json in Resources */,
+				ED8C12421C59A8D7009BB05F /* fail19.json in Resources */,
+				ED8C12811C59A8D7009BB05F /* fail8.json in Resources */,
+				ED8C12511C59A8D7009BB05F /* fail23.json in Resources */,
+				ED8C12601C59A8D7009BB05F /* fail28.json in Resources */,
+				ED8C12841C59A8D7009BB05F /* fail9.json in Resources */,
+				ED8C12781C59A8D7009BB05F /* fail5.json in Resources */,
+				ED8C122A1C59A8D7009BB05F /* fail11.json in Resources */,
+				ED8C12571C59A8D7009BB05F /* fail25.json in Resources */,
+				ED8C12661C59A8D7009BB05F /* fail3.json in Resources */,
+				ED8C123F1C59A8D7009BB05F /* fail18.json in Resources */,
+				ED8C128D1C59A8D7009BB05F /* pass3.json in Resources */,
+				ED8C12271C59A8D7009BB05F /* fail10.json in Resources */,
+				ED8C12871C59A8D7009BB05F /* pass1.json in Resources */,
+				ED8C126C1C59A8D7009BB05F /* fail31.json in Resources */,
+				ED8C124B1C59A8D7009BB05F /* fail21.json in Resources */,
+				ED8C12721C59A8D7009BB05F /* fail33.json in Resources */,
+				ED8C12301C59A8D7009BB05F /* fail13.json in Resources */,
+				ED8C127B1C59A8D7009BB05F /* fail6.json in Resources */,
+				ED8C122D1C59A8D7009BB05F /* fail12.json in Resources */,
+				ED8C12751C59A8D7009BB05F /* fail4.json in Resources */,
+				ED8C125A1C59A8D7009BB05F /* fail26.json in Resources */,
+				ED8C12541C59A8D7009BB05F /* fail24.json in Resources */,
+				ED8C12691C59A8D7009BB05F /* fail30.json in Resources */,
+				ED8C126F1C59A8D7009BB05F /* fail32.json in Resources */,
+				ED8C12361C59A8D7009BB05F /* fail15.json in Resources */,
+				ED8C12451C59A8D7009BB05F /* fail2.json in Resources */,
+				ED8C123C1C59A8D7009BB05F /* fail17.json in Resources */,
+				ED8C12391C59A8D7009BB05F /* fail16.json in Resources */,
+				ED8C12241C59A8D7009BB05F /* fail1.json in Resources */,
+				ED8C127E1C59A8D7009BB05F /* fail7.json in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ED8C117B1C58DF20009BB05F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ED8C11881C58DFBC009BB05F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ED8C11911C58DFBD009BB05F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ED8C125E1C59A8D7009BB05F /* fail27.json in Resources */,
+				ED8C124F1C59A8D7009BB05F /* fail22.json in Resources */,
+				ED8C12641C59A8D7009BB05F /* fail29.json in Resources */,
+				ED8C12491C59A8D7009BB05F /* fail20.json in Resources */,
+				ED8C12341C59A8D7009BB05F /* fail14.json in Resources */,
+				ED8C128B1C59A8D7009BB05F /* pass2.json in Resources */,
+				ED8C12431C59A8D7009BB05F /* fail19.json in Resources */,
+				ED8C12821C59A8D7009BB05F /* fail8.json in Resources */,
+				ED8C12521C59A8D7009BB05F /* fail23.json in Resources */,
+				ED8C12611C59A8D7009BB05F /* fail28.json in Resources */,
+				ED8C12851C59A8D7009BB05F /* fail9.json in Resources */,
+				ED8C12791C59A8D7009BB05F /* fail5.json in Resources */,
+				ED8C122B1C59A8D7009BB05F /* fail11.json in Resources */,
+				ED8C12581C59A8D7009BB05F /* fail25.json in Resources */,
+				ED8C12671C59A8D7009BB05F /* fail3.json in Resources */,
+				ED8C12401C59A8D7009BB05F /* fail18.json in Resources */,
+				ED8C128E1C59A8D7009BB05F /* pass3.json in Resources */,
+				ED8C12281C59A8D7009BB05F /* fail10.json in Resources */,
+				ED8C12881C59A8D7009BB05F /* pass1.json in Resources */,
+				ED8C126D1C59A8D7009BB05F /* fail31.json in Resources */,
+				ED8C124C1C59A8D7009BB05F /* fail21.json in Resources */,
+				ED8C12731C59A8D7009BB05F /* fail33.json in Resources */,
+				ED8C12311C59A8D7009BB05F /* fail13.json in Resources */,
+				ED8C127C1C59A8D7009BB05F /* fail6.json in Resources */,
+				ED8C122E1C59A8D7009BB05F /* fail12.json in Resources */,
+				ED8C12761C59A8D7009BB05F /* fail4.json in Resources */,
+				ED8C125B1C59A8D7009BB05F /* fail26.json in Resources */,
+				ED8C12551C59A8D7009BB05F /* fail24.json in Resources */,
+				ED8C126A1C59A8D7009BB05F /* fail30.json in Resources */,
+				ED8C12701C59A8D7009BB05F /* fail32.json in Resources */,
+				ED8C12371C59A8D7009BB05F /* fail15.json in Resources */,
+				ED8C12461C59A8D7009BB05F /* fail2.json in Resources */,
+				ED8C123D1C59A8D7009BB05F /* fail17.json in Resources */,
+				ED8C123A1C59A8D7009BB05F /* fail16.json in Resources */,
+				ED8C12251C59A8D7009BB05F /* fail1.json in Resources */,
+				ED8C127F1C59A8D7009BB05F /* fail7.json in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ED8C11A41C58E00C009BB05F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ED8C11AD1C58E00C009BB05F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ED8C125F1C59A8D7009BB05F /* fail27.json in Resources */,
+				ED8C12501C59A8D7009BB05F /* fail22.json in Resources */,
+				ED8C12651C59A8D7009BB05F /* fail29.json in Resources */,
+				ED8C124A1C59A8D7009BB05F /* fail20.json in Resources */,
+				ED8C12351C59A8D7009BB05F /* fail14.json in Resources */,
+				ED8C128C1C59A8D7009BB05F /* pass2.json in Resources */,
+				ED8C12441C59A8D7009BB05F /* fail19.json in Resources */,
+				ED8C12831C59A8D7009BB05F /* fail8.json in Resources */,
+				ED8C12531C59A8D7009BB05F /* fail23.json in Resources */,
+				ED8C12621C59A8D7009BB05F /* fail28.json in Resources */,
+				ED8C12861C59A8D7009BB05F /* fail9.json in Resources */,
+				ED8C127A1C59A8D7009BB05F /* fail5.json in Resources */,
+				ED8C122C1C59A8D7009BB05F /* fail11.json in Resources */,
+				ED8C12591C59A8D7009BB05F /* fail25.json in Resources */,
+				ED8C12681C59A8D7009BB05F /* fail3.json in Resources */,
+				ED8C12411C59A8D7009BB05F /* fail18.json in Resources */,
+				ED8C128F1C59A8D7009BB05F /* pass3.json in Resources */,
+				ED8C12291C59A8D7009BB05F /* fail10.json in Resources */,
+				ED8C12891C59A8D7009BB05F /* pass1.json in Resources */,
+				ED8C126E1C59A8D7009BB05F /* fail31.json in Resources */,
+				ED8C124D1C59A8D7009BB05F /* fail21.json in Resources */,
+				ED8C12741C59A8D7009BB05F /* fail33.json in Resources */,
+				ED8C12321C59A8D7009BB05F /* fail13.json in Resources */,
+				ED8C127D1C59A8D7009BB05F /* fail6.json in Resources */,
+				ED8C122F1C59A8D7009BB05F /* fail12.json in Resources */,
+				ED8C12771C59A8D7009BB05F /* fail4.json in Resources */,
+				ED8C125C1C59A8D7009BB05F /* fail26.json in Resources */,
+				ED8C12561C59A8D7009BB05F /* fail24.json in Resources */,
+				ED8C126B1C59A8D7009BB05F /* fail30.json in Resources */,
+				ED8C12711C59A8D7009BB05F /* fail32.json in Resources */,
+				ED8C12381C59A8D7009BB05F /* fail15.json in Resources */,
+				ED8C12471C59A8D7009BB05F /* fail2.json in Resources */,
+				ED8C123E1C59A8D7009BB05F /* fail17.json in Resources */,
+				ED8C123B1C59A8D7009BB05F /* fail16.json in Resources */,
+				ED8C12261C59A8D7009BB05F /* fail1.json in Resources */,
+				ED8C12801C59A8D7009BB05F /* fail7.json in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		ED8C115B1C58B6BB009BB05F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ED8C11C51C58F76A009BB05F /* TidyJSON.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ED8C11661C58B6BB009BB05F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ED8C11CA1C59A43B009BB05F /* Test.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ED8C11781C58DF20009BB05F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ED8C11C61C58F76A009BB05F /* TidyJSON.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ED8C11851C58DFBC009BB05F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ED8C11C71C58F76A009BB05F /* TidyJSON.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ED8C118F1C58DFBD009BB05F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ED8C11D91C59A4CF009BB05F /* TidyJSON.h in Sources */,
+				ED8C11CB1C59A43B009BB05F /* Test.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ED8C11A11C58E00C009BB05F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ED8C11C81C58F76A009BB05F /* TidyJSON.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ED8C11AB1C58E00C009BB05F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ED8C11DA1C59A4D4009BB05F /* TidyJSON.h in Sources */,
+				ED8C11CC1C59A43B009BB05F /* Test.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		ED8C116D1C58B6BB009BB05F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = ED8C115F1C58B6BB009BB05F /* TidyJSON-iOS */;
+			targetProxy = ED8C116C1C58B6BB009BB05F /* PBXContainerItemProxy */;
+		};
+		ED8C11961C58DFBD009BB05F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = ED8C11891C58DFBC009BB05F /* TidyJSON-tvOS */;
+			targetProxy = ED8C11951C58DFBD009BB05F /* PBXContainerItemProxy */;
+		};
+		ED8C11B21C58E00D009BB05F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = ED8C11A51C58E00C009BB05F /* TidyJSON-OSX */;
+			targetProxy = ED8C11B11C58E00D009BB05F /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		ED8C11721C58B6BB009BB05F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = "Sources/Info-iOS.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = io.altdev.TidyJSON;
+				PRODUCT_NAME = TidyJSON;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		ED8C11731C58B6BB009BB05F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = "Sources/Info-iOS.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = io.altdev.TidyJSON;
+				PRODUCT_NAME = TidyJSON;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		ED8C11741C58B6BB009BB05F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = "Tests/Info-iOS.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = io.altdev.TidyJSONTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		ED8C11751C58B6BB009BB05F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = "Tests/Info-iOS.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = io.altdev.TidyJSONTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		ED8C11831C58DF20009BB05F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = "Sources/Info-watchOS.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = io.altdev.TidyJSON;
+				PRODUCT_NAME = TidyJSON;
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = 4;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+				WATCHOS_DEPLOYMENT_TARGET = 2.1;
+			};
+			name = Debug;
+		};
+		ED8C11841C58DF20009BB05F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = "Sources/Info-watchOS.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = io.altdev.TidyJSON;
+				PRODUCT_NAME = TidyJSON;
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+				WATCHOS_DEPLOYMENT_TARGET = 2.1;
+			};
+			name = Release;
+		};
+		ED8C119C1C58DFBD009BB05F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = "Sources/Info-tvOS.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = io.altdev.TidyJSON;
+				PRODUCT_NAME = TidyJSON;
+				SDKROOT = appletvos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 9.1;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		ED8C119D1C58DFBD009BB05F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = "Sources/Info-tvOS.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = io.altdev.TidyJSON;
+				PRODUCT_NAME = TidyJSON;
+				SDKROOT = appletvos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 9.1;
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		ED8C119F1C58DFBD009BB05F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = "Tests/Info-tvOS.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = io.altdev.TidyJSONTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = appletvos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TVOS_DEPLOYMENT_TARGET = 9.1;
+			};
+			name = Debug;
+		};
+		ED8C11A01C58DFBD009BB05F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = "Tests/Info-tvOS.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = io.altdev.TidyJSONTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = appletvos;
+				TVOS_DEPLOYMENT_TARGET = 9.1;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		ED8C11B81C58E00D009BB05F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_VERSION = A;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = "Sources/Info-OSX.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = io.altdev.TidyJSON;
+				PRODUCT_NAME = TidyJSON;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		ED8C11B91C58E00D009BB05F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_VERSION = A;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = "Sources/Info-OSX.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = io.altdev.TidyJSON;
+				PRODUCT_NAME = TidyJSON;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		ED8C11BB1C58E00D009BB05F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = "Tests/Info-OSX.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = io.altdev.TidyJSONTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		ED8C11BC1C58E00D009BB05F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = "Tests/Info-OSX.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = io.altdev.TidyJSONTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		ED90CC691C58B10F000FCC4A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+			};
+			name = Debug;
+		};
+		ED90CC6A1C58B10F000FCC4A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		ED8C11761C58B6BB009BB05F /* Build configuration list for PBXNativeTarget "TidyJSON-iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ED8C11721C58B6BB009BB05F /* Debug */,
+				ED8C11731C58B6BB009BB05F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		ED8C11771C58B6BB009BB05F /* Build configuration list for PBXNativeTarget "TidyJSON-iOSTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ED8C11741C58B6BB009BB05F /* Debug */,
+				ED8C11751C58B6BB009BB05F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		ED8C11821C58DF20009BB05F /* Build configuration list for PBXNativeTarget "TidyJSON-watchOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ED8C11831C58DF20009BB05F /* Debug */,
+				ED8C11841C58DF20009BB05F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		ED8C119B1C58DFBD009BB05F /* Build configuration list for PBXNativeTarget "TidyJSON-tvOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ED8C119C1C58DFBD009BB05F /* Debug */,
+				ED8C119D1C58DFBD009BB05F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		ED8C119E1C58DFBD009BB05F /* Build configuration list for PBXNativeTarget "TidyJSON-tvOSTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ED8C119F1C58DFBD009BB05F /* Debug */,
+				ED8C11A01C58DFBD009BB05F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		ED8C11B71C58E00D009BB05F /* Build configuration list for PBXNativeTarget "TidyJSON-OSX" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ED8C11B81C58E00D009BB05F /* Debug */,
+				ED8C11B91C58E00D009BB05F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		ED8C11BA1C58E00D009BB05F /* Build configuration list for PBXNativeTarget "TidyJSON-OSXTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ED8C11BB1C58E00D009BB05F /* Debug */,
+				ED8C11BC1C58E00D009BB05F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		ED90CC681C58B10F000FCC4A /* Build configuration list for PBXProject "TidyJSON" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ED90CC691C58B10F000FCC4A /* Debug */,
+				ED90CC6A1C58B10F000FCC4A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = ED90CC651C58B10F000FCC4A /* Project object */;
+}

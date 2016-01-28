@@ -294,7 +294,7 @@ class ParserTests: XCTestCase {
     func testFailCase(path: String) -> Bool{
         do {
             if let file = NSBundle(forClass:ParserTests.self).pathForResource(path, ofType: "json") {
-                let content = try String(contentsOfFile: "./Tests/TestCases/\(path).json", encoding: NSUTF8StringEncoding)
+                let content = try String(contentsOfFile: file, encoding: NSUTF8StringEncoding)
                 let (json, error) = JSON.parse(content)
                 if let _ = json {
                     return false
@@ -315,7 +315,7 @@ class ParserTests: XCTestCase {
     func testPassCase(path: String) -> Bool {
          do {
             if let file = NSBundle(forClass:ParserTests.self).pathForResource(path, ofType: "json") {
-                let content = try String(contentsOfFile: "./Tests/TestCases/\(path).json", encoding: NSUTF8StringEncoding)
+                let content = try String(contentsOfFile: file, encoding: NSUTF8StringEncoding)
 
                 let (json, error) = JSON.parse(content)
                 if let _ = json {
