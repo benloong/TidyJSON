@@ -313,7 +313,7 @@ class ParserTests: XCTestCase {
     }
     
     func testPassCase(path: String) -> Bool {
-         do {
+        do {
             if let file = NSBundle(forClass:ParserTests.self).pathForResource(path, ofType: "json") {
                 let content = try String(contentsOfFile: file, encoding: NSUTF8StringEncoding)
 
@@ -331,6 +331,27 @@ class ParserTests: XCTestCase {
      
         }
         return false
+    }
+    
+    func testParsePerformance() {
+        do {
+            if let file = NSBundle(forClass:ParserTests.self).pathForResource("citm_catalog", ofType: "json") {
+                let content = try String(contentsOfFile: file, encoding: NSUTF8StringEncoding)
+                
+                let (json, error) = JSON.parse(content)
+                if let _ = json {
+                    return
+                }
+                else {
+                    print(error!)
+                    return
+                }
+            }
+        }
+        catch {
+            
+        }
+        return
     }
 #endif
 }

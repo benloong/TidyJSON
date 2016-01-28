@@ -349,7 +349,7 @@ extension JSON {
     * parse json from string, return nil and error message if parse error occurred 
     */
     public static func parse(string: Swift.String) -> (JSON?, Swift.String?) {
-        let (json, _) = parseValue(string, index: string.startIndex)
+        let (json, _) = Parser(string).parseValue(string.startIndex)
         switch json {
             case .None(let error): return (nil, error)
             default: return (json, nil)
@@ -443,26 +443,22 @@ extension JSON {
 }
 
 //MARK: - Parser internal
-
-private enum Token {
-    case None
-    case CurlyOpen
-    case CurlyClose
-    case SquareOpen
-    case SquareClose
-    case Colon
-    case Comma
-    case Number
-    case String
-    case True
-    case False
-    case Null
-}
-
-private func _parseString(string: String, index: String.Index) -> (String?, String.Index, String?) {
-     // skip first '\"' character
-    var cursor = eatWhiteSpace(string, index: index).successor()
-    
+struct Parser {
+    let string: String
+    private enum Token {
+        case None
+        case CurlyOpen
+        case CurlyClose
+        case SquareOpen
+        case SquareClose
+        case Colon
+        case Comma
+        case Number
+        case String
+        case True
+        case False
+        case Null
+    }
     
     let rs : Character = "\\"
     let s : Character = "/"
@@ -473,305 +469,376 @@ private func _parseString(string: String, index: String.Index) -> (String?, Stri
     let r : Character = "\r"
     let t : Character = "\t"
     
-    var result = ""
-    while cursor != string.endIndex {
-        switch string[cursor] {
-            case "\\":  
-                cursor = cursor.successor()
-                // invalid json format
-                if  cursor == string.endIndex {
-                    return (nil, cursor, "invalid json: not expect end at \(cursor)")
-                }
-                let ch = string[cursor]
-                switch ch {
-                    case "\\": result.append(rs)
-                    case "/": result.append(s)
-                    case "\"": result.append(q)
-                    case "b": result.append(b)
-                    case "f": result.append(f)
-                    case "n": result.append(n)
-                    case "r": result.append(r)
-                    case "t": result.append(t)
-                    case "u": 
-                        // parse unicode scalar hex digit
-                        // skip 'u'
-                        cursor = cursor.successor()
-                        if(cursor.distanceTo(string.endIndex) > 4 ) {
-                            let hexEnd = cursor.advancedBy(4)
-                            if let unicode = Int(string[Range(start:cursor, end:hexEnd)], radix: 16) {
-                                result.append(UnicodeScalar(unicode))
-                                cursor = hexEnd.advancedBy(-1)
-                            }
-                            else {
-                                // invalid json 
+    let _b : Character = "b"
+    let _f : Character = "f"
+    let _n : Character = "n"
+    let _r : Character = "r"
+    let _t : Character = "t"
+    let _u : Character = "u"
+    let _l : Character = "l"
+    let _a : Character = "a"
+    let _s : Character = "s"
+    
+    let _space : Character = " "
+    
+    let co : Character = "{"
+    let cc : Character = "}"
+    let so : Character = "["
+    let sc : Character = "]"
+    let comma : Character = ","
+    let colon : Character = ":"
+    
+    let minus : Character = "-"
+    let plus : Character = "+"
+    let _0 : Character = "0"
+    let _1 : Character = "1"
+    let _2 : Character = "2"
+    let _3 : Character = "3"
+    let _4 : Character = "4"
+    let _5 : Character = "5"
+    let _6 : Character = "6"
+    let _7 : Character = "7"
+    let _8 : Character = "8"
+    let _9 : Character = "9"
+    
+    let _E : Character = "E"
+    let _e : Character = "e"
+    
+    let dot : Character = "."
+    
+    init(_ s: String) {
+        string = s
+    }
+    
+    private func _parseString(index: String.Index) -> (String?, String.Index, String?) {
+         // skip first '\"' character
+        var cursor = eatWhiteSpace(index).successor()
+        
+        var result = ""
+        while cursor != string.endIndex {
+            switch string[cursor] {
+                case rs:
+                    cursor = cursor.successor()
+                    // invalid json format
+                    if  cursor == string.endIndex {
+                        return (nil, cursor, "invalid json: not expect end at \(cursor)")
+                    }
+                    let ch = string[cursor]
+                    switch ch {
+                        case rs: result.append(rs)
+                        case s: result.append(s)
+                        case q: result.append(q)
+                        case _b: result.append(b)
+                        case _f: result.append(f)
+                        case _n: result.append(n)
+                        case _r: result.append(r)
+                        case _t: result.append(t)
+                        case _u:
+                            // parse unicode scalar hex digit
+                            // skip 'u'
+                            var hex = ""
+                            
+                            cursor = cursor.successor()
+                            guard cursor != string.endIndex else {
                                 return (nil, cursor, "invalid json: illegal unicode hex digit at \(cursor) ")
                             }
+                            hex.append(string[cursor])
                             
-                        }
-                        else {
-                            // invalid json format
-                            return (nil, cursor, "invalid json: illegal unicode hex digit at \(cursor)")
-                        }
-                    
-                    // invalid json format
-                    default: return (nil, cursor, "invalid json: illegal character \(ch) after '\\' at \(cursor)")
-                }
-            
-            case "\"": return (result, cursor.successor(), nil)
-            default: result.append(string[cursor])
+                            cursor = cursor.successor()
+                            guard cursor != string.endIndex else {
+                                return (nil, cursor, "invalid json: illegal unicode hex digit at \(cursor) ")
+                            }
+                            hex.append(string[cursor])
+                            
+                            cursor = cursor.successor()
+                            guard cursor != string.endIndex else {
+                                return (nil, cursor, "invalid json: illegal unicode hex digit at \(cursor) ")
+                            }
+                            hex.append(string[cursor])
+                            
+                            cursor = cursor.successor()
+                            guard cursor != string.endIndex else {
+                                return (nil, cursor, "invalid json: illegal unicode hex digit at \(cursor) ")
+                            }
+                            hex.append(string[cursor])
+                            
+                            if let unicode = Int(hex, radix: 16) {
+                                result.append(UnicodeScalar(unicode))
+                            }
+                        
+                        // invalid json format
+                        default: return (nil, cursor, "invalid json: illegal character \(ch) after '\\' at \(cursor)")
+                    }
+                
+                case q: return (result, cursor.successor(), nil)
+                default: result.append(string[cursor])
+            }
+            cursor = cursor.successor()
+        }
+        return (nil, cursor, "invalid json: expect character \" at \(cursor)")
+    }
+
+    /**
+    * skip all whitespace 
+    */
+    private func eatWhiteSpace(index: String.Index) -> String.Index {
+        var cursor = index
+        while (cursor != string.endIndex) {
+            switch string[cursor] {
+                case _space, t, n, r: cursor = cursor.successor()
+                default: return cursor 
+            }
+        }
+        return cursor
+    }
+
+    /**
+    * get next token and index of this token
+    */
+    private func nextToken(index: String.Index) -> (Token, String.Index) {
+        var cursor = eatWhiteSpace(index)
+        var token : Token = .None
+        
+        if cursor != string.endIndex {
+            let char = string[cursor]
+            switch char {
+                case co: token = .CurlyOpen
+                case cc: token = .CurlyClose
+                case so: token = .SquareOpen
+                case sc: token = .SquareClose
+                case comma: token = .Comma
+                case colon: token = .Colon
+                case q: token = .String
+                case _f: token = .False
+                case _t: token = .True
+                case _n: token = .Null
+                case minus, _0, _1, _2, _3, _4, _5, _6, _7, _8, _9: token = .Number
+                default: break
+            }
+        }
+        
+        cursor = eatWhiteSpace(cursor)
+        return (token, cursor)
+    }
+
+    private func getLastIndexOfNumber(index: String.Index) -> String.Index {
+        for lastIndex in Range(start: index, end: string.endIndex) {
+            switch (string[lastIndex]) {
+                // -4.2e3  +12E4
+                case minus, plus, _0, _1, _2, _3, _4, _5, _6, _7, _8, _9, _e, _E, dot: continue
+                default: return lastIndex
+            }
+        }
+        return string.endIndex 
+    }
+
+    private func parseValue(index: String.Index) -> (JSON, String.Index) {
+        let (token, cursor) = nextToken(index)
+
+        switch token {
+            case .CurlyOpen : return parseObject(cursor)
+            case .SquareOpen : return parseArray(cursor)
+            case .Number : return parseNumber(cursor)
+            case .String : return parseString(cursor)
+            case .False: return parseFalse(cursor)
+            case .True: return parseTrue(cursor)
+            case .Null: return parseNull(cursor)
+            default: break
+        }
+        return (.None("invalid json: character invalid at \(cursor)"), cursor)
+    }
+
+    private func parseString(index: String.Index) -> (JSON, String.Index) {
+        let (s, cursor, err) = _parseString(index)
+        if  let json = s {
+            return (JSON(json), cursor)
+        }
+        return (.None(err), cursor)
+    }
+
+    private func parseNumber(index: String.Index) -> (JSON, String.Index) {
+        let cursor = eatWhiteSpace(index)
+        let lastIndex = getLastIndexOfNumber(cursor)
+        let substr = string[Range(start: cursor, end: lastIndex)]
+        if  let number = Double(substr) {
+            return (JSON(floatLiteral: number), lastIndex)
+        }
+        return (.None("invalid json: \(substr) is not a valid number."), lastIndex)
+    }
+
+    private func parseNull(index: String.Index) -> (JSON, String.Index) {
+        var cursor = eatWhiteSpace(index)
+        
+        guard cursor != string.endIndex && string[cursor] == _n else {
+            return (.None("invalid json: expect 'null' at \(cursor)"), cursor)
         }
         cursor = cursor.successor()
-    }
-    return (nil, cursor, "invalid json: expect character \" at \(cursor)")
-}
-
-/**
-* skip all whitespace 
-*/
-private func eatWhiteSpace(string: String, index: String.Index) -> String.Index {
-    var cursor = index
-    while (cursor != string.endIndex) {
-        switch string[cursor] {
-            case " ", "\t", "\n", "\r": cursor = cursor.successor()
-            default: return cursor 
+        guard cursor != string.endIndex && string[cursor] == _u else {
+            return (.None("invalid json: expect 'null' at \(cursor)"), cursor)
         }
-    }
-    return cursor
-}
-
-/**
-* get next token and index of this token
-*/
-private func nextToken(string: String, index: String.Index) -> (Token, String.Index) {
-    var cursor = eatWhiteSpace(string, index: index)
-    var token : Token = .None
-    
-    if cursor != string.endIndex {
-        let char = string[cursor]
-        switch char {
-            case "{": token = .CurlyOpen 
-            case "}": token = .CurlyClose
-            case "[": token = .SquareOpen
-            case "]": token = .SquareClose
-            case ",": token = .Comma
-            case ":": token = .Colon
-            case "\"": token = .String
-            case "f": token = .False
-            case "t": token = .True
-            case "n": token = .Null
-            case "-", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9": token = .Number
-            default: break
+        cursor = cursor.successor()
+        guard cursor != string.endIndex && string[cursor] == _l else {
+            return (.None("invalid json: expect 'null' at \(cursor)"), cursor)
         }
-    }
-    
-    cursor = eatWhiteSpace(string, index: cursor)
-    return (token, cursor)
-}
-
-private func getLastIndexOfNumber(string: String, index: String.Index) -> String.Index {
-    for lastIndex in Range(start: index, end: string.endIndex) {
-        switch (string[lastIndex]) {
-            // -4.2e3  +12E4
-            case "-", "+", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "e", "E", ".": continue
-            default: return lastIndex
+        cursor = cursor.successor()
+        guard cursor != string.endIndex && string[cursor] == _l else {
+            return (.None("invalid json: expect 'null' at \(cursor)"), cursor)
         }
-    }
-    return string.endIndex 
-}
-
-private func parseValue(string: String, index: String.Index) -> (JSON, String.Index) {
-    let (token, cursor) = nextToken(string, index: index)
-
-    switch token {
-        case .CurlyOpen : return parseObject(string, index: cursor)
-        case .SquareOpen : return parseArray(string, index: cursor)
-        case .Number : return parseNumber(string, index: cursor)
-        case .String : return parseString(string, index: cursor)
-        case .False: return parseFalse(string, index: cursor)
-        case .True: return parseTrue(string, index: cursor)
-        case .Null: return parseNull(string, index: cursor)
-        default: break
-    }
-    return (.None("invalid json: character invalid at \(cursor)"), cursor)
-}
-
-private func parseString(string: String, index: String.Index) -> (JSON, String.Index) {
-    let (s, cursor, err) = _parseString(string, index: index)
-    if  let json = s {
-        return (JSON(json), cursor)
-    }
-    return (.None(err), cursor)
-}
-
-private func parseNumber(string: String, index: String.Index) -> (JSON, String.Index) {
-    let cursor = eatWhiteSpace(string, index: index)
-    let lastIndex = getLastIndexOfNumber(string, index: cursor)
-    let substr = string[Range(start: cursor, end: lastIndex)]
-    if  let number = Double(substr) {
-        return (JSON(floatLiteral: number), lastIndex)
-    }
-    return (.None("invalid json: \(substr) is not a valid number."), lastIndex)
-}
-
-private func parseNull(string: String, index: String.Index) -> (JSON, String.Index) {
-    let cursor = eatWhiteSpace(string, index: index)
-    
-    guard cursor.distanceTo(string.endIndex) > 3 else {
-        // invalid json
-        return (.None("invalid json: expect 'null' at \(cursor)"), cursor)
-    }
-    
-    if  string[cursor] == "n" 
-        && string[cursor.advancedBy(1)] == "u"
-        && string[cursor.advancedBy(2)] == "l"
-        && string[cursor.advancedBy(3)] == "l" {
-            return (nil, cursor.advancedBy(4))
-    }
-    // invalid json
-    return (.None("invalid json: expect 'null' at \(cursor)"), cursor)
-}
-
-private func parseTrue(string: String, index: String.Index) -> (JSON, String.Index) {
-    let cursor = eatWhiteSpace(string, index: index)
-    
-    guard cursor.distanceTo(string.endIndex) > 3 else {
-        // invalid json
-        return (.None("invalid json: expect 'true' at \(cursor)"), cursor)
-    }
-    
-    if  string[cursor] == "t" 
-        && string[cursor.advancedBy(1)] == "r"
-        && string[cursor.advancedBy(2)] == "u"
-        && string[cursor.advancedBy(3)] == "e" {
-            return (true, cursor.advancedBy(4))
-    }
-    
-    // invalid json
-    return (.None("invalid json: expect 'true' at \(cursor)"), cursor)
-}
-
-private func parseFalse(string: String, index: String.Index) -> (JSON, String.Index) {
-    let cursor = eatWhiteSpace(string, index: index)
-    
-    guard cursor.distanceTo(string.endIndex) > 4 else {
-        // invalid json
-        return (.None("invalid json: expect 'false' at \(cursor)"), cursor)
-    }
-    
-    if  string[cursor] == "f" 
-        && string[cursor.advancedBy(1)] == "a"
-        && string[cursor.advancedBy(2)] == "l"
-        && string[cursor.advancedBy(3)] == "s" 
-        && string[cursor.advancedBy(4)] == "e" {
-            return (false, cursor.advancedBy(5))
-    }
-    // invalid json
-    return (.None("invalid json: expect 'false' at \(cursor)"), cursor)
-}
-
-private func parseArray(string: String, index: String.Index) -> (JSON, String.Index) {
-    var cursor = eatWhiteSpace(string, index: index)
-    
-    guard string[cursor] == "[" else {
-        // invalid json "[" start array
-        return (.None("invalid json: expect '[' at \(cursor)"), cursor)
-    }
-    
-    // skip "["
-    cursor = cursor.successor()
-    cursor = eatWhiteSpace(string, index: cursor)
-    
-    var array = [JSON]()
-    
-    guard string[cursor] != "]" else {
-        // empty array "[]" early return
-        return (JSON(array), cursor.successor())
-    }
-    
-    while cursor != string.endIndex {
-        // parse value 
-        let (json, next) = parseValue(string, index: cursor)
-        switch json {
-            // parse error
-            case .None(let err): return (.None(err), next)
-            default: break
-        }
-        cursor = next
-        array.append(json)
         
-        // next token  "," or "]"
-        
-        let (token, nextNext) = nextToken(string, index: cursor)
-        switch token {
-            // "," parse next value
-            case .Comma: cursor = nextNext.successor()
-            // "]" end array
-            case .SquareClose: return (JSON(array), nextNext.successor())
-            // invalid json 
-            default: return (.None("invalid json: expect ']' or ',' at \(nextNext)"), nextNext)
-        }
+        return (nil, cursor.successor())
     }
-    
-    // invalid json
-    return (.None("invalid json: expect ']' or ',' at \(cursor)"), cursor)
-}
 
-private func parseObject(string: String, index: String.Index) -> (JSON, String.Index) {
-    var cursor = eatWhiteSpace(string, index: index)
-    
-    guard string[cursor] == "{" else {
-        // invalid json "{" start array
-        return (.None("invalid json: expect '{' at \(cursor). "), cursor)
-    }
-    
-    // skip "{"
-    cursor = cursor.successor()
-    cursor = eatWhiteSpace(string, index: cursor)
-    
-    var object : [String : JSON] = [:]
-    
-    guard string[cursor] != "}" else {
-        // empty object "{}" early return
-        return (JSON(object), cursor.successor())
-    }
-    
-    while cursor != string.endIndex {
-        let (_key, afterKey, err) = _parseString(string, index: cursor)
-        guard let key = _key else {
-            // parse key error, invalid json
-            return (.None(err), cursor)
+    private func parseTrue(index: String.Index) -> (JSON, String.Index) {
+        var cursor = eatWhiteSpace(index)
+        
+        guard cursor != string.endIndex && string[cursor] == _t else {
+            return (.None("invalid json: expect 'true' at \(cursor)"), cursor)
         }
-        cursor = afterKey
-        let (token1, tokenIndex) = nextToken(string, index: cursor)
-        switch token1 {
-            case .Colon: break
+        cursor = cursor.successor()
+        guard cursor != string.endIndex && string[cursor] == _r else {
+            return (.None("invalid json: expect 'true' at \(cursor)"), cursor)
+        }
+        cursor = cursor.successor()
+        guard cursor != string.endIndex && string[cursor] == _u else {
+            return (.None("invalid json: expect 'true' at \(cursor)"), cursor)
+        }
+        cursor = cursor.successor()
+        guard cursor != string.endIndex && string[cursor] == _e else {
+            return (.None("invalid json: expect 'true' at \(cursor)"), cursor)
+        }
+        
+        return (true, cursor.successor())
+    }
+
+    private func parseFalse(index: String.Index) -> (JSON, String.Index) {
+        var cursor = eatWhiteSpace(index)
+        
+        guard cursor != string.endIndex && string[cursor] == _f else {
+            return (.None("invalid json: expect 'false' at \(cursor)"), cursor)
+        }
+        cursor = cursor.successor()
+        guard cursor != string.endIndex && string[cursor] == _a else {
+            return (.None("invalid json: expect 'false' at \(cursor)"), cursor)
+        }
+        cursor = cursor.successor()
+        guard cursor != string.endIndex && string[cursor] == _l else {
+            return (.None("invalid json: expect 'false' at \(cursor)"), cursor)
+        }
+        cursor = cursor.successor()
+        guard cursor != string.endIndex && string[cursor] == _s else {
+            return (.None("invalid json: expect 'false' at \(cursor)"), cursor)
+        }
+        cursor = cursor.successor()
+        guard cursor != string.endIndex && string[cursor] == _e else {
+            return (.None("invalid json: expect 'false' at \(cursor)"), cursor)
+        }
+        return (false, cursor.successor())
+    }
+
+    private func parseArray(index: String.Index) -> (JSON, String.Index) {
+        var cursor = eatWhiteSpace(index)
+        
+        guard string[cursor] == so else {
+            // invalid json "[" start array
+            return (.None("invalid json: expect '[' at \(cursor)"), cursor)
+        }
+        
+        // skip "["
+        cursor = cursor.successor()
+        cursor = eatWhiteSpace(cursor)
+        
+        var array = [JSON]()
+        
+        guard string[cursor] != sc else {
+            // empty array "[]" early return
+            return (JSON(array), cursor.successor())
+        }
+        
+        while cursor != string.endIndex {
+            // parse value 
+            let (json, next) = parseValue(cursor)
+            switch json {
+                // parse error
+                case .None(let err): return (.None(err), next)
+                default: break
+            }
+            cursor = next
+            array.append(json)
             
-            // not match expect ":", invalid json
-            default: return (.None("invalid json: expect ':' at \(tokenIndex)"), cursor)
+            // next token  "," or "]"
+            
+            let (token, nextNext) = nextToken(cursor)
+            switch token {
+                // "," parse next value
+                case .Comma: cursor = nextNext.successor()
+                // "]" end array
+                case .SquareClose: return (JSON(array), nextNext.successor())
+                // invalid json 
+                default: return (.None("invalid json: expect ']' or ',' at \(nextNext)"), nextNext)
+            }
         }
-        cursor = tokenIndex.successor()
-        // parse value 
-        let (json, next) = parseValue(string, index: cursor)
-        switch json {
-            // parse error, invalid json
-            case .None(let err): return (.None(err), cursor)
-            default: break
-        }
-        cursor = next
-        object[key] = json
         
-        // next token  "," or "}"
-        let (token, nextNext) = nextToken(string, index: cursor)
-        switch token {
-            // "," parse next value
-            case .Comma: cursor = nextNext.successor()
-            // "}" end object
-            case .CurlyClose: return (JSON(object), nextNext.successor())
-            // not expected token, invalid json 
-            default: return (.None("invalid json: expect '}' or ',' at \(nextNext) = '\(string[nextNext])'"), nextNext)
-        }
+        // invalid json
+        return (.None("invalid json: expect ']' or ',' at \(cursor)"), cursor)
     }
-    
-    // invalid json
-    return (.None("invalid json: expect '}' at \(cursor). "), cursor)
+
+    private func parseObject(index: String.Index) -> (JSON, String.Index) {
+        var cursor = eatWhiteSpace(index)
+        
+        guard string[cursor] == co else {
+            // invalid json "{" start array
+            return (.None("invalid json: expect '{' at \(cursor). "), cursor)
+        }
+        
+        // skip "{"
+        cursor = cursor.successor()
+        cursor = eatWhiteSpace(cursor)
+        
+        var object : [String : JSON] = [:]
+        
+        guard string[cursor] != cc else {
+            // empty object "{}" early return
+            return (JSON(object), cursor.successor())
+        }
+        
+        while cursor != string.endIndex {
+            let (_key, afterKey, err) = _parseString(cursor)
+            guard let key = _key else {
+                // parse key error, invalid json
+                return (.None(err), cursor)
+            }
+            cursor = afterKey
+            let (token1, tokenIndex) = nextToken(cursor)
+            switch token1 {
+                case .Colon: break
+                
+                // not match expect ":", invalid json
+                default: return (.None("invalid json: expect ':' at \(tokenIndex)"), cursor)
+            }
+            cursor = tokenIndex.successor()
+            // parse value 
+            let (json, next) = parseValue(cursor)
+            switch json {
+                // parse error, invalid json
+                case .None(let err): return (.None(err), cursor)
+                default: break
+            }
+            cursor = next
+            object[key] = json
+            
+            // next token  "," or "}"
+            let (token, nextNext) = nextToken(cursor)
+            switch token {
+                // "," parse next value
+                case .Comma: cursor = nextNext.successor()
+                // "}" end object
+                case .CurlyClose: return (JSON(object), nextNext.successor())
+                // not expected token, invalid json 
+                default: return (.None("invalid json: expect '}' or ',' at \(nextNext) = '\(string[nextNext])'"), nextNext)
+            }
+        }
+        
+        // invalid json
+        return (.None("invalid json: expect '}' at \(cursor). "), cursor)
+    }
 }

@@ -131,6 +131,9 @@
 		ED8C128E1C59A8D7009BB05F /* pass3.json in Resources */ = {isa = PBXBuildFile; fileRef = ED8C12231C59A8D7009BB05F /* pass3.json */; };
 		ED8C128F1C59A8D7009BB05F /* pass3.json in Resources */ = {isa = PBXBuildFile; fileRef = ED8C12231C59A8D7009BB05F /* pass3.json */; };
 		ED8C12921C59ACCB009BB05F /* TidyJSON.h in Headers */ = {isa = PBXBuildFile; fileRef = ED8C11631C58B6BB009BB05F /* TidyJSON.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		ED8C12941C59C50A009BB05F /* citm_catalog.json in Resources */ = {isa = PBXBuildFile; fileRef = ED8C12931C59C50A009BB05F /* citm_catalog.json */; };
+		ED8C12951C59C50A009BB05F /* citm_catalog.json in Resources */ = {isa = PBXBuildFile; fileRef = ED8C12931C59C50A009BB05F /* citm_catalog.json */; };
+		ED8C12961C59C50A009BB05F /* citm_catalog.json in Resources */ = {isa = PBXBuildFile; fileRef = ED8C12931C59C50A009BB05F /* citm_catalog.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -211,6 +214,7 @@
 		ED8C12211C59A8D7009BB05F /* pass1.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = pass1.json; sourceTree = "<group>"; };
 		ED8C12221C59A8D7009BB05F /* pass2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = pass2.json; sourceTree = "<group>"; };
 		ED8C12231C59A8D7009BB05F /* pass3.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = pass3.json; sourceTree = "<group>"; };
+		ED8C12931C59C50A009BB05F /* citm_catalog.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = citm_catalog.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -314,6 +318,7 @@
 			isa = PBXGroup;
 			children = (
 				ED8C12001C59A8D7009BB05F /* fail1.json */,
+				ED8C12931C59C50A009BB05F /* citm_catalog.json */,
 				ED8C12011C59A8D7009BB05F /* fail10.json */,
 				ED8C12021C59A8D7009BB05F /* fail11.json */,
 				ED8C12031C59A8D7009BB05F /* fail12.json */,
@@ -628,6 +633,7 @@
 				ED8C12451C59A8D7009BB05F /* fail2.json in Resources */,
 				ED8C123C1C59A8D7009BB05F /* fail17.json in Resources */,
 				ED8C12391C59A8D7009BB05F /* fail16.json in Resources */,
+				ED8C12941C59C50A009BB05F /* citm_catalog.json in Resources */,
 				ED8C12241C59A8D7009BB05F /* fail1.json in Resources */,
 				ED8C127E1C59A8D7009BB05F /* fail7.json in Resources */,
 			);
@@ -685,6 +691,7 @@
 				ED8C12461C59A8D7009BB05F /* fail2.json in Resources */,
 				ED8C123D1C59A8D7009BB05F /* fail17.json in Resources */,
 				ED8C123A1C59A8D7009BB05F /* fail16.json in Resources */,
+				ED8C12951C59C50A009BB05F /* citm_catalog.json in Resources */,
 				ED8C12251C59A8D7009BB05F /* fail1.json in Resources */,
 				ED8C127F1C59A8D7009BB05F /* fail7.json in Resources */,
 			);
@@ -735,6 +742,7 @@
 				ED8C12471C59A8D7009BB05F /* fail2.json in Resources */,
 				ED8C123E1C59A8D7009BB05F /* fail17.json in Resources */,
 				ED8C123B1C59A8D7009BB05F /* fail16.json in Resources */,
+				ED8C12961C59C50A009BB05F /* citm_catalog.json in Resources */,
 				ED8C12261C59A8D7009BB05F /* fail1.json in Resources */,
 				ED8C12801C59A8D7009BB05F /* fail7.json in Resources */,
 			);
