@@ -379,9 +379,9 @@ extension JSON {
     }
     
     func dumpArray(inout string: Swift.String, array: [JSON]) {
-        let comma : Character = ","
-        let open : Character = "["
-        let close : Character = "]"
+        let comma : UnicodeScalar = ","
+        let open : UnicodeScalar = "["
+        let close : UnicodeScalar = "]"
         string.append(open)
         for child in array {
             child.dump(&string)
@@ -396,10 +396,10 @@ extension JSON {
     }
     
     func dumpObject(inout string: Swift.String, object: [Swift.String : JSON]) {
-        let comma : Character = ","
-        let open : Character = "{"
-        let close : Character = "}"
-        let colon : Character = ":"
+        let comma : UnicodeScalar = ","
+        let open : UnicodeScalar = "{"
+        let close : UnicodeScalar = "}"
+        let colon : UnicodeScalar = ":"
         string.append(open)
         for (k, v) in object {
             dumpString(&string, jsonString: k)
@@ -415,14 +415,14 @@ extension JSON {
     }
     
     func dumpString(inout string: Swift.String, jsonString: Swift.String) {
-        let rs : Character = "\\"
-        let s : Character = "/"
-        let q : Character = "\""
-        let b : Character = "b"
-        let f : Character = "f"
-        let n : Character = "n"
-        let r : Character = "r"
-        let t : Character = "t"
+        let rs : UnicodeScalar = "\\"
+        let s : UnicodeScalar = "/"
+        let q : UnicodeScalar = "\""
+        let b : UnicodeScalar = "b"
+        let f : UnicodeScalar = "f"
+        let n : UnicodeScalar = "n"
+        let r : UnicodeScalar = "r"
+        let t : UnicodeScalar = "t"
         
         string.append(q)
         for ch in jsonString.characters {
@@ -444,7 +444,7 @@ extension JSON {
 
 //MARK: - Parser internal
 struct Parser {
-    let string: [Character]
+    let string: [UnicodeScalar]
     private enum Token {
         case None
         case CurlyOpen
@@ -460,54 +460,48 @@ struct Parser {
         case Null
     }
     
-    let rs : Character = "\\"
-    let s : Character = "/"
-    let q : Character = "\""
-    let b : Character = "\u{8}"
-    let f : Character = "\u{c}"
-    let n : Character = "\n"
-    let r : Character = "\r"
-    let t : Character = "\t"
-    
-    let _b : Character = "b"
-    let _f : Character = "f"
-    let _n : Character = "n"
-    let _r : Character = "r"
-    let _t : Character = "t"
-    let _u : Character = "u"
-    let _l : Character = "l"
-    let _a : Character = "a"
-    let _s : Character = "s"
-    
-    let _space : Character = " "
-    
-    let co : Character = "{"
-    let cc : Character = "}"
-    let so : Character = "["
-    let sc : Character = "]"
-    let comma : Character = ","
-    let colon : Character = ":"
-    
-    let minus : Character = "-"
-    let plus : Character = "+"
-    let _0 : Character = "0"
-    let _1 : Character = "1"
-    let _2 : Character = "2"
-    let _3 : Character = "3"
-    let _4 : Character = "4"
-    let _5 : Character = "5"
-    let _6 : Character = "6"
-    let _7 : Character = "7"
-    let _8 : Character = "8"
-    let _9 : Character = "9"
-    
-    let _E : Character = "E"
-    let _e : Character = "e"
-    
-    let dot : Character = "."
+    let rs : UnicodeScalar = "\\"
+    let s : UnicodeScalar = "/"
+    let q : UnicodeScalar = "\""
+    let b : UnicodeScalar = "\u{8}"
+    let f : UnicodeScalar = "\u{c}"
+    let n : UnicodeScalar = "\n"
+    let r : UnicodeScalar = "\r"
+    let t : UnicodeScalar = "\t"
+    let _b : UnicodeScalar = "b"
+    let _f : UnicodeScalar = "f"
+    let _n : UnicodeScalar = "n"
+    let _r : UnicodeScalar = "r"
+    let _t : UnicodeScalar = "t"
+    let _u : UnicodeScalar = "u"
+    let _l : UnicodeScalar = "l"
+    let _a : UnicodeScalar = "a"
+    let _s : UnicodeScalar = "s"
+    let _space : UnicodeScalar = " "
+    let co : UnicodeScalar = "{"
+    let cc : UnicodeScalar = "}"
+    let so : UnicodeScalar = "["
+    let sc : UnicodeScalar = "]"
+    let comma : UnicodeScalar = ","
+    let colon : UnicodeScalar = ":"
+    let minus : UnicodeScalar = "-"
+    let plus : UnicodeScalar = "+"
+    let _0 : UnicodeScalar = "0"
+    let _1 : UnicodeScalar = "1"
+    let _2 : UnicodeScalar = "2"
+    let _3 : UnicodeScalar = "3"
+    let _4 : UnicodeScalar = "4"
+    let _5 : UnicodeScalar = "5"
+    let _6 : UnicodeScalar = "6"
+    let _7 : UnicodeScalar = "7"
+    let _8 : UnicodeScalar = "8"
+    let _9 : UnicodeScalar = "9"
+    let _E : UnicodeScalar = "E"
+    let _e : UnicodeScalar = "e"
+    let dot : UnicodeScalar = "."
     
     init(_ str: String) {
-        string = str.characters.flatMap(){ $0 }
+        string = str.unicodeScalars.flatMap(){ $0 }
     }
     
     func parse() -> (JSON, Int) {
@@ -663,8 +657,11 @@ struct Parser {
     private func parseNumber(index: Int) -> (JSON, Int) {
         let cursor = eatWhiteSpace(index)
         let lastIndex = getLastIndexOfNumber(cursor)
-        let substr = string[Range(start: cursor, end: lastIndex)]
-        if  let number = Double(String(substr)) {
+        var substr = ""
+        for x in  cursor..<lastIndex {
+            substr.append(string[x])
+        }
+        if  let number = Double(substr) {
             return (JSON(floatLiteral: number), lastIndex)
         }
         return (.None("invalid json: \(substr) is not a valid number."), lastIndex)
