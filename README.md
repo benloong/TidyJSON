@@ -1,14 +1,15 @@
 # TidyJSON
 
-TidyJSON is a neat and tidy JSON package run on all Swift platforms (Linux, iOS, OS X)
+TidyJSON is a neat and tidy JSON package run on all Swift platforms (Linux, iOS, OS X, tvOS, watchOS)
 
 [![Build Status](https://travis-ci.org/benloong/TidyJSON.svg?branch=master)](https://travis-ci.org/benloong/TidyJSON)
 
 ## Goals 
 - [x] simple, neat and tidy json lib
 - [x] safe static typed without `AnyObject`
+- [x] performance
 - [x] pure Swift, only dependent to builtin types
-- [x] compatible with all Swift platforms (Linux, iOS, OS X)
+- [x] compatible with all Swift platforms (Linux, iOS, OS X, tvOS, watchOS)
 - [x] concise usage
 - [x] boxing dict and array type for mutating data
 - [x] modify json via subscript operator
@@ -19,6 +20,9 @@ TidyJSON is a neat and tidy JSON package run on all Swift platforms (Linux, iOS,
 ## Usage 
 
 ### Literal Convertible
+
+Literal value can be type safe converted to TidyJSON.JSON like this:
+
 ```swift
 let jsonFalse : JSON = false
 let jsonTrue : JSON = true
@@ -29,7 +33,10 @@ let jsonArray : JSON = [12, "string", false, nil, true, ["nested array", 12, 1.2
 let json : JSON = ["key":false, "key2":true, "key3":[1, "hello", 3, "world", ["key4":nil, "key5":12.03, "key6":12E-2, "key7": -12e-2]]]
 ```
 
-### Update value
+### Access value
+
+Get and Set value via Subscripts:
+
 ```swift 
 var json : JSON = []
 // []
@@ -64,6 +71,7 @@ json1["hello"] = false
 json1["world"] = true
 // {"hello":false, "world":true}
 
+// remove a key
 json1["hello"] = nil
 // {"world":true}
 
@@ -71,14 +79,13 @@ json1["world"] = [1,2,3]
 // {"world":[1,2,3]}
 ```
 
-
 ### Parse from String
 ```swift
 let json1 = JSON.parse("{\"key\" : false }")
 if let b = json1["key"].bool {
     print(b)
 }
-/* out
+/*
 false
 */
 
@@ -87,7 +94,7 @@ let json2 = JSON.parse("{\"key\" : [\" \\u0041334 \\n \\t \\\" \"]}")
 if let x = json2["key"][0].string {
     print(x)
 }
-/* out
+/*
  A334 
          " 
 */
@@ -138,6 +145,12 @@ On Linux platform you need install [`XCTest`](https://github.com/apple/swift-cor
 After install `XCTest`, run `sh run_test.sh`
 
 ## Integration
+
+#### Carthage
+
+To integrate TidyJSON into your Xcode project using Carthage, specify it in your Cartfile:
+
+github "benloong/TidyJSON"
 
 #### Swift Package Manager
 
