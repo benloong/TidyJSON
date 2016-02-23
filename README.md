@@ -6,7 +6,7 @@ TidyJSON is a neat and tidy JSON package run on all Swift platforms (Linux, iOS,
 
 ## Goals 
 - [x] simple, neat and tidy json lib
-- [x] safe static typed without `AnyObject`
+- [x] safe static typed without `Any` or `AnyObject`
 - [x] performance
 - [x] pure Swift, only dependent to builtin types
 - [x] compatible with all Swift platforms (Linux, iOS, OS X, tvOS, watchOS)
@@ -15,7 +15,7 @@ TidyJSON is a neat and tidy JSON package run on all Swift platforms (Linux, iOS,
 - [x] modify json via subscript operator
 - [x] fully tested
 - [x] better parse error report
-- [ ] Swift Package Manager, CocoaPods, Carthage support
+- [x] Swift Package Manager, Carthage support
 
 ## Usage 
 
@@ -81,7 +81,7 @@ json1["world"] = [1,2,3]
 
 ### Parse from String
 ```swift
-let json1 = JSON.parse("{\"key\" : false }")
+let json1 = try! JSON.parse("{\"key\" : false }")
 if let b = json1["key"].bool {
     print(b)
 }
@@ -89,7 +89,7 @@ if let b = json1["key"].bool {
 false
 */
 
-let json2 = JSON.parse("{\"key\" : [\" \\u0041334 \\n \\t \\\" \"]}")
+let json2 = try! JSON.parse("{\"key\" : [\" \\u0041334 \\n \\t \\\" \"]}")
 
 if let x = json2["key"][0].string {
     print(x)
@@ -133,7 +133,7 @@ key: key3, value: Number(123.0)
 
 ### Dump to String 
 ```swift
-let json2 = JSON.parse("{\"key\" : \" \\u0041334 \\n \\t \\\" \"}")
+let json2 = try! JSON.parse("{\"key\" : \" \\u0041334 \\n \\t \\\" \"}")
 print(json2.dump())
 // {"key":" A334 \n \t \" "}
 ```
