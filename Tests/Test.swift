@@ -134,6 +134,7 @@ class ParserTests: XCTestCase {
     }
     
     func testParseString() {
+        
         let json = try? JSON.parse("\"hello\"")
         let json1 = try? JSON.parse("\"\\u0041pple\"")
         let json2 = try? JSON.parse("\"\\\\ line1 \\n tab \\t \\r \\/\"")
@@ -227,7 +228,7 @@ class ParserTests: XCTestCase {
         XCTAssertTrue(testFailCase("fail11"))
         XCTAssertTrue(testFailCase("fail12"))
         //XCTAssertTrue(testFailCase("fail13"))
-        XCTAssertTrue(testFailCase("fail14"))
+        //XCTAssertTrue(testFailCase("fail14")) extend Numbers can be hex
         XCTAssertTrue(testFailCase("fail15"))
         XCTAssertTrue(testFailCase("fail16"))
         XCTAssertTrue(testFailCase("fail17"))
@@ -292,7 +293,8 @@ class ParserTests: XCTestCase {
         do {
             if let file = NSBundle(forClass:ParserTests.self).pathForResource(path, ofType: "json") {
                 let content = try String(contentsOfFile: file, encoding: NSUTF8StringEncoding)
-                if let _ = try? JSON.parse(content) {
+                if let json = try? JSON.parse(content) {
+                    print(json.dump())
                     return false
                 }
                 else {
@@ -381,14 +383,14 @@ class DumpTests: XCTestCase {
         let json: JSON = ["v",0.3, true, false, nil, [], ["key": false]]
         XCTAssertEqual(json.dump(), "[\"v\",0.3,true,false,null,[],{\"key\":false}]")
         
-        let s = "[\"hello]\",12.0,false,true,null]"
+        let s = "[\"hello]\",12,false,true,null]"
         let json1 = try! JSON.parse(s)
         XCTAssertEqual(json1.dump(), s)
     }
     
     func testDumpObject() {
-        let json: JSON = ["key2":[false,true,2.0,[],"hello"]]
-        XCTAssertEqual(json.dump(), "{\"key2\":[false,true,2.0,[],\"hello\"]}")
+        let json: JSON = ["key2":[false,true,2,[],"hello"]]
+        XCTAssertEqual(json.dump(), "{\"key2\":[false,true,2,[],\"hello\"]}")
         
         let json1 = try! JSON.parse("{\"key\":\"hello\"}")
         XCTAssertEqual(json1.dump(), "{\"key\":\"hello\"}")
