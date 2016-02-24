@@ -256,12 +256,10 @@ class ParserTests: XCTestCase {
     func testFailCase(path: String) -> Bool {
         do {
             let content = try String(contentsOfFile: "./Tests/TestCases/\(path).json", encoding: NSUTF8StringEncoding)
-            let (json, error) = JSON.parse(content)
-            if let _ = json {
+            if let _ = try? JSON.parse(content) {
                 return false
             }
             else {
-                print(error!)
                 return true
             }
         }
@@ -274,12 +272,10 @@ class ParserTests: XCTestCase {
     func testPassCase(path: String) -> Bool {
         do {
             let content = try String(contentsOfFile: "./Tests/TestCases/\(path).json", encoding: NSUTF8StringEncoding)
-            let (json, error) = JSON.parse(content)
-            if let _ = json {
+            if let _ = try? JSON.parse(content) {
                 return true
             }
             else {
-                print(error!)
                 return false
             }
         }

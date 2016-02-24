@@ -4,6 +4,8 @@
     import Glibc
 #endif
 
+import Foundation
+
 public enum JSON {
     /**
      * Box wrapper for array value
