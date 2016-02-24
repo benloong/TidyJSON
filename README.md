@@ -150,7 +150,7 @@ After install `XCTest`, run `sh run_test.sh`
 
 To integrate TidyJSON into your Xcode project using Carthage, specify it in your Cartfile:
 
-github "benloong/TidyJSON"
+`github "benloong/TidyJSON"`
 
 #### Swift Package Manager
 
