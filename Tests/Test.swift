@@ -123,96 +123,94 @@ class ParserTests: XCTestCase {
     }
     
     func testParseNull() {
-        let (json, error) = JSON.parse("null")
+        let json = try? JSON.parse("null")
         XCTAssertTrue(json!.isNull)
-        XCTAssertTrue(error == nil)
-        let (json1, error1) = JSON.parse("nu")
+        
+        let json1 = try? JSON.parse("nu")
         XCTAssertTrue(json1 == nil)
-        XCTAssertNotNil(error1)
-        let (json2, error2) = JSON.parse("nil")
+        
+        let json2 = try? JSON.parse("nil")
         XCTAssertTrue(json2 == nil)
-        XCTAssertNotNil(error2)
     }
     
     func testParseString() {
-        let (json, _) = JSON.parse("\"hello\"")
-        let (json1, _) = JSON.parse("\"\\u0041pple\"")
-        let (json2, _) = JSON.parse("\"\\\\ line1 \\n tab \\t \\r \\/\"")
+        
+        let json = try? JSON.parse("\"hello\"")
+        let json1 = try? JSON.parse("\"\\u0041pple\"")
+        let json2 = try? JSON.parse("\"\\\\ line1 \\n tab \\t \\r \\/\"")
         XCTAssertEqual(json!.string!, "hello")
         XCTAssertEqual(json1!.string!, "Apple")
         XCTAssertEqual(json2!.string!, "\\ line1 \n tab \t \r /")
         
-        let (json3, error3) = JSON.parse("hello\"")
+        let json3 = try? JSON.parse("hello\"")
         XCTAssertTrue(json3 == nil)
-        XCTAssertNotNil(error3)
         
-        let (json4, error4) = JSON.parse("\"hello")
+        let json4 = try? JSON.parse("\"hello")
         XCTAssertTrue(json4 == nil)
-        XCTAssertNotNil(error4)
     }
     
     func testParseTrue() {
-        let (json, _) = JSON.parse("true")
+        let json = try? JSON.parse("true")
         
         XCTAssertEqual(json!.bool!, true)
         
-        let (json1, error1) = JSON.parse("tru")
+        let json1 = try? JSON.parse("tru")
         XCTAssertTrue(json1 == nil)
-        XCTAssertNotNil(error1)
     }
     
     func testParseFalse() {
-        let (json, _) = JSON.parse("false")
+        let json = try? JSON.parse("false")
         
         XCTAssertEqual(json!.bool!, false)
         
-        let (json1, error1) = JSON.parse("fa")
+        let json1 = try? JSON.parse("fa")
         XCTAssertTrue(json1 == nil)
-        XCTAssertNotNil(error1)
     }
     
     func testParseNumber() {
-        let (json, _) = JSON.parse("-120003e-1")
+        let json = try? JSON.parse("-120003e-1")
         XCTAssertEqual(json!.double!, -120003e-1)
         
-        let (json1, _) = JSON.parse("2.3E12")
+        let json1 = try? JSON.parse("2.3E12")
         XCTAssertEqual(json1!.double!, 2.3E12)
         
-        let (json2, _) = JSON.parse("7.450580596923828e-9")
+        let json2 = try? JSON.parse("7.450580596923828e-9")
         XCTAssertEqual(json2!.double!, 7.450580596923828e-9)
     }
     
     func testParseArray() {
-        let (json, _) = JSON.parse("[]")
+        let json = try? JSON.parse("[]")
         XCTAssertNotNil(json!.array)
         XCTAssertEqual(json!.count, 0)
-        let (json1, _) = JSON.parse("[1,2,3")
+        
+        let json1 = try? JSON.parse("[1,2,3")
         XCTAssertTrue(json1 == nil)
         
-        let (json2, _) = JSON.parse("]")
+        let json2 = try? JSON.parse("]")
         XCTAssertTrue(json2 == nil)
         
-        let (json3, _) = JSON.parse("[1,2,hello]")
+        let json3 = try? JSON.parse("[1,2,hello]")
         XCTAssertTrue(json3 == nil)
         
-        let (json4, _) = JSON.parse("[\"hello]\", 12, false, true, null]")
+        let json4 = try? JSON.parse("[\"hello]\", 12, false, true, null]")
         XCTAssertEqual(json4!.count, 5)
         
-        let (json5,_) = JSON.parse("[,]")
+        let json5 = try? JSON.parse("[,]")
         XCTAssertTrue(json5 == nil)
     }
     
     func testParseObject() {
-        let (json, _) = JSON.parse("{}")
+        let json = try? JSON.parse("{}")
         XCTAssertNotNil(json!.object)
         XCTAssertEqual(json!.count, 0)
-        let (json1, _) = JSON.parse("{\"key\":12}")
+        
+        let json1 = try? JSON.parse("{\"key\":12}")
         XCTAssertTrue(json1 != nil)
         
-        let (json2, _) = JSON.parse("{\"key\", 123")
+        let json2 = try? JSON.parse("{\"key\", 123")
         XCTAssertTrue(json2 == nil)
         
-        let (json3, _) = JSON.parse("{\"key\":\"hello\"}")
+        let json3 = try? JSON.parse("{\"key\":\"hello\"}")
         XCTAssertTrue(json3!["key"].string! == "hello")
     }
     
@@ -230,7 +228,7 @@ class ParserTests: XCTestCase {
         XCTAssertTrue(testFailCase("fail11"))
         XCTAssertTrue(testFailCase("fail12"))
         //XCTAssertTrue(testFailCase("fail13"))
-        XCTAssertTrue(testFailCase("fail14"))
+        //XCTAssertTrue(testFailCase("fail14")) extend Numbers can be hex
         XCTAssertTrue(testFailCase("fail15"))
         XCTAssertTrue(testFailCase("fail16"))
         XCTAssertTrue(testFailCase("fail17"))
@@ -258,12 +256,10 @@ class ParserTests: XCTestCase {
     func testFailCase(path: String) -> Bool {
         do {
             let content = try String(contentsOfFile: "./Tests/TestCases/\(path).json", encoding: NSUTF8StringEncoding)
-            let (json, error) = JSON.parse(content)
-            if let _ = json {
+            if let _ = try? JSON.parse(content) {
                 return false
             }
             else {
-                print(error!)
                 return true
             }
         }
@@ -276,12 +272,10 @@ class ParserTests: XCTestCase {
     func testPassCase(path: String) -> Bool {
         do {
             let content = try String(contentsOfFile: "./Tests/TestCases/\(path).json", encoding: NSUTF8StringEncoding)
-            let (json, error) = JSON.parse(content)
-            if let _ = json {
+            if let _ = try? JSON.parse(content) {
                 return true
             }
             else {
-                print(error!)
                 return false
             }
         }
@@ -295,12 +289,11 @@ class ParserTests: XCTestCase {
         do {
             if let file = NSBundle(forClass:ParserTests.self).pathForResource(path, ofType: "json") {
                 let content = try String(contentsOfFile: file, encoding: NSUTF8StringEncoding)
-                let (json, error) = JSON.parse(content)
-                if let _ = json {
+                if let json = try? JSON.parse(content) {
+                    print(json.dump())
                     return false
                 }
                 else {
-                    print(error!)
                     return true
                 }
             }
@@ -317,12 +310,10 @@ class ParserTests: XCTestCase {
             if let file = NSBundle(forClass:ParserTests.self).pathForResource(path, ofType: "json") {
                 let content = try String(contentsOfFile: file, encoding: NSUTF8StringEncoding)
 
-                let (json, error) = JSON.parse(content)
-                if let _ = json {
+                if let _ = try? JSON.parse(content) {
                     return true
                 }
                 else {
-                    print(error!)
                     return false
                 }
             }
@@ -338,12 +329,10 @@ class ParserTests: XCTestCase {
             if let file = NSBundle(forClass:ParserTests.self).pathForResource("citm_catalog", ofType: "json") {
                 let content = try String(contentsOfFile: file, encoding: NSUTF8StringEncoding)
                 measureBlock() {
-                    let (json, error) = JSON.parse(content)
-                    if let _ = json {
+                    if let _ = try? JSON.parse(content) {
                         return
                     }
                     else {
-                        print(error!)
                         return
                     }
                 }
@@ -390,17 +379,17 @@ class DumpTests: XCTestCase {
         let json: JSON = ["v",0.3, true, false, nil, [], ["key": false]]
         XCTAssertEqual(json.dump(), "[\"v\",0.3,true,false,null,[],{\"key\":false}]")
         
-        let s = "[\"hello]\",12.0,false,true,null]"
-        let (json1, _) = JSON.parse(s)
-        XCTAssertEqual(json1!.dump(), s)
+        let s = "[\"hello]\",12,false,true,null]"
+        let json1 = try! JSON.parse(s)
+        XCTAssertEqual(json1.dump(), s)
     }
     
     func testDumpObject() {
-        let json: JSON = ["key2":[false,true,2.0,[],"hello"]]
-        XCTAssertEqual(json.dump(), "{\"key2\":[false,true,2.0,[],\"hello\"]}")
+        let json: JSON = ["key2":[false,true,2,[],"hello"]]
+        XCTAssertEqual(json.dump(), "{\"key2\":[false,true,2,[],\"hello\"]}")
         
-        let (json1, _) = JSON.parse("{\"key\":\"hello\"}")
-        XCTAssertEqual(json1!.dump(), "{\"key\":\"hello\"}")
+        let json1 = try! JSON.parse("{\"key\":\"hello\"}")
+        XCTAssertEqual(json1.dump(), "{\"key\":\"hello\"}")
     }
 }
 
