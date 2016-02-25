@@ -590,7 +590,7 @@ struct Parser {
     
     private mutating func _parseString(index: Int) throws -> (String?, Int) {
         // skip first '\"' character
-        var cursor = eatWhiteSpace(index).successor()
+        var cursor = index.successor()
         
         tempStringBuffer.removeAll(keepCapacity: true)
         
@@ -703,17 +703,6 @@ struct Parser {
         return (token, cursor)
     }
     
-    private func getLastIndexOfNumber(index: Int) -> Int {
-        for lastIndex in Range(start: index, end: string.endIndex) {
-            switch (string[lastIndex]) {
-                // -4.2e3  +12E4
-            case Parser.minus, Parser.plus, Parser._0, Parser._1, Parser._2, Parser._3, Parser._4, Parser._5, Parser._6, Parser._7, Parser._8, Parser._9, Parser.e, Parser.E, Parser.dot: continue
-            default: return lastIndex
-            }
-        }
-        return string.endIndex
-    }
-    
     private mutating func parseValue(index: Int) throws -> (JSON, Int) {
         let (token, cursor) = nextToken(index)
         
@@ -753,7 +742,7 @@ struct Parser {
     }
     
     private mutating func parseNumber(index: Int) throws -> (JSON, Int) {
-        let cursor = eatWhiteSpace(index)
+        let cursor = index
         
         if let (double, distance) = parseDouble(string.baseAddress.advancedBy(cursor)) {
             return (JSON(double), cursor + distance)
@@ -762,7 +751,7 @@ struct Parser {
     }
     
     private func parseNull(index: Int) throws -> (JSON, Int) {
-        var cursor = eatWhiteSpace(index)
+        var cursor = index
         
         guard cursor != string.endIndex && string[cursor] == Parser.n else {
             throw ParseError("invalid json: expect 'null' at \(cursor)")
@@ -784,7 +773,7 @@ struct Parser {
     }
     
     private func parseTrue(index: Int) throws -> (JSON, Int) {
-        var cursor = eatWhiteSpace(index)
+        var cursor = index
         
         guard cursor != string.endIndex && string[cursor] == Parser.t else {
             throw ParseError("invalid json: expect 'true' at \(cursor)")
@@ -806,7 +795,7 @@ struct Parser {
     }
     
     private func parseFalse(index: Int) throws -> (JSON, Int) {
-        var cursor = eatWhiteSpace(index)
+        var cursor = index
         
         guard cursor != string.endIndex && string[cursor] == Parser.f else {
             throw ParseError("invalid json: expect 'false' at \(cursor)")
@@ -831,7 +820,7 @@ struct Parser {
     }
     
     private mutating func parseArray(index: Int) throws -> (JSON, Int) {
-        var cursor = eatWhiteSpace(index)
+        var cursor = index
         
         guard string[cursor] == Parser.leftbracket else {
             // invalid json "[" start array
@@ -874,7 +863,7 @@ struct Parser {
     }
     
     private mutating func parseObject(index: Int) throws -> (JSON, Int) {
-        var cursor = eatWhiteSpace(index)
+        var cursor = index
         
         guard string[cursor] == Parser.leftbrace else {
             // invalid json "{" start array
@@ -893,7 +882,7 @@ struct Parser {
         }
         
         while cursor != string.endIndex {
-            let (_key, afterKey) = try _parseString(cursor)
+            let (_key, afterKey) = try _parseString(eatWhiteSpace(cursor))
             guard let key = _key else {
                 // parse key error, invalid json
                 throw ParseError("invalid json: expect string at \(cursor)")
