@@ -1,6 +1,46 @@
-language: objective-c
-
-osx_image: xcode7.2
-xcode_sdk: iphonesimulator9.2
-
-script: 'sh run_xctest.sh'
+env:
+  global:
+    - MODULE_NAME=TidyJSON
+matrix:
+  include:
+    - script:
+        - xcodebuild test -project $MODULE_NAME.xcodeproj -scheme $MODULE_NAME-OSX
+        - xcodebuild test -project $MODULE_NAME.xcodeproj -scheme $MODULE_NAME-iOS -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 6'
+        - xcodebuild test -project $MODULE_NAME.xcodeproj -scheme $MODULE_NAME-tvOS -sdk appletvsimulator -destination 'platform=tvOS Simulator,name=Apple TV 1080p'
+        - xcodebuild build -project $MODULE_NAME.xcodeproj -scheme $MODULE_NAME-watchOS -sdk watchsimulator -destination 'platform=watchOS Simulator,name=Apple Watch - 42mm'
+      os: osx
+      osx_image: xcode7.2
+      language: objective-c
+      before_deploy:
+        - brew update
+        - brew unlink carthage
+        - brew install carthage
+        - brew link carthage
+        - carthage build --no-skip-current
+        - carthage archive $MODULE_NAME
+      deploy:
+        provider: releases
+        api_key:
+          secure: 8Mxwjx8i5YytiW8s95AJ1CTi71WyPLhMd2RGMrR24oizic0zUwHG2rNBgGrnj/ONmd/sUg3XOvNgLXxLl4D5BgI6bsM/Vg+iOd+Gx4xbSmvZSBAt/aqbefSGL8Mpexpfe0vKlT+JXUy8C7WxLpKrlB3kFmaB7r0sq3bc3j/A5FkfI6uGCgEjcOr+emQ+nCr6YI3KcNfHVNquF5nXk1apJMbKJnkQK9D7iQV9wcKzXyIO8uGSMo1qrciWV8wsV6wJgBDXUspUuwa9+Je56doJb6z0kSiIc0cCZwGSkHIQEQY9v9LcB5q0YQ7UkzWM/O01VUnABzjYbKjzwQG1EZxB1PaXu4dH76QGOjg8bD2wh+P5ecYAGxc99GbscTGpEgMtSKqTXQdebsqU9xaQUBxRx5vt0HgLoCv3MTGo+CZ18XXp7Ie9Xkd5T1Nanb/i8MA4QCojNk9vCRpP3YSoGhQpfY7fZgQiRbE+L2+GxTX4jQBSIbLdPaX/ov58qLzbvpSH0nZSgXKJtk7lk4aOApCuzYlTqLs04Z5wgEgWlN3spFKuRqpK/PyAjwMVf1qctacKKZjKOA6HhZijlGtfXkYw3eVut1an/RJCSFagKhXVSvomcG3dnE+FqtLGXtLacP4jtVIkl4tdc1Y5nnTWQJbok/XofgwkNhMq0XXXmF9Lh5c=
+        file: $MODULE_NAME.framework.zip
+        skip_cleanup: true
+        on:
+          repo: crossroadlabs/TidyJSON
+          tags: true
+    - script:
+        - sh run_test.sh
+      sudo: required
+      dist: trusty
+      language: generic
+      before_install:
+        # install original swift distribution
+        - wget -q -O - https://swift.org/keys/all-keys.asc | gpg --import -
+        - cd ..
+        - export SWIFT_VERSION=swift-DEVELOPMENT-SNAPSHOT-2016-02-08-a
+        - wget https://swift.org/builds/development/ubuntu1404/$SWIFT_VERSION/$SWIFT_VERSION-ubuntu14.04.tar.gz
+        - tar xzf $SWIFT_VERSION-ubuntu14.04.tar.gz
+        - export PATH="${PWD}/${SWIFT_VERSION}-ubuntu14.04/usr/bin:${PATH}"
+        # get back home
+        - cd $MODULE_NAME
+notifications:
+  email: false
