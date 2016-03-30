@@ -345,12 +345,21 @@ extension JSON {
     /**
      * parse JSON from string, return nil or valid JSON
      */
+#if os(OSX) || os(iOS)
+    public static func parse(string: Swift.String) throws -> JSON {
+        if let data = string.data(usingEncoding: NSUTF8StringEncoding) {
+            return try parse(data)
+        }
+        return nil
+    }
+#elseif os(Linux)
     public static func parse(string: Swift.String) throws -> JSON {
         if let data = string.dataUsingEncoding(NSUTF8StringEncoding) {
             return try parse(data)
         }
         return nil
     }
+#endif
 
     /**
      * parse JSON from data buffer, return nil or valid JSON

@@ -4,10 +4,8 @@ env:
 matrix:
   include:
     - script:
-        - xcodebuild TOOLCHAINS=swift test -project $MODULE_NAME.xcodeproj -scheme $MODULE_NAME-OSX
-        - xcodebuild TOOLCHAINS=swift test -project $MODULE_NAME.xcodeproj -scheme $MODULE_NAME-iOS -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 6'
-        - xcodebuild TOOLCHAINS=swift test -project $MODULE_NAME.xcodeproj -scheme $MODULE_NAME-tvOS -sdk appletvsimulator -destination 'platform=tvOS Simulator,name=Apple TV 1080p'
-        - xcodebuild build TOOLCHAINS=swift -project $MODULE_NAME.xcodeproj -scheme $MODULE_NAME-watchOS -sdk watchsimulator -destination 'platform=watchOS Simulator,name=Apple Watch - 42mm'
+        - swift build
+        - swift test
       os: osx
       osx_image: xcode7.3
       language: objective-c

@@ -252,7 +252,7 @@ class ParserTests: XCTestCase {
         XCTAssertTrue(testPassCase("pass2"))
         XCTAssertTrue(testPassCase("pass3"))
     }
-#if os(Linux)
+
     func testFailCase(path: String) -> Bool {
         do {
             let content = try String(contentsOfFile: "./Tests/TestCases/\(path).json", encoding: NSUTF8StringEncoding)
@@ -284,66 +284,6 @@ class ParserTests: XCTestCase {
         }
         return false
     }
-#else
-    func testFailCase(path: String) -> Bool{
-        do {
-            if let file = NSBundle(forClass:ParserTests.self).pathForResource(path, ofType: "json") {
-                let content = try String(contentsOfFile: file, encoding: NSUTF8StringEncoding)
-                if let json = try? JSON.parse(content) {
-                    print(json.dump())
-                    return false
-                }
-                else {
-                    return true
-                }
-            }
-        }
-        catch {
-        
-        }
-        
-        return false
-    }
-    
-    func testPassCase(path: String) -> Bool {
-        do {
-            if let file = NSBundle(forClass:ParserTests.self).pathForResource(path, ofType: "json") {
-                let content = try String(contentsOfFile: file, encoding: NSUTF8StringEncoding)
-
-                if let _ = try? JSON.parse(content) {
-                    return true
-                }
-                else {
-                    return false
-                }
-            }
-        }
-        catch {
-     
-        }
-        return false
-    }
-    
-    func testParsePerformance() {
-        do {
-            if let file = NSBundle(forClass:ParserTests.self).pathForResource("citm_catalog", ofType: "json") {
-                let content = try String(contentsOfFile: file, encoding: NSUTF8StringEncoding)
-                measureBlock() {
-                    if let _ = try? JSON.parse(content) {
-                        return
-                    }
-                    else {
-                        return
-                    }
-                }
-            }
-        }
-        catch {
-            
-        }
-        return
-    }
-#endif
 }
 
 class DumpTests: XCTestCase {
