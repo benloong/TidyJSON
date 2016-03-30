@@ -4,7 +4,7 @@ import Foundation
 
 class ValueTests: XCTestCase {
 
-    var allTests : [(String, () throws -> ())] {
+    static var allTests : [(String, ValueTests -> () throws -> ())] {
         return [
             ("testNull", testNull),
             ("testTrue", testTrue),
@@ -109,7 +109,7 @@ class ValueTests: XCTestCase {
 
 class ParserTests: XCTestCase {
 
-    var allTests : [(String, () throws -> ())] {
+    static var allTests : [(String, ParserTests -> () throws -> ())] {
         return [
             ("testParseNull", testParseNull),
             ("testParseString", testParseString),
@@ -347,7 +347,7 @@ class ParserTests: XCTestCase {
 }
 
 class DumpTests: XCTestCase {
-    var allTests : [(String, () throws -> ())] {
+    static var allTests : [(String, DumpTests -> () throws -> ())] {
         return [
             ("testDumpDataValue", testDumpDataValue),
             ("testDumpArray", testDumpArray),
@@ -394,7 +394,7 @@ class DumpTests: XCTestCase {
 }
 
 class ModifyTests : XCTestCase {
-    var allTests : [(String, () throws -> ())] {
+    static var allTests : [(String, ModifyTests -> () throws -> ())] {
         return [
             ("testModifyArray", testModifyArray),
             ("testModifyObject", testModifyObject)
@@ -417,11 +417,11 @@ class ModifyTests : XCTestCase {
         json[1][0] = "world"
         XCTAssertEqual(json[1][0].string!, "world")
         
-        json[1].removeAtIndex(0) 
+        json[1].remove(at: 0) 
         XCTAssertEqual(json[1].count, 0)
         XCTAssertEqual(json[0].string!, "STRING")
         
-        json.removeAtIndex(1)
+        json.remove(at: 1)
         XCTAssertEqual(json.count, 1)
     }
     

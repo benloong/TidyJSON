@@ -216,9 +216,9 @@ extension JSON : ArrayLiteralConvertible {
     /**
      * Remove and return the child json at index i.
      */
-    public func removeAtIndex(index: Int) -> JSON? {
+    public func remove(at index: Int) -> JSON? {
         switch self {
-        case .Array(let x): return x.array.removeAtIndex(index)
+        case .Array(let x): return x.array.remove(at: index)
         default: return nil
         }
     }
@@ -254,7 +254,7 @@ extension JSON : DictionaryLiteralConvertible {
 /**
 * for-in Loop support
 */
-extension JSON : SequenceType {
+extension JSON : Sequence {
     /**
      * The number of children in this JSON
      */
@@ -266,33 +266,33 @@ extension JSON : SequenceType {
         }
     }
 
-    public func generate() -> JSON.Generator {
-        return JSON.Generator(json: self)
+    public func makeIterator() -> JSON.Iterator {
+        return JSON.Iterator(json: self)
     }
 
     //MARK: - generator
-    public struct Generator : GeneratorType {
+    public struct Iterator : IteratorProtocol {
 
         public typealias Element = (Swift.String, JSON)
 
-        var arrayGenerator: IndexingGenerator<[JSON]>?
-        var objectGenerator: DictionaryGenerator<Swift.String, JSON>?
+        var arrayIterator: IndexingIterator<[JSON]>?
+        var objectIterator: DictionaryIterator<Swift.String, JSON>?
         var index : Int = 0
         init(json: JSON) {
             switch json {
-            case .Object(let obj): objectGenerator = obj.dict.generate()
-            case .Array(let arr): arrayGenerator = arr.array.generate()
+            case .Object(let obj): objectIterator = obj.dict.makeIterator()
+            case .Array(let arr): arrayIterator = arr.array.makeIterator()
             default: break
             }
         }
 
-        public mutating func next() -> Generator.Element? {
-            if let arrayElement =  arrayGenerator?.next() {
+        public mutating func next() -> Iterator.Element? {
+            if let arrayElement =  arrayIterator?.next() {
                 let _index = index
                 index += 1
                 return (Swift.String(_index), arrayElement)
             }
-            if let objectElement = objectGenerator?.next() {
+            if let objectElement = objectIterator?.next() {
                 return objectElement
             }
             return nil
@@ -373,7 +373,7 @@ extension JSON {
 
     func dump(string: inout Swift.String) {
         switch self {
-        case .Null : string.appendContentsOf("null")
+        case .Null : string.append("null")
         case .Boolean(let b) : dumpBool(&string, bool: b)
         case .Number(let n) : dumpNumber(&string, number: n)
         case .String(let s) : dumpString(&string, jsonString: s)
@@ -384,19 +384,19 @@ extension JSON {
 
     func dumpBool(string: inout Swift.String, bool: Bool) {
         if bool {
-            string.appendContentsOf("true")
+            string.append("true")
         }
         else {
-            string.appendContentsOf("false")
+            string.append("false")
         }
     }
 
     func dumpNumber(string: inout Swift.String, number: Double) {
         if number % 1 == 0 {
-            string.appendContentsOf(Swift.String(Int(number)))
+            string.append(Swift.String(Int(number)))
         }
         else {
-            string.appendContentsOf(Swift.String(number))
+            string.append(Swift.String(number))
         }
     }
 
@@ -411,7 +411,7 @@ extension JSON {
         }
         // remove last comma
         if array.count > 0 {
-            string.removeAtIndex(string.endIndex.advancedBy(-1))
+            string.remove(at: string.endIndex.advanced(by: -1))
         }
         string.append(close)
         return
@@ -431,7 +431,7 @@ extension JSON {
         }
         // remove last comma
         if object.count > 0 {
-            string.removeAtIndex(string.endIndex.advancedBy(-1))
+            string.remove(at: string.endIndex.advanced(by: -1))
         }
         string.append(close)
     }
@@ -464,7 +464,7 @@ extension JSON {
     }
 }
 
-public struct ParseError : ErrorType {
+public struct ParseError : ErrorProtocol {
     let error: String
     init(_ error: String) {
         self.error = error
@@ -592,7 +592,7 @@ struct Parser {
         // skip first '\"' character
         var cursor = index.successor()
 
-        tempStringBuffer.removeAll(keepCapacity: true)
+        tempStringBuffer.removeAll(keepingCapacity: true)
 
         while cursor != string.endIndex {
             switch string[cursor] {
@@ -617,7 +617,7 @@ struct Parser {
                     var hex = 0
                     // skip 'u'
                     cursor = cursor.successor()
-                    guard cursor.distanceTo(string.endIndex) > 3 else {
+                    guard cursor.distance(to: string.endIndex) > 3 else {
                         throw ParseError("invalid json: unexpected unicode hex digit at \(cursor) ")
                     }
 
@@ -636,9 +636,9 @@ struct Parser {
                     hex = hex | (digit3)
 
                     let unicode = UnicodeScalar(hex)
-                    UTF8.encode(unicode, output: { self.tempStringBuffer.append($0) })
+                    UTF8.encode(unicode, sendingOutputTo: { self.tempStringBuffer.append($0) })
 
-                    cursor = cursor.advancedBy(3)
+                    cursor = cursor.advanced(by: 3)
                     // invalid json format
                 default: throw ParseError("invalid json: illegal character \(ch) after '\\' at \(cursor)")
                 }
@@ -654,7 +654,7 @@ struct Parser {
     }
 
     private func decodeString(buffer: UnsafeBufferPointer<UInt8>) -> String? {
-        return String.fromCString(UnsafePointer(buffer.baseAddress))
+        return String(validatingUTF8: UnsafePointer(buffer.baseAddress))
     }
 
     /**
@@ -729,11 +729,11 @@ struct Parser {
 
     func parseDouble(address: UnsafePointer<UInt8>) -> (Double, Int.Distance)? {
         let startPointer = UnsafePointer<Int8>(address)
-        let endPointer = UnsafeMutablePointer<UnsafeMutablePointer<Int8>>.alloc(1)
-        defer { endPointer.dealloc(1) }
+        let endPointer = UnsafeMutablePointer<UnsafeMutablePointer<Int8>>(allocatingCapacity: 1)
+        defer { endPointer.deallocateCapacity(1) }
 
         let result = strtod(startPointer, endPointer)
-        let distance = startPointer.distanceTo(endPointer[0])
+        let distance = startPointer.distance(to: endPointer[0])
         guard distance > 0 else {
             return nil
         }
@@ -744,7 +744,7 @@ struct Parser {
     private mutating func parseNumber(index: Int) throws -> (JSON, Int) {
         let cursor = index
 
-        if let (double, distance) = parseDouble(string.baseAddress.advancedBy(cursor)) {
+        if let (double, distance) = parseDouble(string.baseAddress.advanced(by: cursor)) {
             return (JSON(double), cursor + distance)
         }
         throw ParseError("invalid json: expect number at\(cursor).")

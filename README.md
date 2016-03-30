@@ -2,7 +2,9 @@
 
 TidyJSON is a neat and tidy JSON package run on all Swift platforms (Linux, iOS, OS X, tvOS, watchOS)
 
-[![Build Status](https://travis-ci.org/benloong/TidyJSON.svg?branch=master)](https://travis-ci.org/benloong/TidyJSON)
+This branch using Swift 3.0
+
+[![Build Status](https://travis-ci.org/benloong/TidyJSON.svg?branch=develop)](https://travis-ci.org/benloong/TidyJSON)
 
 ## Goals 
 - [x] simple, neat and tidy json lib
@@ -142,7 +144,7 @@ print(json2.dump())
 
 On Linux platform you need install [`XCTest`](https://github.com/apple/swift-corelibs-xctest)
 
-After install `XCTest`, run `sh run_test.sh`
+After install `XCTest`, run `swift build` then `swift test`
 
 ## Integration
 
