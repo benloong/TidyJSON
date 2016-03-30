@@ -345,26 +345,26 @@ extension JSON {
     /**
      * parse JSON from string, return nil or valid JSON
      */
-#if os(OSX) || os(iOS)
+#if os(OSX) || os(iOS) || os(tvOS) || os(watchOS)
     public static func parse(string: Swift.String) throws -> JSON {
         if let data = string.data(usingEncoding: NSUTF8StringEncoding) {
-            return try parse(data)
+            return try parse(utf8: data)
         }
         return nil
     }
 #elseif os(Linux)
     public static func parse(string: Swift.String) throws -> JSON {
         if let data = string.dataUsingEncoding(NSUTF8StringEncoding) {
-            return try parse(data)
+    return try parse(utf8: data)
         }
         return nil
     }
 #endif
 
     /**
-     * parse JSON from data buffer, return nil or valid JSON
+     * parse JSON from utf8 endcoded bytes data buffer, return nil or valid JSON
      */
-    public static func parse(data: NSData) throws -> JSON {
+    public static func parse(utf8 data: NSData) throws -> JSON {
         let buffer = UnsafeBufferPointer(start: UnsafePointer<UInt8>(data.bytes), count: data.length)
         var parser = Parser(buffer)
         return try parser.parse().0
