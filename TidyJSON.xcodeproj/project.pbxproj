@@ -174,7 +174,7 @@
 		ED8C11AA1C58E00C009BB05F /* Info-OSX.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Info-OSX.plist"; path = "Sources/Info-OSX.plist"; sourceTree = SOURCE_ROOT; };
 		ED8C11AF1C58E00C009BB05F /* TidyJSON-OSXTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "TidyJSON-OSXTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED8C11C41C58F76A009BB05F /* TidyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TidyJSON.swift; path = Sources/TidyJSON.swift; sourceTree = SOURCE_ROOT; };
-		ED8C11C91C59A43B009BB05F /* Test.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Test.swift; path = Tests/Test.swift; sourceTree = SOURCE_ROOT; };
+		ED8C11C91C59A43B009BB05F /* Test.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Test.swift; path = Tests/TidyJSON/Test.swift; sourceTree = SOURCE_ROOT; };
 		ED8C11CD1C59A44F009BB05F /* Info-tvOS.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "Info-tvOS.plist"; path = "Tests/Info-tvOS.plist"; sourceTree = SOURCE_ROOT; };
 		ED8C11D11C59A456009BB05F /* Info-OSX.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "Info-OSX.plist"; path = "Tests/Info-OSX.plist"; sourceTree = SOURCE_ROOT; };
 		ED8C11D51C59A45D009BB05F /* Info-iOS.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "Info-iOS.plist"; path = "Tests/Info-iOS.plist"; sourceTree = SOURCE_ROOT; };
