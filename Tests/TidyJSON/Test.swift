@@ -254,36 +254,36 @@ class ParserTests: XCTestCase {
     }
 
     func testFailCase(path: String) -> Bool {
-        do {
-            let content = try String(contentsOfFile: "./Tests/TestCases/\(path).json", encoding: NSUTF8StringEncoding)
+        if let content = utf8(contentsOfFile: path) {
             if let _ = try? JSON.parse(content) {
                 return false
             }
-            else {
-                return true
-            }
-        }
-        catch {
-        
+            return true
         }
         return false
     }
     
     func testPassCase(path: String) -> Bool {
-        do {
-            let content = try String(contentsOfFile: "./Tests/TestCases/\(path).json", encoding: NSUTF8StringEncoding)
+        if let content = utf8(contentsOfFile: path) {
             if let _ = try? JSON.parse(content) {
                 return true
             }
-            else {
-                return false
-            }
-        }
-        catch {
-        
+            return false
         }
         return false
     }
+#if SWIFT_PACKAGE
+    func utf8(contentsOfFile path: String) -> String? {
+        return try? String(contentsOfFile: "./Tests/TestCases/\(path).json", encoding: NSUTF8StringEncoding)
+    }
+#else
+    func utf8(contentsOfFile path: String) -> String? {
+        if let file = NSBundle(for: ParserTests.self).path(forResource: path, ofType: "json") {
+            return try? String(contentsOfFile: file, encoding: NSUTF8StringEncoding)
+        }
+        return nil
+    }
+#endif
 }
 
 class DumpTests: XCTestCase {
