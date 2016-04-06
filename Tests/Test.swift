@@ -168,13 +168,13 @@ class ParserTests: XCTestCase {
     }
     
     func testParseNumber() {
-        let json = try? JSON.parse("-120003e-1")
+        let json = try? JSON.parse("-120003e-1 ")
         XCTAssertEqual(json!.double!, -120003e-1)
         
-        let json1 = try? JSON.parse("2.3E12")
+        let json1 = try? JSON.parse("2.3E12 ")
         XCTAssertEqual(json1!.double!, 2.3E12)
         
-        let json2 = try? JSON.parse("7.450580596923828e-9")
+        let json2 = try? JSON.parse("7.450580596923828e-9 ")
         XCTAssertEqual(json2!.double!, 7.450580596923828e-9)
     }
     
