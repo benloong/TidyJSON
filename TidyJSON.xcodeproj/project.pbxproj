@@ -7,6 +7,26 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		65922ADA1CB562EA0087573B /* Boilerplate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65922AC21CB562C10087573B /* Boilerplate.framework */; };
+		65922ADB1CB562EA0087573B /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65922AC51CB562C10087573B /* Result.framework */; };
+		65922ADC1CB562F20087573B /* Boilerplate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65922AC21CB562C10087573B /* Boilerplate.framework */; };
+		65922ADD1CB562F20087573B /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65922AC51CB562C10087573B /* Result.framework */; };
+		65922ADF1CB563070087573B /* Boilerplate.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 65922AC21CB562C10087573B /* Boilerplate.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		65922AE01CB563070087573B /* Result.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 65922AC51CB562C10087573B /* Result.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		65922AE11CB563410087573B /* Boilerplate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65922AC81CB562C10087573B /* Boilerplate.framework */; };
+		65922AE21CB563410087573B /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65922ACA1CB562C10087573B /* Result.framework */; };
+		65922AE41CB5635F0087573B /* Boilerplate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65922AC81CB562C10087573B /* Boilerplate.framework */; };
+		65922AE51CB5635F0087573B /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65922ACA1CB562C10087573B /* Result.framework */; };
+		65922AE71CB5636E0087573B /* Boilerplate.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 65922AC81CB562C10087573B /* Boilerplate.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		65922AE81CB5636E0087573B /* Result.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 65922ACA1CB562C10087573B /* Result.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		65922AE91CB563CB0087573B /* Boilerplate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65922ACF1CB562C10087573B /* Boilerplate.framework */; };
+		65922AEA1CB563CB0087573B /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65922AD11CB562C10087573B /* Result.framework */; };
+		65922AEB1CB563D20087573B /* Boilerplate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65922ACF1CB562C10087573B /* Boilerplate.framework */; };
+		65922AEC1CB563D20087573B /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65922AD11CB562C10087573B /* Result.framework */; };
+		65922AEE1CB563E00087573B /* Boilerplate.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 65922ACF1CB562C10087573B /* Boilerplate.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		65922AEF1CB563E00087573B /* Result.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 65922AD11CB562C10087573B /* Result.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		65922AF01CB564350087573B /* Boilerplate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65922AD61CB562C10087573B /* Boilerplate.framework */; };
+		65922AF11CB564350087573B /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65922AD81CB562C10087573B /* Result.framework */; };
 		ED8C11641C58B6BB009BB05F /* TidyJSON.h in Headers */ = {isa = PBXBuildFile; fileRef = ED8C11631C58B6BB009BB05F /* TidyJSON.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		ED8C116B1C58B6BB009BB05F /* TidyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED8C11601C58B6BB009BB05F /* TidyJSON.framework */; };
 		ED8C11941C58DFBD009BB05F /* TidyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED8C118A1C58DFBC009BB05F /* TidyJSON.framework */; };
@@ -160,7 +180,54 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		65922ADE1CB562FC0087573B /* Copy Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				65922ADF1CB563070087573B /* Boilerplate.framework in Copy Frameworks */,
+				65922AE01CB563070087573B /* Result.framework in Copy Frameworks */,
+			);
+			name = "Copy Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		65922AE61CB563630087573B /* Copy Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				65922AE71CB5636E0087573B /* Boilerplate.framework in Copy Frameworks */,
+				65922AE81CB5636E0087573B /* Result.framework in Copy Frameworks */,
+			);
+			name = "Copy Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		65922AED1CB563D50087573B /* Copy Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				65922AEE1CB563E00087573B /* Boilerplate.framework in Copy Frameworks */,
+				65922AEF1CB563E00087573B /* Result.framework in Copy Frameworks */,
+			);
+			name = "Copy Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		65922AC21CB562C10087573B /* Boilerplate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Boilerplate.framework; sourceTree = "<group>"; };
+		65922AC51CB562C10087573B /* Result.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Result.framework; sourceTree = "<group>"; };
+		65922AC81CB562C10087573B /* Boilerplate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Boilerplate.framework; sourceTree = "<group>"; };
+		65922ACA1CB562C10087573B /* Result.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Result.framework; sourceTree = "<group>"; };
+		65922ACF1CB562C10087573B /* Boilerplate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Boilerplate.framework; sourceTree = "<group>"; };
+		65922AD11CB562C10087573B /* Result.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Result.framework; sourceTree = "<group>"; };
+		65922AD61CB562C10087573B /* Boilerplate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Boilerplate.framework; sourceTree = "<group>"; };
+		65922AD81CB562C10087573B /* Result.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Result.framework; sourceTree = "<group>"; };
 		ED8C11601C58B6BB009BB05F /* TidyJSON.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TidyJSON.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED8C11631C58B6BB009BB05F /* TidyJSON.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = TidyJSON.h; path = Sources/TidyJSON.h; sourceTree = SOURCE_ROOT; };
 		ED8C11651C58B6BB009BB05F /* Info-iOS.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Info-iOS.plist"; path = "Sources/Info-iOS.plist"; sourceTree = SOURCE_ROOT; };
@@ -222,6 +289,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				65922ADA1CB562EA0087573B /* Boilerplate.framework in Frameworks */,
+				65922ADB1CB562EA0087573B /* Result.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -230,6 +299,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				ED8C116B1C58B6BB009BB05F /* TidyJSON.framework in Frameworks */,
+				65922ADC1CB562F20087573B /* Boilerplate.framework in Frameworks */,
+				65922ADD1CB562F20087573B /* Result.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -237,6 +308,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				65922AF01CB564350087573B /* Boilerplate.framework in Frameworks */,
+				65922AF11CB564350087573B /* Result.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -244,6 +317,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				65922AE91CB563CB0087573B /* Boilerplate.framework in Frameworks */,
+				65922AEA1CB563CB0087573B /* Result.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -252,6 +327,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				ED8C11941C58DFBD009BB05F /* TidyJSON.framework in Frameworks */,
+				65922AEB1CB563D20087573B /* Boilerplate.framework in Frameworks */,
+				65922AEC1CB563D20087573B /* Result.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -259,6 +336,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				65922AE11CB563410087573B /* Boilerplate.framework in Frameworks */,
+				65922AE21CB563410087573B /* Result.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -267,12 +346,62 @@
 			buildActionMask = 2147483647;
 			files = (
 				ED8C11B01C58E00D009BB05F /* TidyJSON.framework in Frameworks */,
+				65922AE41CB5635F0087573B /* Boilerplate.framework in Frameworks */,
+				65922AE51CB5635F0087573B /* Result.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		65922ABD1CB562C10087573B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				65922ABE1CB562C10087573B /* iOS */,
+				65922AC71CB562C10087573B /* Mac */,
+				65922ACC1CB562C10087573B /* tvOS */,
+				65922AD31CB562C10087573B /* watchOS */,
+			);
+			name = Frameworks;
+			path = Carthage/Build;
+			sourceTree = "<group>";
+		};
+		65922ABE1CB562C10087573B /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				65922AC21CB562C10087573B /* Boilerplate.framework */,
+				65922AC51CB562C10087573B /* Result.framework */,
+			);
+			path = iOS;
+			sourceTree = "<group>";
+		};
+		65922AC71CB562C10087573B /* Mac */ = {
+			isa = PBXGroup;
+			children = (
+				65922AC81CB562C10087573B /* Boilerplate.framework */,
+				65922ACA1CB562C10087573B /* Result.framework */,
+			);
+			path = Mac;
+			sourceTree = "<group>";
+		};
+		65922ACC1CB562C10087573B /* tvOS */ = {
+			isa = PBXGroup;
+			children = (
+				65922ACF1CB562C10087573B /* Boilerplate.framework */,
+				65922AD11CB562C10087573B /* Result.framework */,
+			);
+			path = tvOS;
+			sourceTree = "<group>";
+		};
+		65922AD31CB562C10087573B /* watchOS */ = {
+			isa = PBXGroup;
+			children = (
+				65922AD61CB562C10087573B /* Boilerplate.framework */,
+				65922AD81CB562C10087573B /* Result.framework */,
+			);
+			path = watchOS;
+			sourceTree = "<group>";
+		};
 		ED8C11611C58B6BB009BB05F /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -362,6 +491,7 @@
 		ED90CC641C58B10F000FCC4A = {
 			isa = PBXGroup;
 			children = (
+				65922ABD1CB562C10087573B /* Frameworks */,
 				ED8C11621C58B6BB009BB05F /* Sources */,
 				ED8C116E1C58B6BB009BB05F /* Tests */,
 				ED8C11611C58B6BB009BB05F /* Products */,
@@ -431,6 +561,7 @@
 				ED8C11661C58B6BB009BB05F /* Sources */,
 				ED8C11671C58B6BB009BB05F /* Frameworks */,
 				ED8C11681C58B6BB009BB05F /* Resources */,
+				65922ADE1CB562FC0087573B /* Copy Frameworks */,
 			);
 			buildRules = (
 			);
@@ -485,6 +616,7 @@
 				ED8C118F1C58DFBD009BB05F /* Sources */,
 				ED8C11901C58DFBD009BB05F /* Frameworks */,
 				ED8C11911C58DFBD009BB05F /* Resources */,
+				65922AED1CB563D50087573B /* Copy Frameworks */,
 			);
 			buildRules = (
 			);
@@ -521,6 +653,7 @@
 				ED8C11AB1C58E00C009BB05F /* Sources */,
 				ED8C11AC1C58E00C009BB05F /* Frameworks */,
 				ED8C11AD1C58E00C009BB05F /* Resources */,
+				65922AE61CB563630087573B /* Copy Frameworks */,
 			);
 			buildRules = (
 			);
@@ -857,6 +990,10 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -917,6 +1054,10 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = fast;
@@ -967,6 +1108,10 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -1015,6 +1160,10 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -1061,6 +1210,10 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/watchOS",
+				);
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -1120,6 +1273,10 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/watchOS",
+				);
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = fast;
@@ -1173,6 +1330,10 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/tvOS",
+				);
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -1231,6 +1392,10 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/tvOS",
+				);
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = fast;
@@ -1279,6 +1444,10 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/tvOS",
+				);
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -1326,6 +1495,10 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/tvOS",
+				);
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -1373,6 +1546,10 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
+				);
 				FRAMEWORK_VERSION = A;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -1433,6 +1610,10 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
+				);
 				FRAMEWORK_VERSION = A;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -1482,6 +1663,10 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
+				);
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -1531,6 +1716,10 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
+				);
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
