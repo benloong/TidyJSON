@@ -27,6 +27,16 @@
 		65922AEF1CB563E00087573B /* Result.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 65922AD11CB562C10087573B /* Result.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		65922AF01CB564350087573B /* Boilerplate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65922AD61CB562C10087573B /* Boilerplate.framework */; };
 		65922AF11CB564350087573B /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65922AD81CB562C10087573B /* Result.framework */; };
+		6592D9311CB69A0700E1650E /* Foundation3.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6592D9301CB69A0700E1650E /* Foundation3.framework */; };
+		6592D9321CB69A2500E1650E /* Foundation3.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6592D9301CB69A0700E1650E /* Foundation3.framework */; };
+		6592D9331CB69A2A00E1650E /* Foundation3.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 6592D9301CB69A0700E1650E /* Foundation3.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		6592D9351CB69A4A00E1650E /* Foundation3.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6592D9341CB69A4A00E1650E /* Foundation3.framework */; };
+		6592D9371CB69A6E00E1650E /* Foundation3.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6592D9361CB69A6E00E1650E /* Foundation3.framework */; };
+		6592D9381CB69A7B00E1650E /* Foundation3.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6592D9361CB69A6E00E1650E /* Foundation3.framework */; };
+		6592D9391CB69A8000E1650E /* Foundation3.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 6592D9361CB69A6E00E1650E /* Foundation3.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		6592D93B1CB69A9D00E1650E /* Foundation3.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6592D93A1CB69A9D00E1650E /* Foundation3.framework */; };
+		6592D93C1CB69AB100E1650E /* Foundation3.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6592D93A1CB69A9D00E1650E /* Foundation3.framework */; };
+		6592D93D1CB69AB600E1650E /* Foundation3.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 6592D93A1CB69A9D00E1650E /* Foundation3.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		ED8C11641C58B6BB009BB05F /* TidyJSON.h in Headers */ = {isa = PBXBuildFile; fileRef = ED8C11631C58B6BB009BB05F /* TidyJSON.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		ED8C116B1C58B6BB009BB05F /* TidyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED8C11601C58B6BB009BB05F /* TidyJSON.framework */; };
 		ED8C11941C58DFBD009BB05F /* TidyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED8C118A1C58DFBC009BB05F /* TidyJSON.framework */; };
@@ -187,6 +197,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				6592D9331CB69A2A00E1650E /* Foundation3.framework in Copy Frameworks */,
 				65922ADF1CB563070087573B /* Boilerplate.framework in Copy Frameworks */,
 				65922AE01CB563070087573B /* Result.framework in Copy Frameworks */,
 			);
@@ -200,6 +211,7 @@
 			dstSubfolderSpec = 10;
 			files = (
 				65922AE71CB5636E0087573B /* Boilerplate.framework in Copy Frameworks */,
+				6592D93D1CB69AB600E1650E /* Foundation3.framework in Copy Frameworks */,
 				65922AE81CB5636E0087573B /* Result.framework in Copy Frameworks */,
 			);
 			name = "Copy Frameworks";
@@ -213,6 +225,7 @@
 			files = (
 				65922AEE1CB563E00087573B /* Boilerplate.framework in Copy Frameworks */,
 				65922AEF1CB563E00087573B /* Result.framework in Copy Frameworks */,
+				6592D9391CB69A8000E1650E /* Foundation3.framework in Copy Frameworks */,
 			);
 			name = "Copy Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -228,6 +241,10 @@
 		65922AD11CB562C10087573B /* Result.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Result.framework; sourceTree = "<group>"; };
 		65922AD61CB562C10087573B /* Boilerplate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Boilerplate.framework; sourceTree = "<group>"; };
 		65922AD81CB562C10087573B /* Result.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Result.framework; sourceTree = "<group>"; };
+		6592D9301CB69A0700E1650E /* Foundation3.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Foundation3.framework; sourceTree = "<group>"; };
+		6592D9341CB69A4A00E1650E /* Foundation3.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Foundation3.framework; sourceTree = "<group>"; };
+		6592D9361CB69A6E00E1650E /* Foundation3.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Foundation3.framework; sourceTree = "<group>"; };
+		6592D93A1CB69A9D00E1650E /* Foundation3.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Foundation3.framework; sourceTree = "<group>"; };
 		ED8C11601C58B6BB009BB05F /* TidyJSON.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TidyJSON.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED8C11631C58B6BB009BB05F /* TidyJSON.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = TidyJSON.h; path = Sources/TidyJSON.h; sourceTree = SOURCE_ROOT; };
 		ED8C11651C58B6BB009BB05F /* Info-iOS.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Info-iOS.plist"; path = "Sources/Info-iOS.plist"; sourceTree = SOURCE_ROOT; };
@@ -289,6 +306,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6592D9311CB69A0700E1650E /* Foundation3.framework in Frameworks */,
 				65922ADA1CB562EA0087573B /* Boilerplate.framework in Frameworks */,
 				65922ADB1CB562EA0087573B /* Result.framework in Frameworks */,
 			);
@@ -299,6 +317,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				ED8C116B1C58B6BB009BB05F /* TidyJSON.framework in Frameworks */,
+				6592D9321CB69A2500E1650E /* Foundation3.framework in Frameworks */,
 				65922ADC1CB562F20087573B /* Boilerplate.framework in Frameworks */,
 				65922ADD1CB562F20087573B /* Result.framework in Frameworks */,
 			);
@@ -308,6 +327,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6592D9351CB69A4A00E1650E /* Foundation3.framework in Frameworks */,
 				65922AF01CB564350087573B /* Boilerplate.framework in Frameworks */,
 				65922AF11CB564350087573B /* Result.framework in Frameworks */,
 			);
@@ -317,6 +337,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6592D9371CB69A6E00E1650E /* Foundation3.framework in Frameworks */,
 				65922AE91CB563CB0087573B /* Boilerplate.framework in Frameworks */,
 				65922AEA1CB563CB0087573B /* Result.framework in Frameworks */,
 			);
@@ -327,6 +348,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				ED8C11941C58DFBD009BB05F /* TidyJSON.framework in Frameworks */,
+				6592D9381CB69A7B00E1650E /* Foundation3.framework in Frameworks */,
 				65922AEB1CB563D20087573B /* Boilerplate.framework in Frameworks */,
 				65922AEC1CB563D20087573B /* Result.framework in Frameworks */,
 			);
@@ -336,6 +358,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6592D93B1CB69A9D00E1650E /* Foundation3.framework in Frameworks */,
 				65922AE11CB563410087573B /* Boilerplate.framework in Frameworks */,
 				65922AE21CB563410087573B /* Result.framework in Frameworks */,
 			);
@@ -348,6 +371,7 @@
 				ED8C11B01C58E00D009BB05F /* TidyJSON.framework in Frameworks */,
 				65922AE41CB5635F0087573B /* Boilerplate.framework in Frameworks */,
 				65922AE51CB5635F0087573B /* Result.framework in Frameworks */,
+				6592D93C1CB69AB100E1650E /* Foundation3.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -369,6 +393,7 @@
 		65922ABE1CB562C10087573B /* iOS */ = {
 			isa = PBXGroup;
 			children = (
+				6592D9301CB69A0700E1650E /* Foundation3.framework */,
 				65922AC21CB562C10087573B /* Boilerplate.framework */,
 				65922AC51CB562C10087573B /* Result.framework */,
 			);
@@ -378,6 +403,7 @@
 		65922AC71CB562C10087573B /* Mac */ = {
 			isa = PBXGroup;
 			children = (
+				6592D93A1CB69A9D00E1650E /* Foundation3.framework */,
 				65922AC81CB562C10087573B /* Boilerplate.framework */,
 				65922ACA1CB562C10087573B /* Result.framework */,
 			);
@@ -387,6 +413,7 @@
 		65922ACC1CB562C10087573B /* tvOS */ = {
 			isa = PBXGroup;
 			children = (
+				6592D9361CB69A6E00E1650E /* Foundation3.framework */,
 				65922ACF1CB562C10087573B /* Boilerplate.framework */,
 				65922AD11CB562C10087573B /* Result.framework */,
 			);
@@ -396,6 +423,7 @@
 		65922AD31CB562C10087573B /* watchOS */ = {
 			isa = PBXGroup;
 			children = (
+				6592D9341CB69A4A00E1650E /* Foundation3.framework */,
 				65922AD61CB562C10087573B /* Boilerplate.framework */,
 				65922AD81CB562C10087573B /* Result.framework */,
 			);
