@@ -39,6 +39,8 @@
 		6592D93B1CB69A9D00E1650E /* Foundation3.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6592D93A1CB69A9D00E1650E /* Foundation3.framework */; };
 		6592D93C1CB69AB100E1650E /* Foundation3.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6592D93A1CB69A9D00E1650E /* Foundation3.framework */; };
 		6592D93D1CB69AB600E1650E /* Foundation3.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 6592D93A1CB69A9D00E1650E /* Foundation3.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		65D1BDD21CB6DEB9000B1985 /* XCTest3.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65D1BDD11CB6DEB9000B1985 /* XCTest3.framework */; };
+		65D1BDD31CB6DECE000B1985 /* XCTest3.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 65D1BDD11CB6DEB9000B1985 /* XCTest3.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		ED8C11641C58B6BB009BB05F /* TidyJSON.h in Headers */ = {isa = PBXBuildFile; fileRef = ED8C11631C58B6BB009BB05F /* TidyJSON.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		ED8C116B1C58B6BB009BB05F /* TidyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED8C11601C58B6BB009BB05F /* TidyJSON.framework */; };
 		ED8C11941C58DFBD009BB05F /* TidyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED8C118A1C58DFBC009BB05F /* TidyJSON.framework */; };
@@ -199,6 +201,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				65D1BDD31CB6DECE000B1985 /* XCTest3.framework in Copy Frameworks */,
 				6592D9331CB69A2A00E1650E /* Foundation3.framework in Copy Frameworks */,
 				65922ADF1CB563070087573B /* Boilerplate.framework in Copy Frameworks */,
 				65922AE01CB563070087573B /* Result.framework in Copy Frameworks */,
@@ -249,6 +252,7 @@
 		6592D9341CB69A4A00E1650E /* Foundation3.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Foundation3.framework; sourceTree = "<group>"; };
 		6592D9361CB69A6E00E1650E /* Foundation3.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Foundation3.framework; sourceTree = "<group>"; };
 		6592D93A1CB69A9D00E1650E /* Foundation3.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Foundation3.framework; sourceTree = "<group>"; };
+		65D1BDD11CB6DEB9000B1985 /* XCTest3.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = XCTest3.framework; sourceTree = "<group>"; };
 		ED8C11601C58B6BB009BB05F /* TidyJSON.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TidyJSON.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED8C11631C58B6BB009BB05F /* TidyJSON.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = TidyJSON.h; path = Sources/TidyJSON.h; sourceTree = SOURCE_ROOT; };
 		ED8C11651C58B6BB009BB05F /* Info-iOS.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Info-iOS.plist"; path = "Sources/Info-iOS.plist"; sourceTree = SOURCE_ROOT; };
@@ -320,6 +324,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				65D1BDD21CB6DEB9000B1985 /* XCTest3.framework in Frameworks */,
 				ED8C116B1C58B6BB009BB05F /* TidyJSON.framework in Frameworks */,
 				6592D9321CB69A2500E1650E /* Foundation3.framework in Frameworks */,
 				65922ADC1CB562F20087573B /* Boilerplate.framework in Frameworks */,
@@ -398,6 +403,7 @@
 		65922ABE1CB562C10087573B /* iOS */ = {
 			isa = PBXGroup;
 			children = (
+				65D1BDD11CB6DEB9000B1985 /* XCTest3.framework */,
 				6592D9301CB69A0700E1650E /* Foundation3.framework */,
 				65922AC21CB562C10087573B /* Boilerplate.framework */,
 				65922AC51CB562C10087573B /* Result.framework */,
