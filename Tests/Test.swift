@@ -1,4 +1,6 @@
 import XCTest
+import XCTest3
+
 import TidyJSON
 import Foundation
 
@@ -287,7 +289,7 @@ class ParserTests: XCTestCase {
 #else
     func testFailCase(path: String) -> Bool{
         do {
-            if let file = NSBundle(forClass:ParserTests.self).pathForResource(path, ofType: "json") {
+            if let file = NSBundle(for: ParserTests.self).path(forResource: path, ofType: "json") {
                 let content = try String(contentsOfFile: file, encoding: NSUTF8StringEncoding)
                 if let json = try? JSON.parse(content) {
                     print(json.dump())
@@ -307,7 +309,7 @@ class ParserTests: XCTestCase {
     
     func testPassCase(path: String) -> Bool {
         do {
-            if let file = NSBundle(forClass:ParserTests.self).pathForResource(path, ofType: "json") {
+            if let file = NSBundle(for: ParserTests.self).path(forResource: path, ofType: "json") {
                 let content = try String(contentsOfFile: file, encoding: NSUTF8StringEncoding)
 
                 if let _ = try? JSON.parse(content) {
@@ -326,9 +328,9 @@ class ParserTests: XCTestCase {
     
     func testParsePerformance() {
         do {
-            if let file = NSBundle(forClass:ParserTests.self).pathForResource("citm_catalog", ofType: "json") {
+            if let file = NSBundle(for: ParserTests.self).path(forResource: "citm_catalog", ofType: "json") {
                 let content = try String(contentsOfFile: file, encoding: NSUTF8StringEncoding)
-                measureBlock() {
+                measure {
                     if let _ = try? JSON.parse(content) {
                         return
                     }

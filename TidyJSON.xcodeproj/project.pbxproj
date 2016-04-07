@@ -27,6 +27,8 @@
 		65922AEF1CB563E00087573B /* Result.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 65922AD11CB562C10087573B /* Result.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		65922AF01CB564350087573B /* Boilerplate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65922AD61CB562C10087573B /* Boilerplate.framework */; };
 		65922AF11CB564350087573B /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65922AD81CB562C10087573B /* Result.framework */; };
+		6592D4281CB6AA070018DC21 /* XCTest3.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 6592D4271CB6AA070018DC21 /* XCTest3.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		6592D4291CB6AA290018DC21 /* XCTest3.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6592D4271CB6AA070018DC21 /* XCTest3.framework */; };
 		6592D9311CB69A0700E1650E /* Foundation3.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6592D9301CB69A0700E1650E /* Foundation3.framework */; };
 		6592D9321CB69A2500E1650E /* Foundation3.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6592D9301CB69A0700E1650E /* Foundation3.framework */; };
 		6592D9331CB69A2A00E1650E /* Foundation3.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 6592D9301CB69A0700E1650E /* Foundation3.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -210,6 +212,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				6592D4281CB6AA070018DC21 /* XCTest3.framework in Copy Frameworks */,
 				65922AE71CB5636E0087573B /* Boilerplate.framework in Copy Frameworks */,
 				6592D93D1CB69AB600E1650E /* Foundation3.framework in Copy Frameworks */,
 				65922AE81CB5636E0087573B /* Result.framework in Copy Frameworks */,
@@ -241,6 +244,7 @@
 		65922AD11CB562C10087573B /* Result.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Result.framework; sourceTree = "<group>"; };
 		65922AD61CB562C10087573B /* Boilerplate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Boilerplate.framework; sourceTree = "<group>"; };
 		65922AD81CB562C10087573B /* Result.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Result.framework; sourceTree = "<group>"; };
+		6592D4271CB6AA070018DC21 /* XCTest3.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = XCTest3.framework; sourceTree = "<group>"; };
 		6592D9301CB69A0700E1650E /* Foundation3.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Foundation3.framework; sourceTree = "<group>"; };
 		6592D9341CB69A4A00E1650E /* Foundation3.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Foundation3.framework; sourceTree = "<group>"; };
 		6592D9361CB69A6E00E1650E /* Foundation3.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Foundation3.framework; sourceTree = "<group>"; };
@@ -368,6 +372,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6592D4291CB6AA290018DC21 /* XCTest3.framework in Frameworks */,
 				ED8C11B01C58E00D009BB05F /* TidyJSON.framework in Frameworks */,
 				65922AE41CB5635F0087573B /* Boilerplate.framework in Frameworks */,
 				65922AE51CB5635F0087573B /* Result.framework in Frameworks */,
@@ -403,6 +408,7 @@
 		65922AC71CB562C10087573B /* Mac */ = {
 			isa = PBXGroup;
 			children = (
+				6592D4271CB6AA070018DC21 /* XCTest3.framework */,
 				6592D93A1CB69A9D00E1650E /* Foundation3.framework */,
 				65922AC81CB562C10087573B /* Boilerplate.framework */,
 				65922ACA1CB562C10087573B /* Result.framework */,
