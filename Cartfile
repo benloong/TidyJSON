@@ -1,2 +1,2 @@
-github "crossroadlabs/Boilerplate" "master"
-github "crossroadlabs/Foundation3" "master"
+github "crossroadlabs/Boilerplate" ~> 0.1
+github "crossroadlabs/Foundation3" ~> 0.1
