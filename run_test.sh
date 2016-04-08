@@ -1,6 +1,7 @@
 #!/bin/bash
-swift build -k
-swift build
+set -e
 
-swiftc Tests/Test.swift Tests/main.swift -o .build/debug/test -I .build/debug/ -L .build/debug/ -Xlinker .build/debug/TidyJSON.a
-.build/debug/test
+swift build --fetch
+rm -rf Packages/*/Tests
+swift build
+swift test
