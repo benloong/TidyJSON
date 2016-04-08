@@ -1,18 +1,9 @@
 #!/usr/bin/env bash
 set -e
 
-SB=`which swift-build`
-ST="swift test"
-ls -la .
-
-$SB --fetch
-
-ls -la .
-
+swift build --fetch
 rm -rf ./Packages/*/Tests
+swift build
+swift test
 
-ls -la ./Packages
-
-$SB
-$ST
 exit 0
