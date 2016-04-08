@@ -41,6 +41,18 @@
 		6592D93D1CB69AB600E1650E /* Foundation3.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 6592D93A1CB69A9D00E1650E /* Foundation3.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		65D1BDD21CB6DEB9000B1985 /* XCTest3.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65D1BDD11CB6DEB9000B1985 /* XCTest3.framework */; };
 		65D1BDD31CB6DECE000B1985 /* XCTest3.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 65D1BDD11CB6DEB9000B1985 /* XCTest3.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		92E408F81CB7CCED001ED069 /* DumpTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E408F31CB7CCED001ED069 /* DumpTests.swift */; };
+		92E408F91CB7CCED001ED069 /* DumpTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E408F31CB7CCED001ED069 /* DumpTests.swift */; };
+		92E408FA1CB7CCED001ED069 /* DumpTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E408F31CB7CCED001ED069 /* DumpTests.swift */; };
+		92E408FE1CB7CCED001ED069 /* ModifyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E408F51CB7CCED001ED069 /* ModifyTests.swift */; };
+		92E408FF1CB7CCED001ED069 /* ModifyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E408F51CB7CCED001ED069 /* ModifyTests.swift */; };
+		92E409001CB7CCED001ED069 /* ModifyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E408F51CB7CCED001ED069 /* ModifyTests.swift */; };
+		92E409011CB7CCED001ED069 /* ParserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E408F61CB7CCED001ED069 /* ParserTests.swift */; };
+		92E409021CB7CCED001ED069 /* ParserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E408F61CB7CCED001ED069 /* ParserTests.swift */; };
+		92E409031CB7CCED001ED069 /* ParserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E408F61CB7CCED001ED069 /* ParserTests.swift */; };
+		92E409041CB7CCED001ED069 /* ValueTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E408F71CB7CCED001ED069 /* ValueTests.swift */; };
+		92E409051CB7CCED001ED069 /* ValueTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E408F71CB7CCED001ED069 /* ValueTests.swift */; };
+		92E409061CB7CCED001ED069 /* ValueTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E408F71CB7CCED001ED069 /* ValueTests.swift */; };
 		ED8C11641C58B6BB009BB05F /* TidyJSON.h in Headers */ = {isa = PBXBuildFile; fileRef = ED8C11631C58B6BB009BB05F /* TidyJSON.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		ED8C116B1C58B6BB009BB05F /* TidyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED8C11601C58B6BB009BB05F /* TidyJSON.framework */; };
 		ED8C11941C58DFBD009BB05F /* TidyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED8C118A1C58DFBC009BB05F /* TidyJSON.framework */; };
@@ -51,9 +63,6 @@
 		ED8C11C61C58F76A009BB05F /* TidyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED8C11C41C58F76A009BB05F /* TidyJSON.swift */; };
 		ED8C11C71C58F76A009BB05F /* TidyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED8C11C41C58F76A009BB05F /* TidyJSON.swift */; };
 		ED8C11C81C58F76A009BB05F /* TidyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED8C11C41C58F76A009BB05F /* TidyJSON.swift */; };
-		ED8C11CA1C59A43B009BB05F /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED8C11C91C59A43B009BB05F /* Test.swift */; };
-		ED8C11CB1C59A43B009BB05F /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED8C11C91C59A43B009BB05F /* Test.swift */; };
-		ED8C11CC1C59A43B009BB05F /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED8C11C91C59A43B009BB05F /* Test.swift */; };
 		ED8C11D91C59A4CF009BB05F /* TidyJSON.h in Sources */ = {isa = PBXBuildFile; fileRef = ED8C11631C58B6BB009BB05F /* TidyJSON.h */; };
 		ED8C11DA1C59A4D4009BB05F /* TidyJSON.h in Sources */ = {isa = PBXBuildFile; fileRef = ED8C11631C58B6BB009BB05F /* TidyJSON.h */; };
 		ED8C12241C59A8D7009BB05F /* fail1.json in Resources */ = {isa = PBXBuildFile; fileRef = ED8C12001C59A8D7009BB05F /* fail1.json */; };
@@ -253,6 +262,11 @@
 		6592D9361CB69A6E00E1650E /* Foundation3.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Foundation3.framework; sourceTree = "<group>"; };
 		6592D93A1CB69A9D00E1650E /* Foundation3.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Foundation3.framework; sourceTree = "<group>"; };
 		65D1BDD11CB6DEB9000B1985 /* XCTest3.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = XCTest3.framework; sourceTree = "<group>"; };
+		92E408F31CB7CCED001ED069 /* DumpTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DumpTests.swift; sourceTree = "<group>"; };
+		92E408F41CB7CCED001ED069 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		92E408F51CB7CCED001ED069 /* ModifyTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModifyTests.swift; sourceTree = "<group>"; };
+		92E408F61CB7CCED001ED069 /* ParserTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParserTests.swift; sourceTree = "<group>"; };
+		92E408F71CB7CCED001ED069 /* ValueTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ValueTests.swift; sourceTree = "<group>"; };
 		ED8C11601C58B6BB009BB05F /* TidyJSON.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TidyJSON.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED8C11631C58B6BB009BB05F /* TidyJSON.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = TidyJSON.h; path = Sources/TidyJSON.h; sourceTree = SOURCE_ROOT; };
 		ED8C11651C58B6BB009BB05F /* Info-iOS.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Info-iOS.plist"; path = "Sources/Info-iOS.plist"; sourceTree = SOURCE_ROOT; };
@@ -266,10 +280,6 @@
 		ED8C11AA1C58E00C009BB05F /* Info-OSX.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Info-OSX.plist"; path = "Sources/Info-OSX.plist"; sourceTree = SOURCE_ROOT; };
 		ED8C11AF1C58E00C009BB05F /* TidyJSON-OSXTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "TidyJSON-OSXTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED8C11C41C58F76A009BB05F /* TidyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TidyJSON.swift; path = Sources/TidyJSON.swift; sourceTree = SOURCE_ROOT; };
-		ED8C11C91C59A43B009BB05F /* Test.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Test.swift; path = Tests/Test.swift; sourceTree = SOURCE_ROOT; };
-		ED8C11CD1C59A44F009BB05F /* Info-tvOS.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "Info-tvOS.plist"; path = "Tests/Info-tvOS.plist"; sourceTree = SOURCE_ROOT; };
-		ED8C11D11C59A456009BB05F /* Info-OSX.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "Info-OSX.plist"; path = "Tests/Info-OSX.plist"; sourceTree = SOURCE_ROOT; };
-		ED8C11D51C59A45D009BB05F /* Info-iOS.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "Info-iOS.plist"; path = "Tests/Info-iOS.plist"; sourceTree = SOURCE_ROOT; };
 		ED8C12001C59A8D7009BB05F /* fail1.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = fail1.json; sourceTree = "<group>"; };
 		ED8C12011C59A8D7009BB05F /* fail10.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = fail10.json; sourceTree = "<group>"; };
 		ED8C12021C59A8D7009BB05F /* fail11.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = fail11.json; sourceTree = "<group>"; };
@@ -474,13 +484,14 @@
 			isa = PBXGroup;
 			children = (
 				ED8C11FF1C59A8D7009BB05F /* TestCases */,
-				ED8C11D11C59A456009BB05F /* Info-OSX.plist */,
-				ED8C11D51C59A45D009BB05F /* Info-iOS.plist */,
-				ED8C11CD1C59A44F009BB05F /* Info-tvOS.plist */,
-				ED8C11C91C59A43B009BB05F /* Test.swift */,
+				92E408F31CB7CCED001ED069 /* DumpTests.swift */,
+				92E408F41CB7CCED001ED069 /* Info.plist */,
+				92E408F51CB7CCED001ED069 /* ModifyTests.swift */,
+				92E408F61CB7CCED001ED069 /* ParserTests.swift */,
+				92E408F71CB7CCED001ED069 /* ValueTests.swift */,
 			);
 			name = Tests;
-			path = TidyJSONTests;
+			path = Tests/TidyJSON;
 			sourceTree = "<group>";
 		};
 		ED8C11FF1C59A8D7009BB05F /* TestCases */ = {
@@ -524,9 +535,8 @@
 				ED8C12221C59A8D7009BB05F /* pass2.json */,
 				ED8C12231C59A8D7009BB05F /* pass3.json */,
 			);
-			name = TestCases;
-			path = Tests/TestCases;
-			sourceTree = SOURCE_ROOT;
+			path = TestCases;
+			sourceTree = "<group>";
 		};
 		ED90CC641C58B10F000FCC4A = {
 			isa = PBXGroup;
@@ -711,8 +721,8 @@
 		ED90CC651C58B10F000FCC4A /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0720;
-				LastUpgradeCheck = 0720;
+				LastSwiftUpdateCheck = 0730;
+				LastUpgradeCheck = 0730;
 				TargetAttributes = {
 					ED8C115F1C58B6BB009BB05F = {
 						CreatedOnToolsVersion = 7.2;
@@ -936,7 +946,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ED8C11CA1C59A43B009BB05F /* Test.swift in Sources */,
+				92E408F81CB7CCED001ED069 /* DumpTests.swift in Sources */,
+				92E408FE1CB7CCED001ED069 /* ModifyTests.swift in Sources */,
+				92E409011CB7CCED001ED069 /* ParserTests.swift in Sources */,
+				92E409041CB7CCED001ED069 /* ValueTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -960,8 +973,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				92E409021CB7CCED001ED069 /* ParserTests.swift in Sources */,
+				92E408FF1CB7CCED001ED069 /* ModifyTests.swift in Sources */,
+				92E409051CB7CCED001ED069 /* ValueTests.swift in Sources */,
 				ED8C11D91C59A4CF009BB05F /* TidyJSON.h in Sources */,
-				ED8C11CB1C59A43B009BB05F /* Test.swift in Sources */,
+				92E408F91CB7CCED001ED069 /* DumpTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -977,8 +993,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				92E409031CB7CCED001ED069 /* ParserTests.swift in Sources */,
+				92E409001CB7CCED001ED069 /* ModifyTests.swift in Sources */,
+				92E409061CB7CCED001ED069 /* ValueTests.swift in Sources */,
 				ED8C11DA1C59A4D4009BB05F /* TidyJSON.h in Sources */,
-				ED8C11CC1C59A43B009BB05F /* Test.swift in Sources */,
+				92E408FA1CB7CCED001ED069 /* DumpTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1166,7 +1185,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				INFOPLIST_FILE = "Tests/Info-iOS.plist";
+				INFOPLIST_FILE = Tests/TidyJSON/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = YES;
@@ -1212,7 +1231,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				INFOPLIST_FILE = "Tests/Info-iOS.plist";
+				INFOPLIST_FILE = Tests/TidyJSON/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = NO;
@@ -1502,7 +1521,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				INFOPLIST_FILE = "Tests/Info-tvOS.plist";
+				INFOPLIST_FILE = Tests/TidyJSON/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -1547,7 +1566,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				INFOPLIST_FILE = "Tests/Info-tvOS.plist";
+				INFOPLIST_FILE = Tests/TidyJSON/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = io.altdev.TidyJSONTests;
@@ -1721,7 +1740,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				INFOPLIST_FILE = "Tests/Info-OSX.plist";
+				INFOPLIST_FILE = Tests/TidyJSON/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				MTL_ENABLE_DEBUG_INFO = YES;
@@ -1768,7 +1787,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				INFOPLIST_FILE = "Tests/Info-OSX.plist";
+				INFOPLIST_FILE = Tests/TidyJSON/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				MTL_ENABLE_DEBUG_INFO = NO;
@@ -1781,6 +1800,8 @@
 		ED90CC691C58B10F000FCC4A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ENABLE_TESTABILITY = YES;
+				ONLY_ACTIVE_ARCH = YES;
 			};
 			name = Debug;
 		};
