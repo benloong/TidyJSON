@@ -6,16 +6,18 @@ matrix:
     - script:
         - xcodebuild test -project $MODULE_NAME.xcodeproj -scheme $MODULE_NAME-OSX
         - xcodebuild test -project $MODULE_NAME.xcodeproj -scheme $MODULE_NAME-iOS -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 6'
-        - xcodebuild test -project $MODULE_NAME.xcodeproj -scheme $MODULE_NAME-tvOS -sdk appletvsimulator -destination 'platform=tvOS Simulator,name=Apple TV 1080p'
+        - xcodebuild build -project $MODULE_NAME.xcodeproj -scheme $MODULE_NAME-tvOS -sdk appletvsimulator -destination 'platform=tvOS Simulator,name=Apple TV 1080p'
         - xcodebuild build -project $MODULE_NAME.xcodeproj -scheme $MODULE_NAME-watchOS -sdk watchsimulator -destination 'platform=watchOS Simulator,name=Apple Watch - 42mm'
       os: osx
-      osx_image: xcode7.2
+      osx_image: xcode7.3
       language: objective-c
+      before_script:
+        # bootstrap the dependencies for the project
+        # you can remove if you don't have dependencies
+        - carthage bootstrap
       before_deploy:
         - brew update
-        - brew unlink carthage
-        - brew install carthage
-        - brew link carthage
+        - brew outdated carthage || brew upgrade carthage
         - carthage build --no-skip-current
         - carthage archive $MODULE_NAME
       deploy:
@@ -28,7 +30,7 @@ matrix:
           repo: crossroadlabs/TidyJSON
           tags: true
     - script:
-        - sh run_test.sh
+        - bash run_test.sh
       sudo: required
       dist: trusty
       language: generic
@@ -36,10 +38,11 @@ matrix:
         # install original swift distribution
         - wget -q -O - https://swift.org/keys/all-keys.asc | gpg --import -
         - cd ..
-        - export SWIFT_VERSION=swift-DEVELOPMENT-SNAPSHOT-2016-02-08-a
+        - export SWIFT_VERSION="swift-DEVELOPMENT-SNAPSHOT-2016-03-24-a"
         - wget https://swift.org/builds/development/ubuntu1404/$SWIFT_VERSION/$SWIFT_VERSION-ubuntu14.04.tar.gz
         - tar xzf $SWIFT_VERSION-ubuntu14.04.tar.gz
         - export PATH="${PWD}/${SWIFT_VERSION}-ubuntu14.04/usr/bin:${PATH}"
+        - export LD_LIBRARY_PATH="${PWD}/${SWIFT_VERSION}-ubuntu14.04/usr/lib/swift/linux/:$LD_LIBRARY_PATH"
         # get back home
         - cd $MODULE_NAME
 notifications:
