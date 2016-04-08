@@ -17,9 +17,7 @@ matrix:
         - carthage bootstrap
       before_deploy:
         - brew update
-        - brew unlink carthage
-        - brew install carthage
-        - brew link carthage
+        - brew outdated carthage || brew upgrade carthage
         - carthage build --no-skip-current
         - carthage archive $MODULE_NAME
       deploy:
@@ -32,7 +30,7 @@ matrix:
           repo: crossroadlabs/TidyJSON
           tags: true
     - script:
-        - sh run_test.sh
+        - bash run_test.sh
       sudo: required
       dist: trusty
       language: generic
@@ -44,6 +42,7 @@ matrix:
         - wget https://swift.org/builds/development/ubuntu1404/$SWIFT_VERSION/$SWIFT_VERSION-ubuntu14.04.tar.gz
         - tar xzf $SWIFT_VERSION-ubuntu14.04.tar.gz
         - export PATH="${PWD}/${SWIFT_VERSION}-ubuntu14.04/usr/bin:${PATH}"
+        - export LD_LIBRARY_PATH="${PWD}/${SWIFT_VERSION}-ubuntu14.04/usr/lib/swift/linux/:$LD_LIBRARY_PATH"
         # get back home
         - cd $MODULE_NAME
 notifications:
