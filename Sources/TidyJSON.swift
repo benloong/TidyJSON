@@ -376,22 +376,22 @@ extension JSON {
 extension JSON {
     public func dump() -> Swift.String {
         var result = ""
-        dump(to: &result)
+        JSON.dump(json: self, in: &result)
         return result
     }
 
-    func dump(to string: inout Swift.String) {
-        switch self {
+    static func dump(json: JSON, in string: inout Swift.String) {
+        switch json {
         case .Null : string.append("null")
-        case .Boolean(let b) : dumpBool(to: &string, bool: b)
-        case .Number(let n) : dumpNumber(to: &string, number: n)
-        case .String(let s) : dumpString(to: &string, jsonString: s)
-        case .Array(let a) : dumpArray(to: &string, array: a.array)
-        case .Object(let o) : dumpObject(to: &string, object: o.dict)
+        case .Boolean(let b) : dump(bool: b, in: &string)
+        case .Number(let n) : dump(number: n, in: &string)
+        case .String(let s) : dump(string: s, in: &string)
+        case .Array(let a) : dump(array: a.array, in: &string)
+        case .Object(let o) : dump(object: o.dict, in: &string)
         }
     }
 
-    func dumpBool(to string: inout Swift.String, bool: Bool) {
+    static func dump(bool: Bool, in string: inout Swift.String) {
         if bool {
             string.append("true")
         }
@@ -400,7 +400,7 @@ extension JSON {
         }
     }
 
-    func dumpNumber(to string: inout Swift.String, number: Double) {
+    static func dump(number: Double, in string: inout Swift.String) {
         if number % 1 == 0 {
             string.append(Swift.String(Int(number)))
         }
@@ -409,13 +409,13 @@ extension JSON {
         }
     }
 
-    func dumpArray(to string: inout Swift.String, array: [JSON]) {
+    static func dump(array: [JSON], in string: inout Swift.String) {
         let comma : UnicodeScalar = ","
         let open : UnicodeScalar = "["
         let close : UnicodeScalar = "]"
         string.append(open)
         for child in array {
-            child.dump(to: &string)
+            dump(json: child, in: &string)
             string.append(comma)
         }
         // remove last comma
@@ -426,16 +426,16 @@ extension JSON {
         return
     }
 
-    func dumpObject(to string: inout Swift.String, object: [Swift.String : JSON]) {
+    static func dump(object: [Swift.String : JSON], in string: inout Swift.String) {
         let comma : UnicodeScalar = ","
         let open : UnicodeScalar = "{"
         let close : UnicodeScalar = "}"
         let colon : UnicodeScalar = ":"
         string.append(open)
         for (k, v) in object {
-            dumpString(to: &string, jsonString: k)
+            dump(string: k, in: &string)
             string.append(colon)
-            v.dump(to: &string)
+            dump(json: v, in: &string)
             string.append(comma)
         }
         // remove last comma
@@ -445,7 +445,7 @@ extension JSON {
         string.append(close)
     }
 
-    func dumpString(to string: inout Swift.String, jsonString: Swift.String) {
+    static func dump(string jsonString: Swift.String, in string: inout Swift.String) {
         let rs : UnicodeScalar = "\\"
         let s : UnicodeScalar = "/"
         let q : UnicodeScalar = "\""
