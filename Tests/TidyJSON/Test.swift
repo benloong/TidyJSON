@@ -123,94 +123,94 @@ class ParserTests: XCTestCase {
     }
     
     func testParseNull() {
-        let json = try? JSON.parse("null")
+        let json = try? JSON.parse(string: "null")
         XCTAssertTrue(json!.isNull)
         
-        let json1 = try? JSON.parse("nu")
+        let json1 = try? JSON.parse(string: "nu")
         XCTAssertTrue(json1 == nil)
         
-        let json2 = try? JSON.parse("nil")
+        let json2 = try? JSON.parse(string: "nil")
         XCTAssertTrue(json2 == nil)
     }
     
     func testParseString() {
         
-        let json = try? JSON.parse("\"hello\"")
-        let json1 = try? JSON.parse("\"\\u0041pple\"")
-        let json2 = try? JSON.parse("\"\\\\ line1 \\n tab \\t \\r \\/\"")
+        let json = try? JSON.parse(string: "\"hello\"")
+        let json1 = try? JSON.parse(string: "\"\\u0041pple\"")
+        let json2 = try? JSON.parse(string: "\"\\\\ line1 \\n tab \\t \\r \\/\"")
         XCTAssertEqual(json!.string!, "hello")
         XCTAssertEqual(json1!.string!, "Apple")
         XCTAssertEqual(json2!.string!, "\\ line1 \n tab \t \r /")
         
-        let json3 = try? JSON.parse("hello\"")
+        let json3 = try? JSON.parse(string: "hello\"")
         XCTAssertTrue(json3 == nil)
         
-        let json4 = try? JSON.parse("\"hello")
+        let json4 = try? JSON.parse(string: "\"hello")
         XCTAssertTrue(json4 == nil)
     }
     
     func testParseTrue() {
-        let json = try? JSON.parse("true")
+        let json = try? JSON.parse(string: "true")
         
         XCTAssertEqual(json!.bool!, true)
         
-        let json1 = try? JSON.parse("tru")
+        let json1 = try? JSON.parse(string: "tru")
         XCTAssertTrue(json1 == nil)
     }
     
     func testParseFalse() {
-        let json = try? JSON.parse("false")
+        let json = try? JSON.parse(string: "false")
         
         XCTAssertEqual(json!.bool!, false)
         
-        let json1 = try? JSON.parse("fa")
+        let json1 = try? JSON.parse(string: "fa")
         XCTAssertTrue(json1 == nil)
     }
     
     func testParseNumber() {
-        let json = try? JSON.parse("-120003e-1 ")
+        let json = try? JSON.parse(string: "-120003e-1 ")
         XCTAssertEqual(json!.double!, -120003e-1)
         
-        let json1 = try? JSON.parse("2.3E12 ")
+        let json1 = try? JSON.parse(string: "2.3E12 ")
         XCTAssertEqual(json1!.double!, 2.3E12)
         
-        let json2 = try? JSON.parse("7.450580596923828e-9 ")
+        let json2 = try? JSON.parse(string: "7.450580596923828e-9 ")
         XCTAssertEqual(json2!.double!, 7.450580596923828e-9)
     }
     
     func testParseArray() {
-        let json = try? JSON.parse("[]")
+        let json = try? JSON.parse(string: "[]")
         XCTAssertNotNil(json!.array)
         XCTAssertEqual(json!.count, 0)
         
-        let json1 = try? JSON.parse("[1,2,3")
+        let json1 = try? JSON.parse(string: "[1,2,3")
         XCTAssertTrue(json1 == nil)
         
-        let json2 = try? JSON.parse("]")
+        let json2 = try? JSON.parse(string: "]")
         XCTAssertTrue(json2 == nil)
         
-        let json3 = try? JSON.parse("[1,2,hello]")
+        let json3 = try? JSON.parse(string: "[1,2,hello]")
         XCTAssertTrue(json3 == nil)
         
-        let json4 = try? JSON.parse("[\"hello]\", 12, false, true, null]")
+        let json4 = try? JSON.parse(string: "[\"hello]\", 12, false, true, null]")
         XCTAssertEqual(json4!.count, 5)
         
-        let json5 = try? JSON.parse("[,]")
+        let json5 = try? JSON.parse(string: "[,]")
         XCTAssertTrue(json5 == nil)
     }
     
     func testParseObject() {
-        let json = try? JSON.parse("{}")
+        let json = try? JSON.parse(string: "{}")
         XCTAssertNotNil(json!.object)
         XCTAssertEqual(json!.count, 0)
         
-        let json1 = try? JSON.parse("{\"key\":12}")
+        let json1 = try? JSON.parse(string: "{\"key\":12}")
         XCTAssertTrue(json1 != nil)
         
-        let json2 = try? JSON.parse("{\"key\", 123")
+        let json2 = try? JSON.parse(string: "{\"key\", 123")
         XCTAssertTrue(json2 == nil)
         
-        let json3 = try? JSON.parse("{\"key\":\"hello\"}")
+        let json3 = try? JSON.parse(string: "{\"key\":\"hello\"}")
         XCTAssertTrue(json3!["key"].string! == "hello")
     }
     
@@ -253,9 +253,9 @@ class ParserTests: XCTestCase {
         XCTAssertTrue(testPassCase("pass3"))
     }
 
-    func testFailCase(path: String) -> Bool {
+    func testFailCase(_ path: String) -> Bool {
         if let content = utf8(contentsOfFile: path) {
-            if let _ = try? JSON.parse(content) {
+            if let _ = try? JSON.parse(string: content) {
                 return false
             }
             return true
@@ -263,9 +263,9 @@ class ParserTests: XCTestCase {
         return false
     }
     
-    func testPassCase(path: String) -> Bool {
+    func testPassCase(_ path: String) -> Bool {
         if let content = utf8(contentsOfFile: path) {
-            if let _ = try? JSON.parse(content) {
+            if let _ = try? JSON.parse(string: content) {
                 return true
             }
             return false
@@ -320,7 +320,7 @@ class DumpTests: XCTestCase {
         XCTAssertEqual(json.dump(), "[\"v\",0.3,true,false,null,[],{\"key\":false}]")
         
         let s = "[\"hello]\",12,false,true,null]"
-        let json1 = try! JSON.parse(s)
+        let json1 = try! JSON.parse(string: s)
         XCTAssertEqual(json1.dump(), s)
     }
     
@@ -328,7 +328,7 @@ class DumpTests: XCTestCase {
         let json: JSON = ["key2":[false,true,2,[],"hello"]]
         XCTAssertEqual(json.dump(), "{\"key2\":[false,true,2,[],\"hello\"]}")
         
-        let json1 = try! JSON.parse("{\"key\":\"hello\"}")
+        let json1 = try! JSON.parse(string: "{\"key\":\"hello\"}")
         XCTAssertEqual(json1.dump(), "{\"key\":\"hello\"}")
     }
 }
@@ -344,14 +344,14 @@ class ModifyTests : XCTestCase {
     func testModifyArray() {
         var json : JSON = []
         let child :JSON = "string"
-        json.append(child)
+        json.append(newElement: child)
         XCTAssertEqual(json[0].string!, "string")
         
         json[0] = "STRING"
         XCTAssertEqual(json[0].string!, "STRING")
         
-        json.append(JSON([]))
-        json[1].append(JSON("hello"))
+        json.append(newElement: JSON([]))
+        json[1].append(newElement: JSON("hello"))
         XCTAssertEqual(json[1][0].string!, "hello")
         
         json[1][0] = "world"
