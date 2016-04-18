@@ -347,7 +347,7 @@ extension JSON {
      */
 #if os(OSX) || os(iOS) || os(tvOS) || os(watchOS)
     public static func parse(string: Swift.String) throws -> JSON {
-        if let data = string.data(usingEncoding: NSUTF8StringEncoding) {
+        if let data = string.data(using: NSUTF8StringEncoding) {
             return try parse(utf8: data)
         }
         return nil
