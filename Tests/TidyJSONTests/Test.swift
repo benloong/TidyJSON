@@ -4,7 +4,7 @@ import Foundation
 
 class ValueTests: XCTestCase {
 
-    static var allTests : [(String, ValueTests -> () throws -> ())] {
+    static var allTests : [(String, (ValueTests) -> () throws -> ())] {
         return [
             ("testNull", testNull),
             ("testTrue", testTrue),
@@ -109,7 +109,7 @@ class ValueTests: XCTestCase {
 
 class ParserTests: XCTestCase {
 
-    static var allTests : [(String, ParserTests -> () throws -> ())] {
+    static var allTests : [(String, (ParserTests) -> () throws -> ())] {
         return [
             ("testParseNull", testParseNull),
             ("testParseString", testParseString),
@@ -274,12 +274,12 @@ class ParserTests: XCTestCase {
     }
 #if SWIFT_PACKAGE
     func utf8(contentsOfFile path: String) -> String? {
-        return try? String(contentsOfFile: "./Tests/TestCases/\(path).json", encoding: NSUTF8StringEncoding)
+        return try? String(contentsOfFile: "./Tests/TidyJSONTests/TestCases/\(path).json", encoding: String.Encoding.utf8)
     }
 #else
     func utf8(contentsOfFile path: String) -> String? {
         if let file = NSBundle(for: ParserTests.self).path(forResource: path, ofType: "json") {
-            return try? String(contentsOfFile: file, encoding: NSUTF8StringEncoding)
+            return try? String(contentsOfFile: file, encoding: String.Encoding.utf8)
         }
         return nil
     }
@@ -287,7 +287,7 @@ class ParserTests: XCTestCase {
 }
 
 class DumpTests: XCTestCase {
-    static var allTests : [(String, DumpTests -> () throws -> ())] {
+    static var allTests : [(String, (DumpTests) -> () throws -> ())] {
         return [
             ("testDumpDataValue", testDumpDataValue),
             ("testDumpArray", testDumpArray),
@@ -334,7 +334,7 @@ class DumpTests: XCTestCase {
 }
 
 class ModifyTests : XCTestCase {
-    static var allTests : [(String, ModifyTests -> () throws -> ())] {
+    static var allTests : [(String, (ModifyTests) -> () throws -> ())] {
         return [
             ("testModifyArray", testModifyArray),
             ("testModifyObject", testModifyObject)
@@ -357,11 +357,11 @@ class ModifyTests : XCTestCase {
         json[1][0] = "world"
         XCTAssertEqual(json[1][0].string!, "world")
         
-        json[1].remove(at: 0) 
+        _ = json[1].remove(at: 0) 
         XCTAssertEqual(json[1].count, 0)
         XCTAssertEqual(json[0].string!, "STRING")
         
-        json.remove(at: 1)
+        _ = json.remove(at: 1)
         XCTAssertEqual(json.count, 1)
     }
     

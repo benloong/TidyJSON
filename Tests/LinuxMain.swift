@@ -1,4 +1,4 @@
 import XCTest
-@testable import TidyJSONTestSuite
+@testable import TidyJSONTests
 
 XCTMain([testCase(ValueTests.allTests), testCase(ParserTests.allTests), testCase(DumpTests.allTests), testCase(ModifyTests.allTests)])

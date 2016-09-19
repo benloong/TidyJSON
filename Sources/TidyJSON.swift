@@ -59,7 +59,7 @@ public enum JSON {
 }
 
 //MARK: - Literal convert
-extension JSON : NilLiteralConvertible {
+extension JSON : ExpressibleByNilLiteral {
     public init(nilLiteral: ()) {
         self = .Null
     }
@@ -75,7 +75,7 @@ extension JSON : NilLiteralConvertible {
     }
 }
 
-extension JSON : BooleanLiteralConvertible {
+extension JSON : ExpressibleByBooleanLiteral {
     public init(booleanLiteral value: BooleanLiteralType) {
         self = .Boolean(value)
     }
@@ -95,7 +95,7 @@ extension JSON : BooleanLiteralConvertible {
     }
 }
 
-extension JSON : FloatLiteralConvertible {
+extension JSON : ExpressibleByFloatLiteral {
     public init(floatLiteral value: FloatLiteralType) {
         self = .Number(Double(value))
     }
@@ -129,7 +129,7 @@ extension JSON : FloatLiteralConvertible {
     }
 }
 
-extension JSON : IntegerLiteralConvertible {
+extension JSON : ExpressibleByIntegerLiteral {
     public init(integerLiteral value: IntegerLiteralType) {
         self = .Number(Double(value))
     }
@@ -143,13 +143,13 @@ extension JSON : IntegerLiteralConvertible {
      */
     public var int : Int? {
         switch self {
-        case .Number(let x) where x % 1 == 0: return Int(x)
+        case .Number(let x) where x.truncatingRemainder(dividingBy: 1) == 0: return Int(x)
         default: return nil
         }
     }
 }
 
-extension JSON : StringLiteralConvertible {
+extension JSON : ExpressibleByStringLiteral {
     public init(stringLiteral value: StringLiteralType) {
         self = .String(value)
     }
@@ -180,7 +180,7 @@ extension JSON : StringLiteralConvertible {
     }
 }
 
-extension JSON : ArrayLiteralConvertible {
+extension JSON : ExpressibleByArrayLiteral {
     public init(arrayLiteral elements: JSON...) {
         var array = [JSON]()
         for e in elements {
@@ -224,7 +224,7 @@ extension JSON : ArrayLiteralConvertible {
     }
 }
 
-extension JSON : DictionaryLiteralConvertible {
+extension JSON : ExpressibleByDictionaryLiteral {
     public init(dictionaryLiteral elements: (Swift.String, JSON)...) {
         var dict : [Swift.String : JSON] = [:]
         for (k, v) in elements {
@@ -347,14 +347,14 @@ extension JSON {
      */
 #if os(OSX) || os(iOS) || os(tvOS) || os(watchOS)
     public static func parse(string: Swift.String) throws -> JSON {
-        if let data = string.data(using: NSUTF8StringEncoding) {
+        if let data = string.data(using: Swift.String.Encoding.utf8) {
             return try parse(utf8: data)
         }
         return nil
     }
 #elseif os(Linux)
     public static func parse(string: Swift.String) throws -> JSON {
-        if let data = string.dataUsingEncoding(NSUTF8StringEncoding) {
+        if let data = string.data(using: Swift.String.Encoding.utf8) {
     return try parse(utf8: data)
         }
         return nil
@@ -364,9 +364,12 @@ extension JSON {
     /**
      * parse JSON from utf8 endcoded bytes data buffer, return nil or valid JSON
      */
-    public static func parse(utf8 data: NSData) throws -> JSON {
-        let buffer = UnsafeBufferPointer(start: UnsafePointer<UInt8>(data.bytes), count: data.length)
-        var parser = Parser(buffer)
+    public static func parse(utf8 data: Data) throws -> JSON {
+        let buffer = data.withUnsafeBytes{ (ptr: UnsafePointer<UInt8>) -> UnsafePointer<UInt8> in
+            return ptr
+        }
+//assumingMemoryBound(to:UInt8.self)//UnsafeBufferPointer(start: UnsafePointer<UInt8>(data.bytes), count: data.length)
+        var parser = Parser(UnsafeBufferPointer(start: buffer, count: data.count))
         return try parser.parse().0
     }
 }
@@ -401,7 +404,7 @@ extension JSON {
     }
 
     static func dump(number: Double, in string: inout Swift.String) {
-        if number % 1 == 0 {
+        if number.truncatingRemainder(dividingBy: 1) == 0 {
             string.append(Swift.String(Int(number)))
         }
         else {
@@ -410,27 +413,27 @@ extension JSON {
     }
 
     static func dump(array: [JSON], in string: inout Swift.String) {
-        let comma : UnicodeScalar = ","
-        let open : UnicodeScalar = "["
-        let close : UnicodeScalar = "]"
+        let comma = ","
+        let open = "["
+        let close = "]"
         string.append(open)
         for child in array {
             dump(json: child, in: &string)
-            string.append(comma)
+            string.append(Swift.String(comma))
         }
         // remove last comma
         if array.count > 0 {
-            string.remove(at: string.endIndex.advanced(by: -1))
+            string.remove(at: string.index(before: string.endIndex))
         }
         string.append(close)
         return
     }
 
     static func dump(object: [Swift.String : JSON], in string: inout Swift.String) {
-        let comma : UnicodeScalar = ","
-        let open : UnicodeScalar = "{"
-        let close : UnicodeScalar = "}"
-        let colon : UnicodeScalar = ":"
+        let comma = ","
+        let open = "{"
+        let close = "}"
+        let colon = ":"
         string.append(open)
         for (k, v) in object {
             dump(string: k, in: &string)
@@ -440,20 +443,20 @@ extension JSON {
         }
         // remove last comma
         if object.count > 0 {
-            string.remove(at: string.endIndex.advanced(by: -1))
+            string.remove(at: string.index(before: string.endIndex))
         }
         string.append(close)
     }
 
     static func dump(string jsonString: Swift.String, in string: inout Swift.String) {
-        let rs : UnicodeScalar = "\\"
-        let s : UnicodeScalar = "/"
-        let q : UnicodeScalar = "\""
-        let b : UnicodeScalar = "b"
-        let f : UnicodeScalar = "f"
-        let n : UnicodeScalar = "n"
-        let r : UnicodeScalar = "r"
-        let t : UnicodeScalar = "t"
+        let rs = "\\"
+        let s = "/"
+        let q = "\""
+        let b = "b"
+        let f = "f"
+        let n = "n"
+        let r = "r"
+        let t = "t"
 
         string.append(q)
         for ch in jsonString.characters {
@@ -473,7 +476,7 @@ extension JSON {
     }
 }
 
-public struct ParseError : ErrorProtocol {
+public struct ParseError : Error {
     let error: String
     init(_ error: String) {
         self.error = error
@@ -599,14 +602,14 @@ struct Parser {
 
     private mutating func _parseString(at index: Int) throws -> (String?, Int) {
         // skip first '\"' character
-        var cursor = index.successor()
+        var cursor = index + 1
 
         tempStringBuffer.removeAll(keepingCapacity: true)
 
         while cursor != string.endIndex {
             switch string[cursor] {
             case Parser.backslash:
-                cursor = cursor.successor()
+                cursor = cursor + 1
                 // invalid json format
                 if  cursor == string.endIndex {
                     throw ParseError("invalid json: not expect end at \(cursor)")
@@ -625,7 +628,7 @@ struct Parser {
                     // parse unicode scalar hex digit
                     var hex = 0
                     // skip 'u'
-                    cursor = cursor.successor()
+                    cursor = cursor + 1
                     guard cursor.distance(to: string.endIndex) > 3 else {
                         throw ParseError("invalid json: unexpected unicode hex digit at \(cursor) ")
                     }
@@ -645,7 +648,7 @@ struct Parser {
                     hex = hex | (digit3)
 
                     let unicode = UnicodeScalar(hex)
-                    UTF8.encode(unicode, sendingOutputTo: { self.tempStringBuffer.append($0) })
+                    UTF8.encode(unicode!, into: { self.tempStringBuffer.append($0) })
 
                     cursor = cursor.advanced(by: 3)
                     // invalid json format
@@ -654,16 +657,17 @@ struct Parser {
 
             case Parser.quote:
                 tempStringBuffer.append(0)
-                return (tempStringBuffer.withUnsafeBufferPointer(decodeString), cursor.successor())
+                return (tempStringBuffer.withUnsafeBufferPointer(decodeString), cursor + 1)
             default: tempStringBuffer.append(string[cursor])
             }
-            cursor = cursor.successor()
+            cursor = cursor + 1
         }
         throw ParseError("invalid json: expect character \" at \(cursor)")
     }
 
     private func decodeString(buffer: UnsafeBufferPointer<UInt8>) -> String? {
-        return String(validatingUTF8: UnsafePointer(buffer.baseAddress!))
+        let ptr = UnsafePointer(buffer.baseAddress!.withMemoryRebound(to: CChar.self, capacity: buffer.count) { $0 })
+        return String(validatingUTF8: ptr)
     }
 
     /**
@@ -677,7 +681,7 @@ struct Parser {
                 return cursor
             }
             else {
-                cursor = cursor.successor()
+                cursor = cursor + 1
             }
         }
         return cursor
@@ -736,10 +740,10 @@ struct Parser {
         throw ParseError("invalid json: expect string at \(index)")
     }
 
-    func parseDouble(address: UnsafePointer<UInt8>) -> (Double, Int.Distance)? {
-        let startPointer = UnsafePointer<Int8>(address)
-        let endPointer = UnsafeMutablePointer<UnsafeMutablePointer<Int8>?>(allocatingCapacity: 1)
-        defer { endPointer.deallocateCapacity(1) }
+    func parseDouble(address: UnsafePointer<UInt8>) -> (Double, Int)? {
+        let startPointer = UnsafePointer<Int8>(address.withMemoryRebound(to: Int8.self, capacity: 1){ $0 })
+        let endPointer = UnsafeMutablePointer<UnsafeMutablePointer<Int8>?>.allocate(capacity: 1)
+        defer { endPointer.deallocate(capacity: 1) }
 
         let result = strtod(startPointer, endPointer)
         let distance = startPointer.distance(to: endPointer[0]!)
@@ -765,20 +769,20 @@ struct Parser {
         guard cursor != string.endIndex && string[cursor] == Parser.n else {
             throw ParseError("invalid json: expect 'null' at \(cursor)")
         }
-        cursor = cursor.successor()
+        cursor = cursor + 1
         guard cursor != string.endIndex && string[cursor] == Parser.u else {
             throw ParseError("invalid json: expect 'null' at \(cursor)")
         }
-        cursor = cursor.successor()
+        cursor = cursor + 1
         guard cursor != string.endIndex && string[cursor] == Parser.l else {
             throw ParseError("invalid json: expect 'null' at \(cursor)")
         }
-        cursor = cursor.successor()
+        cursor = cursor + 1
         guard cursor != string.endIndex && string[cursor] == Parser.l else {
             throw ParseError("invalid json: expect 'null' at \(cursor)")
         }
 
-        return (nil, cursor.successor())
+        return (nil, cursor + 1)
     }
 
     private func parseTrue(at index: Int) throws -> (JSON, Int) {
@@ -787,20 +791,20 @@ struct Parser {
         guard cursor != string.endIndex && string[cursor] == Parser.t else {
             throw ParseError("invalid json: expect 'true' at \(cursor)")
         }
-        cursor = cursor.successor()
+        cursor = cursor + 1
         guard cursor != string.endIndex && string[cursor] == Parser.r else {
             throw ParseError("invalid json: expect 'true' at \(cursor)")
         }
-        cursor = cursor.successor()
+        cursor = cursor + 1
         guard cursor != string.endIndex && string[cursor] == Parser.u else {
             throw ParseError("invalid json: expect 'true' at \(cursor)")
         }
-        cursor = cursor.successor()
+        cursor = cursor + 1
         guard cursor != string.endIndex && string[cursor] == Parser.e else {
             throw ParseError("invalid json: expect 'true' at \(cursor)")
         }
 
-        return (true, cursor.successor())
+        return (true, cursor + 1)
     }
 
     private func parseFalse(at index: Int) throws -> (JSON, Int) {
@@ -809,23 +813,23 @@ struct Parser {
         guard cursor != string.endIndex && string[cursor] == Parser.f else {
             throw ParseError("invalid json: expect 'false' at \(cursor)")
         }
-        cursor = cursor.successor()
+        cursor = cursor + 1
         guard cursor != string.endIndex && string[cursor] == Parser.a else {
             throw ParseError("invalid json: expect 'false' at \(cursor)")
         }
-        cursor = cursor.successor()
+        cursor = cursor + 1
         guard cursor != string.endIndex && string[cursor] == Parser.l else {
             throw ParseError("invalid json: expect 'false' at \(cursor)")
         }
-        cursor = cursor.successor()
+        cursor = cursor + 1
         guard cursor != string.endIndex && string[cursor] == Parser.s else {
             throw ParseError("invalid json: expect 'false' at \(cursor)")
         }
-        cursor = cursor.successor()
+        cursor = cursor + 1
         guard cursor != string.endIndex && string[cursor] == Parser.e else {
             throw ParseError("invalid json: expect 'false' at \(cursor)")
         }
-        return (false, cursor.successor())
+        return (false, cursor + 1)
     }
 
     private mutating func parseArray(at index: Int) throws -> (JSON, Int) {
@@ -837,14 +841,14 @@ struct Parser {
         }
 
         // skip "["
-        cursor = cursor.successor()
+        cursor = cursor + 1
         cursor = eatWhiteSpace(from: cursor)
 
         var array = [JSON]()
 
         guard string[cursor] != Parser.rightbracket else {
             // empty array "[]" early return
-            return (JSON(array), cursor.successor())
+            return (JSON(array), cursor + 1)
         }
 
         while cursor != string.endIndex {
@@ -859,9 +863,9 @@ struct Parser {
             let (token, nextNext) = getNextToken(from: cursor)
             switch token {
                 // "," parse next value
-            case .Comma: cursor = nextNext.successor()
+            case .Comma: cursor = nextNext + 1
                 // "]" end array
-            case .SquareClose: return (JSON(array), nextNext.successor())
+            case .SquareClose: return (JSON(array), nextNext + 1)
                 // invalid json
             default: throw ParseError("invalid json: expect ']' or ',' at \(nextNext)")
             }
@@ -880,14 +884,14 @@ struct Parser {
         }
 
         // skip "{"
-        cursor = cursor.successor()
+        cursor = cursor + 1
         cursor = eatWhiteSpace(from: cursor)
 
         var object : [String : JSON] = [:]
 
         guard string[cursor] != Parser.rightbrace else {
             // empty object "{}" early return
-            return (JSON(object), cursor.successor())
+            return (JSON(object), cursor + 1)
         }
 
         while cursor != string.endIndex {
@@ -904,7 +908,7 @@ struct Parser {
                 // not match expect ":", invalid json
             default: throw ParseError("invalid json: expect ':' at \(tokenIndex)")
             }
-            cursor = tokenIndex.successor()
+            cursor = tokenIndex + 1
             // parse value
             let (json, next) = try parseValue(at: cursor)
 
@@ -915,9 +919,9 @@ struct Parser {
             let (token, nextNext) = getNextToken(from: cursor)
             switch token {
                 // "," parse next value
-            case .Comma: cursor = nextNext.successor()
+            case .Comma: cursor = nextNext + 1
                 // "}" end object
-            case .CurlyClose: return (JSON(object), nextNext.successor())
+            case .CurlyClose: return (JSON(object), nextNext + 1)
                 // not expected token, invalid json
             default: throw ParseError("invalid json: expect '}' or ',' at \(nextNext) = '\(string[nextNext])'")
             }
