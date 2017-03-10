@@ -118,7 +118,9 @@ class ParserTests: XCTestCase {
             ("testParseNumber", testParseNumber),
             ("testParseArray", testParseArray),
             ("testParseObject", testParseObject),
-            ("testParseTestCases", testParseTestCases)
+            ("testParseTestCases", testParseTestCases),
+            ("testTidyPerformance", testTidyPerformance),
+            ("testFoudationPerformance", testFoudationPerformance)
         ]
     }
     
@@ -263,6 +265,23 @@ class ParserTests: XCTestCase {
         return false
     }
     
+    func testTidyPerformance(){
+        if let content = utf8(contentsOfFile: "citm_catalog") {
+            measure(block: {
+                _ = try? JSON.parse(string: content) 
+            })
+        }
+    }
+    
+    func testFoudationPerformance(){
+        if let content = data(contentsOfFile: "citm_catalog") {
+            measure(block: {
+                _ = try? JSONSerialization.jsonObject(with: content, options: [])
+            })
+        }
+    }
+    
+    
     func testPassCase(_ path: String) -> Bool {
         if let content = utf8(contentsOfFile: path) {
             if let _ = try? JSON.parse(string: content) {
@@ -275,6 +294,10 @@ class ParserTests: XCTestCase {
 #if SWIFT_PACKAGE
     func utf8(contentsOfFile path: String) -> String? {
         return try? String(contentsOfFile: "./Tests/TidyJSONTests/TestCases/\(path).json", encoding: String.Encoding.utf8)
+    }
+    
+    func data(contentsOfFile path: String) -> Data? {
+        return try? Data(contentsOf: URL(fileURLWithPath: "./Tests/TidyJSONTests/TestCases/\(path).json"))
     }
 #else
     func utf8(contentsOfFile path: String) -> String? {
