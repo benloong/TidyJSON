@@ -4,8 +4,7 @@ env:
 matrix:
   include:
     - script:
-        - swift build
-        - swift test
+        - swift build 
         - xcodebuild test TOOLCHAINS=swift -project $MODULE_NAME.xcodeproj -scheme $MODULE_NAME-OSX
         - xcodebuild test TOOLCHAINS=swift -project $MODULE_NAME.xcodeproj -scheme $MODULE_NAME-iOS -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 6'
         - xcodebuild test TOOLCHAINS=swift -project $MODULE_NAME.xcodeproj -scheme $MODULE_NAME-tvOS -sdk appletvsimulator -destination 'platform=tvOS Simulator,name=Apple TV 1080p'
